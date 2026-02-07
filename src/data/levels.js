@@ -1,4 +1,5 @@
-// Level 1 Quiz Data - All topics are quiz-only (no chessboard)
+
+// Level 1 Quiz Data
 import { INTRO, NOTATION, PIECES } from './level1_part1.js';
 import { PAWN } from './level1_part2.js';
 import { ROOK, BISHOP } from './level1_part3.js';
@@ -6,14 +7,27 @@ import { QUEEN, KNIGHT, KING } from './level1_part4.js';
 import { ROLE_OF_KING, CASTLING } from './level1_part5.js';
 
 // Level 2 Puzzle Data
-// Level 2 Puzzle Data
 import { MATE_IN_1_PUZZLES } from './level2_mate_in_1.js';
 import { MATE_IN_2_PUZZLES } from './level2_mate_in_2.js';
 import { VALUE_OF_PIECES } from './level2_value_of_pieces.js';
 import { TOPIC_2_CAPTURES, TOPIC_3_CHECKS } from './level2_captures_and_checks.js';
 import { TOPIC_5_LAWNMOWER, TOPIC_6_DRAW, TOPIC_7_PAWN_STRUCTURE, TOPIC_8_ETIQUETTE } from './level2_advanced_topics.js';
 
-// Helper to convert topic data to level format with embedded puzzles
+// Level 3 Puzzle Data
+import { L3_TOPIC_1_PROTECTING, L3_TOPIC_2_DOUBLE_ATTACK, L3_TOPIC_3_PIN, L3_TOPIC_4_MATE } from './level3_part1.js';
+import { L3_TOPIC_5_PAWN_ENDGAME, L3_TOPIC_6_KING_QUEEN_MATE, L3_TOPIC_7_KING_ROOK_MATE, L3_TOPIC_8_OPENING } from './level3_part2.js';
+
+// Level 4 Puzzle Data
+import { L4_TOPIC_1_DEFENSE, L4_TOPIC_2_MATE_IN_2, L4_TOPIC_3_UNDERMINING, L4_TOPIC_4_DISCOVERED } from './level4_part1.js';
+import { L4_TOPIC_5_KP_VS_K, L4_TOPIC_6_PAWN_PRINCIPLES, L4_TOPIC_7_PAWN_VS_PAWN, L4_TOPIC_8_OPENINGS } from './level4_part2.js';
+
+// Level 5 Puzzle Data
+import { L5_TOPIC_1_DEFLECTION, L5_TOPIC_2_DECOY } from './level5_part1.js';
+import { L5_TOPIC_3_INTERFERENCE, L5_TOPIC_4_MATE_IN_2 } from './level5_part2.js';
+import { L5_TOPIC_5_MULTI_PAWN, L5_TOPIC_6_KNIGHT_ENDINGS, L5_TOPIC_7_ROOK_VS_PAWNS } from './level5_part3.js';
+import { L5_TOPIC_8_OPEN_LINES, L5_TOPIC_9_CENTER, L5_TOPIC_10_OPENINGS } from './level5_part4.js';
+
+// Helper to convert topic data to level format
 const createLevel1Topics = () => {
   const topicData = [INTRO, NOTATION, PIECES, PAWN, ROOK, BISHOP, QUEEN, KNIGHT, KING, ROLE_OF_KING, CASTLING];
   return topicData.map((topic, idx) => ({
@@ -144,70 +158,91 @@ const rawLevels = [
     topics: [
       {
         id: "t3-1",
-        title: "Protecting your pieces",
-        blocks: [
-          { id: "b1-1-3", name: "Block 1", total: 80, completed: 0 },
-          { id: "b1-2-3", name: "Block 2", total: 44, completed: 0 },
-          { id: "b1-3-3", name: "Block 3", total: 83, completed: 0 },
-          { id: "b1-4-3", name: "Block 4", total: 67, completed: 0 }
-        ]
+        title: L3_TOPIC_1_PROTECTING.title,
+        blocks: L3_TOPIC_1_PROTECTING.blocks.map((block, blockIdx) => ({
+          id: `b1-${blockIdx + 1}-3`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t3-2",
-        title: "Double attack",
-        blocks: [
-          { id: "b2-1-3", name: "Block 1", total: 51, completed: 0 },
-          { id: "b2-2-3", name: "Block 2", total: 52, completed: 0 },
-          { id: "b2-3-3", name: "Block 3", total: 63, completed: 0 },
-          { id: "b2-4-3", name: "Block 4", total: 49, completed: 0 }
-        ]
+        title: L3_TOPIC_2_DOUBLE_ATTACK.title,
+        blocks: L3_TOPIC_2_DOUBLE_ATTACK.blocks.map((block, blockIdx) => ({
+          id: `b2-${blockIdx + 1}-3`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t3-3",
-        title: "The pin",
-        blocks: [
-          { id: "b3-1-3", name: "Block 1", total: 109, completed: 0 },
-          { id: "b3-2-3", name: "Block 2", total: 15, completed: 0 }
-        ]
+        title: L3_TOPIC_3_PIN.title,
+        blocks: L3_TOPIC_3_PIN.blocks.map((block, blockIdx) => ({
+          id: `b3-${blockIdx + 1}-3`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t3-4",
-        title: "Mate in 1 in multi-piece positions",
-        blocks: [
-          { id: "b4-1-3", name: "Block 1", total: 24, completed: 0 },
-          { id: "b4-2-3", name: "Block 2", total: 23, completed: 0 },
-          { id: "b4-3-3", name: "Block 3", total: 20, completed: 0 },
-          { id: "b4-4-3", name: "Block 4", total: 26, completed: 0 },
-          { id: "b4-5-3", name: "Block 5", total: 23, completed: 0 }
-        ]
+        title: L3_TOPIC_4_MATE.title,
+        blocks: L3_TOPIC_4_MATE.blocks.map((block, blockIdx) => ({
+          id: `b4-${blockIdx + 1}-3`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t3-5",
-        title: "Pawn endgame - the rule of the square",
-        blocks: [
-          { id: "b5-1-3", name: "Block 1", total: 23, completed: 0 }
-        ]
+        title: L3_TOPIC_5_PAWN_ENDGAME.title,
+        blocks: L3_TOPIC_5_PAWN_ENDGAME.blocks.map((block, blockIdx) => ({
+          id: `b5-${blockIdx + 1}-3`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t3-6",
-        title: "Mate with king and queen",
-        blocks: [
-          { id: "b6-1-3", name: "Block 1", total: 49, completed: 0 }
-        ]
+        title: L3_TOPIC_6_KING_QUEEN_MATE.title,
+        blocks: L3_TOPIC_6_KING_QUEEN_MATE.blocks.map((block, blockIdx) => ({
+          id: `b6-${blockIdx + 1}-3`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t3-7",
-        title: "Mate with king and rook",
-        blocks: [
-          { id: "b7-1-3", name: "Block 1", total: 20, completed: 0 }
-        ]
+        title: L3_TOPIC_7_KING_ROOK_MATE.title,
+        blocks: L3_TOPIC_7_KING_ROOK_MATE.blocks.map((block, blockIdx) => ({
+          id: `b7-${blockIdx + 1}-3`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t3-8",
-        title: "Basic opening principles",
-        blocks: [
-          { id: "b8-1-3", name: "Block 1", total: 27, completed: 0 }
-        ]
+        title: L3_TOPIC_8_OPENING.title,
+        blocks: L3_TOPIC_8_OPENING.blocks.map((block, blockIdx) => ({
+          id: `b8-${blockIdx + 1}-3`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       }
     ]
   },
@@ -220,18 +255,21 @@ const rawLevels = [
     topics: [
       {
         id: "t4-1",
-        title: "Defending against mate in 1",
-        blocks: [
-          { id: "b1-1-4", name: "Block 1", total: 23, completed: 0 },
-          { id: "b1-2-4", name: "Block 2", total: 100, completed: 0 }
-        ]
+        title: L4_TOPIC_1_DEFENSE.title,
+        blocks: L4_TOPIC_1_DEFENSE.blocks.map((block, blockIdx) => ({
+          id: `b1-${blockIdx + 1}-4`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t4-2",
-        title: "Forced mate in 2",
-        blocks: MATE_IN_2_PUZZLES.blocks.map((block, blockIdx) => ({
+        title: L4_TOPIC_2_MATE_IN_2.title,
+        blocks: L4_TOPIC_2_MATE_IN_2.blocks.map((block, blockIdx) => ({
           id: `b2-${blockIdx + 1}-4`,
-          name: `Block ${blockIdx + 1}`,
+          name: block.name,
           total: block.puzzles.length,
           completed: 0,
           puzzles: block.puzzles
@@ -239,48 +277,69 @@ const rawLevels = [
       },
       {
         id: "t4-3",
-        title: "Undermining",
-        blocks: [
-          { id: "b3-1-4", name: "Block 1", total: 29, completed: 0 },
-          { id: "b3-2-4", name: "Block 2", total: 39, completed: 0 },
-          { id: "b3-3-4", name: "Block 3", total: 37, completed: 0 },
-          { id: "b3-4-4", name: "Block 4", total: 35, completed: 0 }
-        ]
+        title: L4_TOPIC_3_UNDERMINING.title,
+        blocks: L4_TOPIC_3_UNDERMINING.blocks.map((block, blockIdx) => ({
+          id: `b3-${blockIdx + 1}-4`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t4-4",
-        title: "Discovered check - the mill",
-        blocks: [
-          { id: "b4-1-4", name: "Block 1", total: 30, completed: 0 }
-        ]
+        title: L4_TOPIC_4_DISCOVERED.title,
+        blocks: L4_TOPIC_4_DISCOVERED.blocks.map((block, blockIdx) => ({
+          id: `b4-${blockIdx + 1}-4`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t4-5",
-        title: "King and pawn vs King",
-        blocks: [
-          { id: "b5-1-4", name: "Block 1", total: 24, completed: 0 }
-        ]
+        title: L4_TOPIC_5_KP_VS_K.title,
+        blocks: L4_TOPIC_5_KP_VS_K.blocks.map((block, blockIdx) => ({
+          id: `b5-${blockIdx + 1}-4`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t4-6",
-        title: "Pawn endgame principles",
-        blocks: [
-          { id: "b6-1-4", name: "Block 1", total: 45, completed: 0 }
-        ]
+        title: L4_TOPIC_6_PAWN_PRINCIPLES.title,
+        blocks: L4_TOPIC_6_PAWN_PRINCIPLES.blocks.map((block, blockIdx) => ({
+          id: `b6-${blockIdx + 1}-4`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t4-7",
-        title: "Pawn vs pawn",
-        blocks: [
-          { id: "b7-1-4", name: "Block 1", total: 19, completed: 0 }
-        ]
+        title: L4_TOPIC_7_PAWN_VS_PAWN.title,
+        blocks: L4_TOPIC_7_PAWN_VS_PAWN.blocks.map((block, blockIdx) => ({
+          id: `b7-${blockIdx + 1}-4`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t4-8",
-        title: "Theory of the main openings",
-        blocks: [
-          { id: "b8-1-4", name: "Block 1", total: 25, completed: 0 }
-        ]
+        title: L4_TOPIC_8_OPENINGS.title,
+        blocks: L4_TOPIC_8_OPENINGS.blocks.map((block, blockIdx) => ({
+          id: `b8-${blockIdx + 1}-4`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       }
     ]
   },
@@ -293,92 +352,119 @@ const rawLevels = [
     topics: [
       {
         id: "t5-1",
-        title: "Deflection",
-        blocks: [
-          { id: "b1-1-5", name: "Block 1", total: 60, completed: 0 },
-          { id: "b1-2-5", name: "Block 2", total: 32, completed: 0 },
-          { id: "b1-3-5", name: "Block 3", total: 53, completed: 0 }
-        ]
+        title: L5_TOPIC_1_DEFLECTION.title,
+        blocks: L5_TOPIC_1_DEFLECTION.blocks.map((block, blockIdx) => ({
+          id: `b1-${blockIdx + 1}-5`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t5-2",
-        title: "Decoy",
-        blocks: [
-          { id: "b2-1-5", name: "Block 1", total: 48, completed: 0 },
-          { id: "b2-2-5", name: "Block 2", total: 30, completed: 0 },
-          { id: "b2-3-5", name: "Block 3", total: 12, completed: 0 }
-        ]
+        title: L5_TOPIC_2_DECOY.title,
+        blocks: L5_TOPIC_2_DECOY.blocks.map((block, blockIdx) => ({
+          id: `b2-${blockIdx + 1}-5`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t5-3",
-        title: "Interference",
-        blocks: [
-          { id: "b3-1-5", name: "Block 1", total: 60, completed: 0 },
-          { id: "b3-2-5", name: "Block 2", total: 18, completed: 0 },
-          { id: "b3-3-5", name: "Block 3", total: 44, completed: 0 }
-        ]
+        title: L5_TOPIC_3_INTERFERENCE.title,
+        blocks: L5_TOPIC_3_INTERFERENCE.blocks.map((block, blockIdx) => ({
+          id: `b3-${blockIdx + 1}-5`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t5-4",
-        title: "Mate in 2",
-        blocks: [
-          { id: "b4-1-5", name: "Block 1", total: 23, completed: 0 }
-        ]
+        title: L5_TOPIC_4_MATE_IN_2.title,
+        blocks: L5_TOPIC_4_MATE_IN_2.blocks.map((block, blockIdx) => ({
+          id: `b4-${blockIdx + 1}-5`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t5-5",
-        title: "Multi-pawn endings",
-        blocks: [
-          { id: "b5-1-5", name: "Block 1", total: 47, completed: 0 },
-          { id: "b5-2-5", name: "Block 2", total: 29, completed: 0 },
-          { id: "b5-3-5", name: "Block 3", total: 41, completed: 0 },
-          { id: "b5-4-5", name: "Block 4", total: 44, completed: 0 }
-        ]
+        title: L5_TOPIC_5_MULTI_PAWN.title,
+        blocks: L5_TOPIC_5_MULTI_PAWN.blocks.map((block, blockIdx) => ({
+          id: `b5-${blockIdx + 1}-5`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t5-6",
-        title: "Knight ending basics",
-        blocks: [
-          { id: "b6-1-5", name: "Block 1", total: 23, completed: 0 },
-          { id: "b6-2-5", name: "Block 2", total: 48, completed: 0 }
-        ]
+        title: L5_TOPIC_6_KNIGHT_ENDINGS.title,
+        blocks: L5_TOPIC_6_KNIGHT_ENDINGS.blocks.map((block, blockIdx) => ({
+          id: `b6-${blockIdx + 1}-5`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t5-7",
-        title: "Rook vs pawns",
-        blocks: [
-          { id: "b7-1-5", name: "Block 1", total: 25, completed: 0 },
-          { id: "b7-2-5", name: "Block 2", total: 40, completed: 0 },
-          { id: "b7-3-5", name: "Block 3", total: 40, completed: 0 }
-        ]
+        title: L5_TOPIC_7_ROOK_VS_PAWNS.title,
+        blocks: L5_TOPIC_7_ROOK_VS_PAWNS.blocks.map((block, blockIdx) => ({
+          id: `b7-${blockIdx + 1}-5`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t5-8",
-        title: "Open lines and diagonals",
-        blocks: [
-          { id: "b8-1-5", name: "Block 1", total: 35, completed: 0 },
-          { id: "b8-2-5", name: "Block 2", total: 49, completed: 0 }
-        ]
+        title: L5_TOPIC_8_OPEN_LINES.title,
+        blocks: L5_TOPIC_8_OPEN_LINES.blocks.map((block, blockIdx) => ({
+          id: `b8-${blockIdx + 1}-5`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t5-9",
-        title: "The center",
-        blocks: [
-          { id: "b9-1-5", name: "Block 1", total: 42, completed: 0 },
-          { id: "b9-2-5", name: "Block 2", total: 33, completed: 0 }
-        ]
+        title: L5_TOPIC_9_CENTER.title,
+        blocks: L5_TOPIC_9_CENTER.blocks.map((block, blockIdx) => ({
+          id: `b9-${blockIdx + 1}-5`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t5-10",
-        title: "Theory of the main openings",
-        blocks: [
-          { id: "b10-1-5", name: "Block 1", total: 59, completed: 0 }
-        ]
+        title: L5_TOPIC_10_OPENINGS.title,
+        blocks: L5_TOPIC_10_OPENINGS.blocks.map((block, blockIdx) => ({
+          id: `b10-${blockIdx + 1}-5`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       }
     ]
   },
   {
     id: 6,
+    comingSoon: true,
     name: "Level 6 - Advanced: 1400 to 1600 ELO",
     subtitle: "Learn Chess: Advanced Techniques",
     tasks: 1299,
@@ -481,6 +567,7 @@ const rawLevels = [
   },
   {
     id: 7,
+    comingSoon: true,
     name: "Level 7 - Advanced: 1600 to 1800 ELO",
     subtitle: "Learn Chess: Advanced Techniques",
     tasks: 606,
@@ -567,6 +654,7 @@ const rawLevels = [
   },
   {
     id: 8,
+    comingSoon: true,
     name: "Level 8 - Expert: 1800 to 2000 ELO",
     subtitle: "Learn Chess: Expert Level",
     tasks: 255,
@@ -599,6 +687,7 @@ const rawLevels = [
   },
   {
     id: 9,
+    comingSoon: true,
     name: "Level 9 - Expert: 2000 to 2200 ELO",
     subtitle: "Learn Chess: Expert Level",
     tasks: 320,
@@ -655,6 +744,7 @@ const rawLevels = [
   },
   {
     id: 10,
+    comingSoon: true,
     name: "Level 10 - Master: 2200 ELO and up",
     subtitle: "Learn Chess: Master Level",
     tasks: 274,
