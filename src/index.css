@@ -436,16 +436,13 @@ h3 {
   .puzzle-container {
     display: flex !important;
     flex-direction: column !important;
-    padding: 109px 12px 120px 12px !important;
-    /* Top pad for nav, Bottom pad for scroll */
+    padding: 16px !important;
     gap: 16px !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
     justify-content: flex-start !important;
     height: auto !important;
-    min-height: 100% !important;
+    min-height: auto !important;
     width: 100% !important;
-    align-items: center !important;
+    align-items: stretch !important;
   }
 
   /* Mobile sidebar - hide less important elements */

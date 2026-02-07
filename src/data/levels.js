@@ -6,8 +6,12 @@ import { QUEEN, KNIGHT, KING } from './level1_part4.js';
 import { ROLE_OF_KING, CASTLING } from './level1_part5.js';
 
 // Level 2 Puzzle Data
+// Level 2 Puzzle Data
 import { MATE_IN_1_PUZZLES } from './level2_mate_in_1.js';
 import { MATE_IN_2_PUZZLES } from './level2_mate_in_2.js';
+import { VALUE_OF_PIECES } from './level2_value_of_pieces.js';
+import { TOPIC_2_CAPTURES, TOPIC_3_CHECKS } from './level2_captures_and_checks.js';
+import { TOPIC_5_LAWNMOWER, TOPIC_6_DRAW, TOPIC_7_PAWN_STRUCTURE, TOPIC_8_ETIQUETTE } from './level2_advanced_topics.js';
 
 // Helper to convert topic data to level format with embedded puzzles
 const createLevel1Topics = () => {
@@ -43,30 +47,36 @@ const rawLevels = [
     topics: [
       {
         id: "t2-1",
-        title: "Value of pieces",
-        blocks: [
-          { id: "b1-1-2", name: "Block 1", total: 20, completed: 0 },
-          { id: "b1-2-2", name: "Block 2", total: 18, completed: 0 }
-        ]
+        title: VALUE_OF_PIECES.title,
+        blocks: VALUE_OF_PIECES.blocks.map((block, blockIdx) => ({
+          id: `b1-${blockIdx + 1}-2`,
+          name: block.name || `Block ${blockIdx + 1}`,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t2-2",
-        title: "Simple captures",
-        blocks: [
-          { id: "b2-1-2", name: "Block 1", total: 106, completed: 0 },
-          { id: "b2-2-2", name: "Block 2", total: 105, completed: 0 },
-          { id: "b2-3-2", name: "Block 3", total: 107, completed: 0 },
-          { id: "b2-4-2", name: "Block 4", total: 102, completed: 0 },
-          { id: "b2-5-2", name: "Block 5", total: 185, completed: 0 }
-        ]
+        title: TOPIC_2_CAPTURES.title,
+        blocks: TOPIC_2_CAPTURES.blocks.map((block, blockIdx) => ({
+          id: `b2-${blockIdx + 1}-2`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t2-3",
-        title: "Discovered check, double check",
-        blocks: [
-          { id: "b3-1-2", name: "Block 1", total: 52, completed: 0 },
-          { id: "b3-2-2", name: "Block 2", total: 49, completed: 0 }
-        ]
+        title: TOPIC_3_CHECKS.title,
+        blocks: TOPIC_3_CHECKS.blocks.map((block, blockIdx) => ({
+          id: `b3-${blockIdx + 1}-2`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t2-4",
@@ -81,32 +91,47 @@ const rawLevels = [
       },
       {
         id: "t2-5",
-        title: "Lawnmower mate",
-        blocks: [
-          { id: "b5-1-2", name: "Block 1", total: 19, completed: 0 }
-        ]
+        title: TOPIC_5_LAWNMOWER.title,
+        blocks: TOPIC_5_LAWNMOWER.blocks.map((block, blockIdx) => ({
+          id: `b5-${blockIdx + 1}-2`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t2-6",
-        title: "Draw",
-        blocks: [
-          { id: "b6-1-2", name: "Block 1", total: 58, completed: 0 },
-          { id: "b6-2-2", name: "Block 2", total: 17, completed: 0 }
-        ]
+        title: TOPIC_6_DRAW.title,
+        blocks: TOPIC_6_DRAW.blocks.map((block, blockIdx) => ({
+          id: `b6-${blockIdx + 1}-2`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t2-7",
-        title: "Pawn structure",
-        blocks: [
-          { id: "b7-1-2", name: "Block 1", total: 4, completed: 0 }
-        ]
+        title: TOPIC_7_PAWN_STRUCTURE.title,
+        blocks: TOPIC_7_PAWN_STRUCTURE.blocks.map((block, blockIdx) => ({
+          id: `b7-${blockIdx + 1}-2`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t2-8",
-        title: "Chess etiquette",
-        blocks: [
-          { id: "b8-1-2", name: "Block 1", total: 6, completed: 0 }
-        ]
+        title: TOPIC_8_ETIQUETTE.title,
+        blocks: TOPIC_8_ETIQUETTE.blocks.map((block, blockIdx) => ({
+          id: `b8-${blockIdx + 1}-2`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       }
     ]
   },

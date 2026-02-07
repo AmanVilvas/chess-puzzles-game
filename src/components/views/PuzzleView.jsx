@@ -353,7 +353,8 @@ export const PuzzleView = ({
   // Level 1 logic: Show board only if Block 3
   const isLevel1 = level?.id === 1;
   const isBlock3 = blockNumber === 3;
-  const showBoard = !isLevel1 || isBlock3;
+  const isLevel2Topic1 = level?.id === 2 && topic?.id === 't2-1';
+  const showBoard = (!isLevel1 || isBlock3) && !isLevel2Topic1;
 
   // If it's a quiz with NO board, we might want to center the quiz
   // or use the board area for the quiz.
@@ -361,7 +362,7 @@ export const PuzzleView = ({
   const themeOptions = Object.entries(BOARD_THEMES);
   return (
     <div
-      className="h-[100dvh] flex flex-col overflow-auto md:overflow-hidden"
+      className="flex flex-col min-h-screen md:h-[100dvh] md:overflow-hidden"
       style={{
         backgroundColor: "var(--color-bg-primary)",
       }}
@@ -379,7 +380,7 @@ export const PuzzleView = ({
         }}
       >
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-3">
             <span style={{ fontSize: "24px" }}>👑</span>
             <span
               style={{
