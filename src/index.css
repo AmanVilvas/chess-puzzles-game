@@ -52,24 +52,24 @@ body {
   --spacing-lg: 24px;
   --spacing-xl: 32px;
   --spacing-2xl: 40px;
-  
+
   /* Background Colors */
   --color-bg-primary: #1a1a1a;
   --color-bg-secondary: #262626;
   --color-bg-tertiary: #1f1f1f;
   --color-bg-elevated: #2d2d2d;
-  
+
   /* Text Colors */
   --color-text-primary: #ffffff;
   --color-text-secondary: #e5e5e5;
   --color-text-muted: #a3a3a3;
   --color-text-disabled: #737373;
-  
+
   /* Border Colors */
   --color-border-primary: #404040;
   --color-border-secondary: #525252;
   --color-border-focus: #5a9fd4;
-  
+
   /* Accent Colors */
   --color-accent-orange: #ea580c;
   --color-accent-orange-dark: #c2410c;
@@ -77,22 +77,23 @@ body {
   --color-accent-green-dark: #15803d;
   --color-accent-blue: #2563eb;
   --color-accent-emerald: #10b981;
-  
+  --color-error: #dc2626;
+
   /* State Colors */
   --color-hover: rgba(255, 255, 255, 0.1);
   --color-active: rgba(255, 255, 255, 0.15);
   --color-selected: #5a9fd4;
-  
+
   /* Transitions */
   --transition-base: all 0.25s ease;
   --transition-fast: all 0.15s ease;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
-  
+
   /* Border Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -250,9 +251,12 @@ input:focus-visible {
 }
 
 @keyframes pulse-capture {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.7;
   }
+
   50% {
     opacity: 1;
   }
@@ -292,6 +296,7 @@ h3 {
     opacity: 0;
     transform: translateY(-4px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -299,14 +304,48 @@ h3 {
 }
 
 @keyframes shake {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateX(-50%);
   }
-  10%, 30%, 50%, 70%, 90% {
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
     transform: translateX(calc(-50% - 8px));
   }
-  20%, 40%, 60%, 80% {
+
+  20%,
+  40%,
+  60%,
+  80% {
     transform: translateX(calc(-50% + 8px));
+  }
+}
+
+@keyframes shake-horizontal {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
   }
 }
 
@@ -323,4 +362,321 @@ h3 {
     background: white;
     color: black;
   }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   Mobile-first approach with breakpoints
+   ============================================ */
+
+/* Mobile Styles (default - up to 639px) */
+@media (max-width: 639px) {
+  :root {
+    --spacing-sm: 6px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --spacing-xl: 24px;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  h3 {
+    font-size: 0.875rem;
+  }
+
+  /* Header adjustments */
+  header {
+    padding: 8px 12px !important;
+  }
+
+  /* Card adjustments */
+  .card {
+    padding: 12px;
+  }
+
+  /* Button adjustments */
+  .btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 14px;
+  }
+
+  /* Hide elements on mobile */
+  .hide-mobile {
+    display: none !important;
+  }
+
+  /* Full width mobile containers */
+  .mobile-full-width {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+  }
+
+  /* Mobile puzzle view - vertical stack */
+  .puzzle-container {
+    flex-direction: column !important;
+    padding: 8px !important;
+    gap: 12px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Mobile sidebar - hide less important elements */
+  .puzzle-sidebar {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+    order: 2;
+  }
+
+  /* Mobile board area - responsive sizing */
+  .puzzle-board-area {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+    order: 1;
+  }
+
+  /* Board container responsive */
+  .puzzle-board-area>div:first-child {
+    width: calc(100vw - 32px) !important;
+    max-width: 400px !important;
+    height: auto !important;
+    min-height: auto !important;
+    aspect-ratio: 1 !important;
+  }
+
+  /* Left sidebar hidden on mobile */
+  .left-sidebar {
+    display: none !important;
+  }
+
+  /* Quiz card mobile */
+  .quiz-card {
+    padding: 16px !important;
+    gap: 16px !important;
+    height: auto !important;
+    min-height: 300px !important;
+  }
+
+  .quiz-question {
+    font-size: 18px !important;
+  }
+
+  .quiz-option {
+    padding: 12px !important;
+    font-size: 14px !important;
+  }
+
+  /* Pagination buttons mobile */
+  .pagination-btn {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    font-size: 12px !important;
+  }
+
+  /* Move history hidden on mobile */
+  .move-history-card {
+    display: none !important;
+  }
+
+  /* Compact stats row */
+  .puzzle-sidebar .card:first-child {
+    padding: 10px !important;
+  }
+
+  /* Compact buttons on mobile */
+  .puzzle-sidebar button {
+    padding: 10px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* Tablet Styles (640px - 1023px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+  /* Puzzle view tablet layout */
+  .puzzle-container {
+    flex-direction: column !important;
+    padding: 16px !important;
+    gap: 16px !important;
+  }
+
+  .puzzle-sidebar {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    order: 2;
+  }
+
+  .puzzle-board-area {
+    width: 100% !important;
+    max-width: 500px !important;
+    min-width: auto !important;
+    margin: 0 auto;
+    order: 1;
+  }
+
+  /* Left aside tablet */
+  .left-sidebar {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    order: 3;
+  }
+
+  .left-sidebar>* {
+    flex: 1 1 200px;
+  }
+
+  /* Hide on tablet */
+  .hide-tablet {
+    display: none !important;
+  }
+
+  /* Quiz card tablet */
+  .quiz-card {
+    padding: 24px !important;
+  }
+}
+
+/* Desktop Styles (1024px and up) */
+@media (min-width: 1024px) {
+  .puzzle-container {
+    flex-direction: row !important;
+  }
+
+  .puzzle-sidebar {
+    width: 260px !important;
+    min-width: 260px !important;
+    max-width: 260px !important;
+  }
+
+  .puzzle-board-area {
+    width: 580px !important;
+    min-width: 580px !important;
+    max-width: 580px !important;
+  }
+
+  .left-sidebar {
+    width: 260px !important;
+    min-width: 260px !important;
+    max-width: 260px !important;
+    flex-direction: column !important;
+  }
+}
+
+/* Large Desktop (1280px and up) */
+@media (min-width: 1280px) {
+  .puzzle-container {
+    gap: 32px !important;
+  }
+}
+
+/* ============================================
+   RESPONSIVE UTILITY CLASSES
+   ============================================ */
+
+/* Show/Hide utilities for different breakpoints */
+@media (max-width: 639px) {
+  .sm\:hidden {
+    display: none !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .sm\:block {
+    display: block !important;
+  }
+
+  .sm\:flex {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .lg\:hidden {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:block {
+    display: block !important;
+  }
+
+  .lg\:flex {
+    display: flex !important;
+  }
+}
+
+/* Safe area padding for mobile devices with notches */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+  }
+}
+
+/* Touch-friendly tap targets for mobile */
+@media (max-width: 1023px) {
+
+  button,
+  a,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling on iOS */
+.scroll-smooth {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.2s ease-out;
 }
