@@ -4,13 +4,10 @@ export const Footer = () => (
   <footer className="mt-20 border-t border-neutral-800 bg-[#121212] py-12 px-4">
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
       <div className="flex items-center gap-2">
-        <div className="w-6 h-6 bg-neutral-700 rounded flex items-center justify-center">
-          <span className="font-black text-black text-sm">B</span>
-        </div>
-        <span className="text-lg font-black tracking-tight uppercase text-neutral-400">Blitzmate</span>
+        <span className="text-lg font-black tracking-tight uppercase text-neutral-400">RATHISHRAVI</span>
       </div>
       <div className="text-neutral-500 text-sm">
-        © 2026 Blitzmate. Built for chess improvement.
+        © 2026 RATHISHRAVI. Built for chess improvement.
       </div>
       <div className="flex gap-4 text-neutral-400">
         <Layout className="w-5 h-5 cursor-pointer hover:text-orange-500" />

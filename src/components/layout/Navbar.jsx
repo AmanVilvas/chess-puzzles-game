@@ -8,10 +8,7 @@ export const Navbar = ({ setView, isMenuOpen, setIsMenuOpen }) => (
           className="flex items-center gap-2 cursor-pointer"
           onClick={() => setView('levels')}
         >
-          <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
-            <span className="font-black text-black text-xl">B</span>
-          </div>
-          <span className="text-xl font-black tracking-tight uppercase">Blitzmate</span>
+          <span className="text-xl font-black tracking-tight uppercase">RATHISHRAVI</span>
         </div>
         <div className="hidden md:flex gap-6 text-sm font-medium text-neutral-400">
           <a href="#" className="hover:text-white transition-colors">Home</a>
