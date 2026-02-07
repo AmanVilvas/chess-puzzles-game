@@ -25,7 +25,7 @@ const createLevel1Topics = () => {
   }));
 };
 
-export const LEVELS_DATA = [
+const rawLevels = [
   {
     id: 1,
     name: "Level 1 - Beginner: Unrated to 200 ELO",
@@ -666,3 +666,10 @@ export const LEVELS_DATA = [
     ]
   }
 ];
+
+export const LEVELS_DATA = rawLevels.map(level => ({
+  ...level,
+  tasks: level.topics.reduce((acc, topic) =>
+    acc + topic.blocks.reduce((bAcc, block) => bAcc + (block.puzzles?.length || 0), 0)
+    , 0)
+}));

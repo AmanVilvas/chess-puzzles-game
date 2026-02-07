@@ -3,9 +3,9 @@ import { ChevronRight, CheckCircle2 } from 'lucide-react';
 import { ProgressBar } from '../ui/ProgressBar';
 
 export const LevelCard = ({ level, onClick }) => {
-  const isPuzzles = level.totalPuzzles !== undefined;
-  const count = isPuzzles ? `${level.completedPuzzles || 0} / ${level.totalPuzzles}` : level.topics.reduce((acc, topic) => acc + topic.blocks.length, 0);
-  const label = isPuzzles ? 'Puzzles Solved' : 'Tasks';
+  /* Use Topic count instead of Puzzle count as requested */
+  const count = `${level.completedTopics || 0} / ${level.totalTopics || 0}`;
+  const label = 'Topics Completed';
 
   return (
     <button
@@ -15,7 +15,7 @@ export const LevelCard = ({ level, onClick }) => {
       <div className="flex-1">
         <div className="flex items-center gap-3 mb-1">
           <h3 className="text-lg font-semibold text-neutral-100">{level.name}</h3>
-          {(level.completion === 100 || (isPuzzles && level.completedPuzzles === level.totalPuzzles && level.totalPuzzles > 0)) && <CheckCircle2 className="w-5 h-5 text-green-500" />}
+          {(level.completion === 100 || (level.totalTopics > 0 && level.completedTopics === level.totalTopics)) && <CheckCircle2 className="w-5 h-5 text-green-500" />}
         </div>
         <p className="text-sm text-neutral-500 mb-4">{level.subtitle}</p>
         <div className="flex items-center gap-4 sm:gap-8">

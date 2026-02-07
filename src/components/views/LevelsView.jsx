@@ -36,7 +36,7 @@ export const LevelsView = ({ onLevelClick }) => {
         {LEVELS_DATA.map(level => {
           // Calculate level specific stats
           const levelTotal = level.topics?.reduce((tSum, topic) => {
-            return tSum + (topic.blocks?.reduce((bSum, block) => bSum + (block.total || 0), 0) || 0);
+            return tSum + (topic.blocks?.reduce((bSum, block) => bSum + (block.puzzles?.length || 0), 0) || 0);
           }, 0) || 0;
 
           const levelCompleted = getLevelProgress(level.id).completed || 0;
@@ -44,6 +44,16 @@ export const LevelsView = ({ onLevelClick }) => {
           const completion = levelTotal > 0
             ? (levelCompleted > 0 ? Math.max(1, Math.round((levelCompleted / levelTotal) * 100)) : 0)
             : 0;
+
+          // Calculate Topic Stats
+          const totalTopics = level.topics?.length || 0;
+          const completedTopics = level.topics?.filter(topic => {
+            const topicTotalPuzzles = topic.blocks?.reduce((bSum, block) => bSum + (block.puzzles?.length || 0), 0) || 0;
+            const topicProgress = progress.topics[topic.id]?.completed || 0;
+            // Topic is completed if it has puzzles AND all are solved.
+            // If topic has 0 puzzles (placeholder), it is NOT counted as completed for now.
+            return topicTotalPuzzles > 0 && topicProgress >= topicTotalPuzzles;
+          }).length || 0;
 
           // Pass detailed stats to LevelCard
           return (
@@ -54,7 +64,9 @@ export const LevelsView = ({ onLevelClick }) => {
                 completion,
                 tasks: levelTotal,
                 totalPuzzles: levelTotal,
-                completedPuzzles: levelCompleted
+                completedPuzzles: levelCompleted,
+                totalTopics,
+                completedTopics
               }}
               onClick={onLevelClick}
             />
