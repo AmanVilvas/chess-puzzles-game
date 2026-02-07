@@ -20,11 +20,25 @@ body,
   /* Default: Allow scrolling on all pages */
 }
 
-/* Disable scrolling only on puzzle page */
-body.puzzle-page,
-body.puzzle-page #root {
-  overflow: hidden;
-  height: 100%;
+/* Disable scrolling only on puzzle page - Desktop only */
+@media (min-width: 1024px) {
+
+  body.puzzle-page,
+  body.puzzle-page #root {
+    overflow: hidden;
+    height: 100%;
+  }
+}
+
+/* Allow scrolling on mobile puzzle page */
+@media (max-width: 1023px) {
+
+  body.puzzle-page,
+  body.puzzle-page #root {
+    overflow: auto;
+    height: auto;
+    min-height: 100%;
+  }
 }
 
 body {
@@ -420,36 +434,61 @@ h3 {
 
   /* Mobile puzzle view - vertical stack */
   .puzzle-container {
+    display: flex !important;
     flex-direction: column !important;
-    padding: 8px !important;
-    gap: 12px !important;
+    padding: 109px 12px 120px 12px !important;
+    /* Top pad for nav, Bottom pad for scroll */
+    gap: 16px !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
+    justify-content: flex-start !important;
+    height: auto !important;
+    min-height: 100% !important;
+    width: 100% !important;
+    align-items: center !important;
   }
 
   /* Mobile sidebar - hide less important elements */
   .puzzle-sidebar {
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 400px !important;
     min-width: auto !important;
     order: 2;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  .puzzle-sidebar>* {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   /* Mobile board area - responsive sizing */
   .puzzle-board-area {
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: 400px !important;
+    /* Match sidebar width */
     min-width: auto !important;
     order: 1;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+    margin-bottom: 8px !important;
   }
 
   /* Board container responsive */
   .puzzle-board-area>div:first-child {
-    width: calc(100vw - 32px) !important;
-    max-width: 400px !important;
+    width: 100% !important;
+    /* Ensure it doesn't overflow screen width - padding */
+    max-width: calc(100vw - 24px) !important;
     height: auto !important;
-    min-height: auto !important;
     aspect-ratio: 1 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   /* Left sidebar hidden on mobile */
@@ -459,10 +498,11 @@ h3 {
 
   /* Quiz card mobile */
   .quiz-card {
-    padding: 16px !important;
-    gap: 16px !important;
+    padding: 12px !important;
+    gap: 10px !important;
     height: auto !important;
-    min-height: 300px !important;
+    min-height: auto !important;
+    width: 100% !important;
   }
 
   .quiz-question {
@@ -556,6 +596,7 @@ h3 {
 @media (min-width: 1024px) {
   .puzzle-container {
     flex-direction: row !important;
+    justify-content: center !important;
   }
 
   .puzzle-sidebar {

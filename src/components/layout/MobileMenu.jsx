@@ -1,1 +1,18 @@
-import React from 'react';import { X } from 'lucide-react';export const MobileMenu = ({ setIsMenuOpen }) => (  <div className="fixed inset-0 z-[100] bg-black p-8 flex flex-col gap-8 md:hidden">    <button className="self-end p-2" onClick={() => setIsMenuOpen(false)}>      <X />    </button>    <div className="flex flex-col gap-6 text-2xl font-bold">      <a href="#" onClick={() => setIsMenuOpen(false)}>Home</a>      <a href="#" onClick={() => setIsMenuOpen(false)}>Features</a>      <a href="#" onClick={() => setIsMenuOpen(false)}>How it works</a>      <a href="#" onClick={() => setIsMenuOpen(false)}>FAQ</a>    </div>    <button className="mt-auto bg-orange-500 text-black font-bold p-4 rounded-xl">      Start Training Now    </button>  </div>);
+import React from 'react';
+import { X } from 'lucide-react';
+export const MobileMenu = ({ setIsMenuOpen }) => (
+  <div className="fixed inset-0 z-[100] bg-black p-8 flex flex-col gap-8 md:hidden">
+    <button className="self-end p-2" onClick={() => setIsMenuOpen(false)}>
+      <X />
+    </button>
+    <div className="flex flex-col gap-6 text-2xl font-bold">
+      <a href="#" onClick={() => setIsMenuOpen(false)}>Home</a>
+      <a href="#" onClick={() => setIsMenuOpen(false)}>Features</a>
+      <a href="#" onClick={() => setIsMenuOpen(false)}>How it works</a>
+      <a href="#" onClick={() => setIsMenuOpen(false)}>FAQ</a>
+    </div>
+    <button className="mt-auto bg-orange-500 text-black font-bold p-4 rounded-xl">
+      Start Training Now
+    </button>
+  </div>
+);

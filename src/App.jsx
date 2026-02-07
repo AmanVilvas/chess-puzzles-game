@@ -7,6 +7,7 @@ import { LevelsView } from './components/views/LevelsView';
 import { TopicsView } from './components/views/TopicsView';
 import { PuzzleView } from './components/views/PuzzleView';
 import { getPuzzlesForTopic } from './data/puzzleGenerator';
+import { markPuzzleCompleted, getStats, getBlockProgress } from './utils/progressManager';
 const MAX_PUZZLES_PER_BLOCK = 6;
 export default function App() {
   const [view, setView] = useState('levels');
@@ -23,6 +24,7 @@ export default function App() {
   const [timer, setTimer] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoadingPuzzles, setIsLoadingPuzzles] = useState(false);
+  const [sessionStats, setSessionStats] = useState(() => getStats());
   useEffect(() => {
     let interval;
     if (view === 'puzzle') {
@@ -111,6 +113,25 @@ export default function App() {
       console.error('Error changing puzzle:', error);
     }
   };
+
+  const handlePuzzleComplete = (puzzleId, isCorrect = true) => {
+    try {
+      if (selectedLevel && currentTopic && currentBlock) {
+        const levelId = selectedLevel.id.toString();
+        const topicId = currentTopic.id;
+        const blockId = currentBlock.id;
+
+        // Mark puzzle as completed in localStorage
+        markPuzzleCompleted(levelId, topicId, blockId, puzzleId, isCorrect);
+
+        // Update session stats
+        setSessionStats(getStats());
+      }
+    } catch (error) {
+      console.error('Error saving puzzle completion:', error);
+    }
+  };
+
   const handleBlockChange = async (blockIndex) => {
     try {
       if (!currentTopic || !currentTopic.blocks) return;
@@ -204,6 +225,8 @@ export default function App() {
             blockNumber={blockNumber}
             level={selectedLevel}
             isLoadingPuzzles={isLoadingPuzzles}
+            onPuzzleComplete={handlePuzzleComplete}
+            sessionStats={sessionStats}
           />
         )}
       </main>
