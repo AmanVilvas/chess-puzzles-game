@@ -379,15 +379,13 @@ export const PuzzleView = ({
           position: "relative",
         }}
       >
-        <div className="flex items-center gap-6">
-          <div className="hidden md:flex items-center gap-3">
-            <span style={{ fontSize: "24px" }}>👑</span>
+        <div className="flex items-center gap-2 md:gap-6">
+          <div className="flex items-center gap-2 md:gap-3">
+            <span className="text-xl md:text-2xl">👑</span>
             <span
+              className="text-base md:text-xl font-bold tracking-tight"
               style={{
                 color: "var(--color-text-primary)",
-                fontWeight: 700,
-                fontSize: "20px",
-                letterSpacing: "-0.5px",
               }}
             >
               RATHISHRAVI
@@ -395,9 +393,8 @@ export const PuzzleView = ({
           </div>
           <button
             onClick={onBack}
-            className="transition-base flex items-center gap-2"
+            className="transition-base flex items-center gap-2 px-2 py-2 sm:px-4"
             style={{
-              padding: "8px 16px",
               fontSize: "14px",
               fontWeight: 600,
               backgroundColor: "var(--color-bg-elevated)",
@@ -408,15 +405,14 @@ export const PuzzleView = ({
             }}
           >
             <ChevronLeft className="w-4 h-4" />
-            PUZZLES
+            <span className="hidden sm:inline">PUZZLES</span>
           </button>
         </div>
         <div className="flex items-center gap-4">
           <div
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 px-2 py-2 sm:px-4"
             style={{
               backgroundColor: "var(--color-bg-elevated)",
-              padding: "8px 16px",
               borderRadius: "var(--radius-lg)",
               border: "1px solid var(--color-border-primary)",
             }}
@@ -432,7 +428,7 @@ export const PuzzleView = ({
                 fontWeight: 500,
               }}
             >
-              Rating
+              <span className="hidden sm:inline">Rating</span>
             </span>
             <span
               style={{
@@ -445,10 +441,9 @@ export const PuzzleView = ({
             </span>
           </div>
           <div
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 px-2 py-2 sm:px-4"
             style={{
               backgroundColor: "var(--color-bg-elevated)",
-              padding: "8px 16px",
               borderRadius: "var(--radius-lg)",
               border: "1px solid var(--color-border-primary)",
             }}
@@ -464,7 +459,7 @@ export const PuzzleView = ({
                 fontWeight: 500,
               }}
             >
-              Streak
+              <span className="hidden sm:inline">Streak</span>
             </span>
             <span
               style={{
@@ -477,9 +472,9 @@ export const PuzzleView = ({
             </span>
           </div>
         </div>
-      </header>
+      </header >
       { }
-      <main
+      < main
         className="flex puzzle-container"
         style={{
           flex: 1,
@@ -1582,110 +1577,112 @@ export const PuzzleView = ({
             ))}
           </div>
         </aside>
-      </main>
+      </main >
       { }
-      {showSuccessModal && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.7)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 1000,
-            animation: "fadeIn 0.3s ease-out",
-          }}
-        >
+      {
+        showSuccessModal && (
           <div
             style={{
-              backgroundColor: "var(--color-bg-secondary)",
-              border: "2px solid var(--color-accent-emerald)",
-              borderRadius: "var(--radius-xl)",
-              padding: "32px",
-              boxShadow: "0 20px 50px rgba(0, 0, 0, 0.5)",
-              minWidth: "320px",
-              textAlign: "center",
-              animation: "scaleIn 0.3s ease-out",
+              position: "fixed",
+              inset: 0,
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 1000,
+              animation: "fadeIn 0.3s ease-out",
             }}
           >
-            { }
             <div
               style={{
-                width: "64px",
-                height: "64px",
-                margin: "0 auto 20px",
-                borderRadius: "50%",
-                backgroundColor: "var(--color-accent-emerald)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 4px 12px rgba(16, 185, 129, 0.4)",
+                backgroundColor: "var(--color-bg-secondary)",
+                border: "2px solid var(--color-accent-emerald)",
+                borderRadius: "var(--radius-xl)",
+                padding: "32px",
+                boxShadow: "0 20px 50px rgba(0, 0, 0, 0.5)",
+                minWidth: "320px",
+                textAlign: "center",
+                animation: "scaleIn 0.3s ease-out",
               }}
             >
-              <Check className="w-8 h-8" style={{ color: "white" }} />
-            </div>
-            { }
-            <h2
-              style={{
-                color: "var(--color-text-primary)",
-                fontSize: "24px",
-                fontWeight: 700,
-                marginBottom: "8px",
-              }}
-            >
-              Puzzle Solved!
-            </h2>
-            <p
-              style={{
-                color: "var(--color-text-muted)",
-                fontSize: "14px",
-                marginBottom: "24px",
-              }}
-            >
-              Great job! You completed this puzzle.
-            </p>
-            { }
-            <div style={{ display: "flex", gap: "12px" }}>
-              <button
-                onClick={handleRetry}
-                className="transition-base"
+              { }
+              <div
                 style={{
-                  flex: 1,
-                  padding: "12px 20px",
-                  backgroundColor: "var(--color-bg-elevated)",
-                  border: "1px solid var(--color-border-primary)",
-                  borderRadius: "var(--radius-lg)",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  color: "var(--color-text-primary)",
-                  cursor: "pointer",
-                }}
-              >
-                Retry
-              </button>
-              <button
-                onClick={handleNextPuzzle}
-                className="transition-base"
-                style={{
-                  flex: 1,
-                  padding: "12px 20px",
+                  width: "64px",
+                  height: "64px",
+                  margin: "0 auto 20px",
+                  borderRadius: "50%",
                   backgroundColor: "var(--color-accent-emerald)",
-                  border: "none",
-                  borderRadius: "var(--radius-lg)",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  color: "white",
-                  cursor: "pointer",
-                  boxShadow: "0 2px 8px rgba(16, 185, 129, 0.3)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 4px 12px rgba(16, 185, 129, 0.4)",
                 }}
               >
-                Next Puzzle
-              </button>
+                <Check className="w-8 h-8" style={{ color: "white" }} />
+              </div>
+              { }
+              <h2
+                style={{
+                  color: "var(--color-text-primary)",
+                  fontSize: "24px",
+                  fontWeight: 700,
+                  marginBottom: "8px",
+                }}
+              >
+                Puzzle Solved!
+              </h2>
+              <p
+                style={{
+                  color: "var(--color-text-muted)",
+                  fontSize: "14px",
+                  marginBottom: "24px",
+                }}
+              >
+                Great job! You completed this puzzle.
+              </p>
+              { }
+              <div style={{ display: "flex", gap: "12px" }}>
+                <button
+                  onClick={handleRetry}
+                  className="transition-base"
+                  style={{
+                    flex: 1,
+                    padding: "12px 20px",
+                    backgroundColor: "var(--color-bg-elevated)",
+                    border: "1px solid var(--color-border-primary)",
+                    borderRadius: "var(--radius-lg)",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    color: "var(--color-text-primary)",
+                    cursor: "pointer",
+                  }}
+                >
+                  Retry
+                </button>
+                <button
+                  onClick={handleNextPuzzle}
+                  className="transition-base"
+                  style={{
+                    flex: 1,
+                    padding: "12px 20px",
+                    backgroundColor: "var(--color-accent-emerald)",
+                    border: "none",
+                    borderRadius: "var(--radius-lg)",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    color: "white",
+                    cursor: "pointer",
+                    boxShadow: "0 2px 8px rgba(16, 185, 129, 0.3)",
+                  }}
+                >
+                  Next Puzzle
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </div>
+        )
+      }
+    </div >
   );
 };
