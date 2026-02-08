@@ -6,10 +6,8 @@ export const MobileMenu = ({ setIsMenuOpen }) => (
       <X />
     </button>
     <div className="flex flex-col gap-6 text-2xl font-bold">
-      <a href="#" onClick={() => setIsMenuOpen(false)}>Home</a>
-      <a href="#" onClick={() => setIsMenuOpen(false)}>Features</a>
-      <a href="#" onClick={() => setIsMenuOpen(false)}>How it works</a>
-      <a href="#" onClick={() => setIsMenuOpen(false)}>FAQ</a>
+      <a href="https://learn.chesswithrathish.com/" onClick={() => setIsMenuOpen(false)}>Home</a>
+      <a href="http://chesswithrathish.com/" onClick={() => setIsMenuOpen(false)}>Learn</a>
     </div>
     <button className="mt-auto bg-orange-500 text-black font-bold p-4 rounded-xl">
       Start Training Now
