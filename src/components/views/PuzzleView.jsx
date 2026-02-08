@@ -8,17 +8,16 @@ import {
   ChevronsLeft,
   ChevronsRight,
   Play,
-  Settings,
   Clock,
   Target,
-  Award,
-  TrendingUp,
-  Zap,
   Palette,
+  BookOpen,
+  X,
 } from "lucide-react";
 import { Chess } from "chess.js";
 import { ChessBoardView } from "../chess/ChessBoardView";
 import { BOARD_THEMES } from "../../constants/pieces";
+import { getBlockProgress } from "../../utils/progressManager";
 export const PuzzleView = ({
   puzzle = {},
   game,
@@ -69,7 +68,7 @@ export const PuzzleView = ({
   };
   const [boardSize, setBoardSize] = useState(520);
   const [boardTheme, setBoardTheme] = useState("neutral");
-  const [score] = useState(0);
+  // solvedIndices removed in favor of blockCompletedCount tracking
   const [showThemePopover, setShowThemePopover] = useState(false);
   const themeButtonRef = React.useRef(null);
   const [isPuzzleComplete, setIsPuzzleComplete] = useState(false);
@@ -155,6 +154,19 @@ export const PuzzleView = ({
     };
   }, [showThemePopover]);
 
+  // State to track completed puzzles in the current block (persistent + session)
+  const [blockCompletedCount, setBlockCompletedCount] = useState(0);
+
+  // Load block progress when block changes
+  useEffect(() => {
+    if (block?.id && level?.id && topic?.id) {
+      const progress = getBlockProgress(block.id, level.id, topic.id);
+      setBlockCompletedCount(progress.completed || 0);
+    } else {
+      setBlockCompletedCount(0);
+    }
+  }, [block, level, topic]);
+
   // Reset state when puzzle changes
   useEffect(() => {
     setIsPuzzleComplete(false);
@@ -163,8 +175,16 @@ export const PuzzleView = ({
     setSelectedOption(null);
     setShowExplanation(false);
     setQuizFeedback(null);
-    setGame(new Chess(puzzle.fen || "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"));
+    try {
+      setGame(new Chess(puzzle.fen || "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"));
+    } catch (error) {
+      console.error("Invalid FEN:", puzzle.fen, error);
+      // Fallback to starting position
+      setGame(new Chess());
+    }
   }, [puzzle.id]);
+
+
 
   const handleSquareClick = (sq) => {
     if (isPuzzleComplete) return;
@@ -204,6 +224,23 @@ export const PuzzleView = ({
             // Track puzzle completion
             if (onPuzzleComplete) {
               onPuzzleComplete(safePuzzle.id, true);
+              // Update local count immediately for better UX
+              if (block?.id && level?.id && topic?.id) {
+                const progress = getBlockProgress(block.id, level.id, topic.id);
+                // The progressManager handles the update via onPuzzleComplete storing it,
+                // but we read it back or increment locally if we trust it's new.
+                // Actually, onPuzzleComplete likely calls markPuzzleCompleted.
+                // So re-reading progress is safer to get the exact count.
+                // But might be slightly delayed if async. 
+                // Let's increment if not already completed in our local view of progress?
+                // Simpler: Just increment locally as a visual feedback, assuming success.
+                // But wait, if re-solving?
+                // Let's re-fetch.
+                setTimeout(() => {
+                  const newProgress = getBlockProgress(block.id, level.id, topic.id);
+                  setBlockCompletedCount(newProgress.completed || 0);
+                }, 50);
+              }
             }
             setTimeout(() => {
               setShowSuccessModal(true);
@@ -238,6 +275,12 @@ export const PuzzleView = ({
                       // Track puzzle completion
                       if (onPuzzleComplete) {
                         onPuzzleComplete(safePuzzle.id, true);
+                        if (block?.id && level?.id && topic?.id) {
+                          setTimeout(() => {
+                            const newProgress = getBlockProgress(block.id, level.id, topic.id);
+                            setBlockCompletedCount(newProgress.completed || 0);
+                          }, 50);
+                        }
                       }
                       setTimeout(() => {
                         setShowSuccessModal(true);
@@ -263,7 +306,12 @@ export const PuzzleView = ({
     setSelectedSquare(null);
   };
   const handleRetry = () => {
-    setGame(new Chess(puzzle.fen));
+    try {
+      setGame(new Chess(puzzle.fen || "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"));
+    } catch (error) {
+      console.error("Invalid FEN on retry:", puzzle.fen, error);
+      setGame(new Chess());
+    }
     setMoveHistory([]);
     setSelectedSquare(null);
     setIsPuzzleComplete(false);
@@ -284,9 +332,7 @@ export const PuzzleView = ({
   const handleFlipBoard = () => {
     setOrientation((o) => (o === "w" ? "b" : "w"));
   };
-  const handleSettings = () => {
-    console.log("Settings panel - ready for implementation");
-  };
+
   const handlePrevPuzzle = () => {
     if (onPuzzleChange && currentPuzzleIndex > 0) {
       setIsPuzzleComplete(false);
@@ -339,6 +385,12 @@ export const PuzzleView = ({
       setShowExplanation(true);
       if (onPuzzleComplete) {
         onPuzzleComplete(safePuzzle.id, true);
+        if (block?.id && level?.id && topic?.id) {
+          setTimeout(() => {
+            const newProgress = getBlockProgress(block.id, level.id, topic.id);
+            setBlockCompletedCount(newProgress.completed || 0);
+          }, 50);
+        }
       }
       setTimeout(() => {
         setShowSuccessModal(true);
@@ -409,6 +461,32 @@ export const PuzzleView = ({
           </button>
         </div>
         <div className="flex items-center gap-4">
+          <button
+            onClick={() => window.open("https://chesswithrathish.com/", "_blank")}
+            className="flex items-center gap-2 px-3 py-2 sm:px-5 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+            style={{
+              background: "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)",
+              borderRadius: "var(--radius-lg)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              cursor: "pointer",
+              boxShadow: "0 4px 12px rgba(245, 158, 11, 0.3)",
+            }}
+          >
+            <BookOpen
+              className="w-4 h-4 text-white/90 group-hover:text-white"
+            />
+            <span
+              style={{
+                color: "white",
+                fontSize: "14px",
+                fontWeight: 700,
+                letterSpacing: "0.5px",
+                textShadow: "0 1px 2px rgba(0,0,0,0.1)",
+              }}
+            >
+              LEARN
+            </span>
+          </button>
           <div
             className="flex items-center gap-2 px-2 py-2 sm:px-4"
             style={{
@@ -417,9 +495,9 @@ export const PuzzleView = ({
               border: "1px solid var(--color-border-primary)",
             }}
           >
-            <Award
+            <Check
               className="w-4 h-4"
-              style={{ color: "var(--color-accent-orange)" }}
+              style={{ color: "var(--color-accent-emerald)" }}
             />
             <span
               style={{
@@ -428,47 +506,16 @@ export const PuzzleView = ({
                 fontWeight: 500,
               }}
             >
-              <span className="hidden sm:inline">Rating</span>
+              <span className="hidden sm:inline">Total Solved</span>
             </span>
             <span
               style={{
-                color: "var(--color-text-primary)",
+                color: "var(--color-accent-emerald)",
                 fontWeight: 700,
                 fontSize: "16px",
               }}
             >
-              1000
-            </span>
-          </div>
-          <div
-            className="flex items-center gap-2 px-2 py-2 sm:px-4"
-            style={{
-              backgroundColor: "var(--color-bg-elevated)",
-              borderRadius: "var(--radius-lg)",
-              border: "1px solid var(--color-border-primary)",
-            }}
-          >
-            <Zap
-              className="w-4 h-4"
-              style={{ color: "var(--color-accent-orange)" }}
-            />
-            <span
-              style={{
-                color: "var(--color-text-muted)",
-                fontSize: "13px",
-                fontWeight: 500,
-              }}
-            >
-              <span className="hidden sm:inline">Streak</span>
-            </span>
-            <span
-              style={{
-                color: "var(--color-accent-orange)",
-                fontWeight: 700,
-                fontSize: "16px",
-              }}
-            >
-              {stats.currentStreak}
+              {stats.totalSolved}
             </span>
           </div>
         </div>
@@ -598,40 +645,7 @@ export const PuzzleView = ({
                 </p>
               </div>
             </div>
-            <div
-              className="flex items-center justify-between mb-3"
-              style={{
-                padding: "10px",
-                backgroundColor: "var(--color-bg-elevated)",
-                borderRadius: "var(--radius-md)",
-                border: "1px solid var(--color-border-primary)",
-              }}
-            >
-              <div className="flex items-center gap-2">
-                <TrendingUp
-                  className="w-4 h-4"
-                  style={{ color: "var(--color-accent-orange)" }}
-                />
-                <span
-                  style={{
-                    color: "var(--color-text-muted)",
-                    fontSize: "12px",
-                    fontWeight: 500,
-                  }}
-                >
-                  Rating
-                </span>
-              </div>
-              <span
-                style={{
-                  color: "var(--color-accent-orange)",
-                  fontWeight: 700,
-                  fontSize: "18px",
-                }}
-              >
-                {safePuzzle.rating}
-              </span>
-            </div>
+
             <div style={{ marginBottom: "6px" }}>
               <span
                 style={{
@@ -697,38 +711,11 @@ export const PuzzleView = ({
                     fontWeight: 500,
                   }}
                 >
-                  Streak
+                  Total Solved
                 </span>
                 <span
                   style={{
                     color: "var(--color-accent-emerald)",
-                    fontWeight: 700,
-                    fontSize: "15px",
-                  }}
-                >
-                  {stats.currentStreak}
-                </span>
-              </div>
-              <div
-                className="flex justify-between items-center"
-                style={{
-                  padding: "8px",
-                  backgroundColor: "var(--color-bg-elevated)",
-                  borderRadius: "var(--radius-sm)",
-                }}
-              >
-                <span
-                  style={{
-                    color: "var(--color-text-secondary)",
-                    fontSize: "13px",
-                    fontWeight: 500,
-                  }}
-                >
-                  Solved
-                </span>
-                <span
-                  style={{
-                    color: "var(--color-text-primary)",
                     fontWeight: 700,
                     fontSize: "15px",
                   }}
@@ -736,33 +723,7 @@ export const PuzzleView = ({
                   {stats.totalSolved}
                 </span>
               </div>
-              <div
-                className="flex justify-between items-center"
-                style={{
-                  padding: "8px",
-                  backgroundColor: "var(--color-bg-elevated)",
-                  borderRadius: "var(--radius-sm)",
-                }}
-              >
-                <span
-                  style={{
-                    color: "var(--color-text-secondary)",
-                    fontSize: "13px",
-                    fontWeight: 500,
-                  }}
-                >
-                  Accuracy
-                </span>
-                <span
-                  style={{
-                    color: "var(--color-accent-emerald)",
-                    fontWeight: 700,
-                    fontSize: "15px",
-                  }}
-                >
-                  {stats.accuracy}%
-                </span>
-              </div>
+
             </div>
           </div>
           { }
@@ -1098,7 +1059,15 @@ export const PuzzleView = ({
           >
             {Array.from({ length: totalPuzzles }).map((_, idx) => {
               const isCurrentPuzzle = idx === currentPuzzleIndex;
-              const isCompleted = false;
+              // We can't easily know if *this specific index* is completed without the full puzzle list and check.
+              // For now, let's just highlight current.
+              // Or better, let's fetch the puzzle ID if available.
+              // PuzzleView receives `puzzle` for ONE puzzle. It doesn't receive the list.
+              // So we can't accurately color the pagination dots for *other* puzzles unless we have their IDs.
+              // But we can check if the *current* puzzle is completed.
+              // Let's rely on blockCompletedCount generally, and maybe remove per-dot completion status if we can't track it.
+              // Or just show current.
+              const isCompleted = false; // We don't have the ID for index `idx`.
               return (
                 <button
                   key={idx}
@@ -1305,7 +1274,7 @@ export const PuzzleView = ({
                     fontFamily: "monospace",
                   }}
                 >
-                  {score}/{totalPuzzles * 10}
+                  {blockCompletedCount}/{totalPuzzles}
                 </span>
               </div>
             </div>
@@ -1521,23 +1490,7 @@ export const PuzzleView = ({
               <RotateCcw className="w-4 h-4" />
               Flip
             </button>
-            <button
-              onClick={handleSettings}
-              className="transition-base flex-1 flex items-center justify-center gap-2"
-              style={{
-                padding: "10px",
-                fontSize: "12px",
-                fontWeight: 600,
-                backgroundColor: "var(--color-bg-elevated)",
-                border: "1px solid var(--color-border-primary)",
-                borderRadius: "var(--radius-md)",
-                cursor: "pointer",
-                color: "var(--color-text-primary)",
-              }}
-            >
-              <Settings className="w-4 h-4" />
-              Settings
-            </button>
+
           </div>
           { }
           <div
@@ -1600,8 +1553,23 @@ export const PuzzleView = ({
                 minWidth: "320px",
                 textAlign: "center",
                 animation: "scaleIn 0.3s ease-out",
+                position: "relative",
               }}
             >
+              <button
+                onClick={() => setShowSuccessModal(false)}
+                style={{
+                  position: "absolute",
+                  top: "16px",
+                  right: "16px",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  color: "var(--color-text-muted)",
+                }}
+              >
+                <X className="w-5 h-5" />
+              </button>
               { }
               <div
                 style={{

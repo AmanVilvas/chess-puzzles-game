@@ -268,7 +268,7 @@ export const L3_TOPIC_2_DOUBLE_ATTACK = {
             puzzles: [
                 {
                     id: "l3_t2_b4_1",
-                    fen: "8/8/8/R7/8/8/3k4/3q4 w - - 0 1",
+                    fen: "8/8/8/R7/8/7K/3k4/3q4 w - - 0 1",
                     goal: "Win the Queen",
                     solution: ["a5d5", "d2c2", "d5d1"],
                     turn: "w",
@@ -278,7 +278,7 @@ export const L3_TOPIC_2_DOUBLE_ATTACK = {
                 },
                 {
                     id: "l3_t2_b4_2",
-                    fen: "8/q7/8/3k4/8/8/3Q4/8 w - - 0 1",
+                    fen: "8/q7/8/3k4/8/8/3Q3K/8 w - - 0 1",
                     goal: "Skewer King and Queen",
                     solution: ["d2d7", "d5c4", "d7a7"],
                     turn: "w",
