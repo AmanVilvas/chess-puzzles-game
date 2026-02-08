@@ -390,7 +390,7 @@ export const PuzzleView = ({
                 letterSpacing: "-0.5px",
               }}
             >
-              blitzmate
+              RATHISHRAVI
             </span>
           </div>
           <button

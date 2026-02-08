@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Routes, Route, useNavigate, useParams, Navigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, useParams, Navigate, useLocation } from 'react-router-dom';
 import { Chess } from 'chess.js';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -190,13 +190,17 @@ const PuzzlePage = () => {
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const isPuzzlePage = location.pathname.startsWith('/puzzle');
 
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-neutral-100 font-sans selection:bg-orange-500/30">
-      <Navbar
-        isMenuOpen={isMenuOpen}
-        setIsMenuOpen={setIsMenuOpen}
-      />
+      {!isPuzzlePage && (
+        <Navbar
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
+        />
+      )}
 
       <main className="relative">
         <Routes>
@@ -207,9 +211,9 @@ export default function App() {
         </Routes>
       </main>
 
-      <Footer />
+      {!isPuzzlePage && <Footer />}
 
-      {isMenuOpen && <MobileMenu setIsMenuOpen={setIsMenuOpen} />}
+      {!isPuzzlePage && isMenuOpen && <MobileMenu setIsMenuOpen={setIsMenuOpen} />}
     </div>
   );
 }
