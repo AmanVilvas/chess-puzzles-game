@@ -194,7 +194,7 @@ export default function App() {
   const isPuzzlePage = location.pathname.startsWith('/puzzle');
 
   return (
-    <div className="min-h-screen bg-[#0d0d0d] text-neutral-100 font-sans selection:bg-orange-500/30">
+    <div className="min-h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] font-sans selection:bg-orange-500/30 transition-colors duration-300">
       {!isPuzzlePage && (
         <Navbar
           isMenuOpen={isMenuOpen}

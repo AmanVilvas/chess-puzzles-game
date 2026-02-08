@@ -20,13 +20,13 @@ export const LevelsView = ({ onLevelClick }) => {
 
   return (
     <div className="max-w-5xl mx-auto p-4 md:p-8 space-y-4">
-      <div className="flex justify-between items-end mb-8 border-b border-neutral-800 pb-6">
+      <div className="flex justify-between items-end mb-8 border-b border-[var(--color-border-primary)] pb-6">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Chess Training</h1>
-          <p className="text-neutral-500">Master every phase of the game from beginner to grandmaster.</p>
+          <h1 className="text-3xl font-bold text-[var(--color-text-primary)] mb-2">Chess Training</h1>
+          <p className="text-[var(--color-text-muted)]">Master every phase of the game from beginner to grandmaster.</p>
         </div>
         <div className="hidden md:block text-right">
-          <div className="text-sm uppercase tracking-widest text-neutral-500 mb-1">Total Progress</div>
+          <div className="text-sm uppercase tracking-widest text-[var(--color-text-muted)] mb-1">Total Progress</div>
           <div className="text-2xl font-mono text-orange-500 font-bold">
             {overallProgress}% Completed
           </div>

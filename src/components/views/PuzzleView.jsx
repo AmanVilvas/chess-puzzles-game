@@ -1011,8 +1011,8 @@ export const PuzzleView = ({
               return (
                 <div
                   className={`quiz-card w-full max-w-[520px] 
-                  ${isSpecialQuiz ? 'md:bg-transparent md:border-0 md:shadow-none md:p-0' : 'md:bg-[#222] md:border-[#404040] md:shadow-xl md:p-6'}
-                  bg-[#222] border border-[#404040] rounded-xl shadow-xl p-6
+                  ${isSpecialQuiz ? 'md:bg-transparent md:border-0 md:shadow-none md:p-0' : 'md:bg-[var(--color-bg-elevated)] md:border-[var(--color-border-primary)] md:shadow-xl md:p-6'}
+                  bg-[var(--color-bg-elevated)] border border-[var(--color-border-primary)] rounded-xl shadow-xl p-6
                   transition-all duration-300
                 `}
                   style={{
@@ -1022,7 +1022,7 @@ export const PuzzleView = ({
                   }}
                 >
                   <div className={`quiz-header ${isSpecialQuiz ? 'md:text-center' : ''}`}>
-                    <h2 className={`font-bold text-white leading-tight mb-2 
+                    <h2 className={`font-bold text-[var(--color-text-primary)] leading-tight mb-2 
                     ${isSpecialQuiz ? 'md:text-xl md:uppercase md:tracking-wider md:mb-4' : 'text-xl md:text-2xl'}
                   `}>
                       {safePuzzle.question}
@@ -1032,7 +1032,7 @@ export const PuzzleView = ({
 
                   <div className="quiz-options flex flex-col md:grid md:grid-cols-2 gap-3">
                     {safePuzzle.options?.map((option, idx) => {
-                      let btnClass = "bg-[#2a2a2a] hover:bg-[#333] border-[#404040]";
+                      let btnClass = "bg-[var(--color-bg-secondary)] hover:bg-[var(--color-bg-tertiary)] border-[var(--color-border-primary)] text-[var(--color-text-primary)]";
                       if (selectedOption !== null) {
                         if (idx === safePuzzle.correctAnswer && (selectedOption === idx || isPuzzleComplete)) {
                           btnClass = "bg-green-600 border-green-500 text-white";
@@ -1173,13 +1173,10 @@ export const PuzzleView = ({
                   height: "12px",
                   borderRadius: "50%",
                   backgroundColor: puzzle.turn === "w" ? "white" : "#2a2a2a",
-                  border:
-                    puzzle.turn === "b"
-                      ? "2px solid var(--color-border-primary)"
-                      : "none",
+                  border: "1px solid var(--color-border-primary)",
                   boxShadow:
                     puzzle.turn === "w"
-                      ? "0 2px 6px rgba(255, 255, 255, 0.4)"
+                      ? "0 2px 6px rgba(0, 0, 0, 0.1)"
                       : "none",
                 }}
               />
