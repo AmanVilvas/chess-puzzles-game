@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
 import { Chess } from 'chess.js';
 import { PIECE_SVGS, BOARD_THEMES } from '../../constants/pieces';
-export const ChessBoardView = ({ 
-  position, 
-  lastMove, 
-  onSquareClick, 
-  orientation = 'w', 
+export const ChessBoardView = ({
+  position,
+  lastMove,
+  onSquareClick,
+  orientation = 'w',
   theme = 'modern',
   size = 440,
   selectedSquare = null,
@@ -22,20 +22,20 @@ export const ChessBoardView = ({
       return [];
     }
   }, [game, selectedSquare, showLegalMoves]);
-  const rows = orientation === 'w' ? [0,1,2,3,4,5,6,7] : [7,6,5,4,3,2,1,0];
-  const cols = orientation === 'w' ? [0,1,2,3,4,5,6,7] : [7,6,5,4,3,2,1,0];
+  const rows = orientation === 'w' ? [0, 1, 2, 3, 4, 5, 6, 7] : [7, 6, 5, 4, 3, 2, 1, 0];
+  const cols = orientation === 'w' ? [0, 1, 2, 3, 4, 5, 6, 7] : [7, 6, 5, 4, 3, 2, 1, 0];
   const currentTheme = BOARD_THEMES[theme] || BOARD_THEMES.modern;
-  const squareSize = Math.floor(size / 8); 
-  const actualBoardSize = squareSize * 8; 
+  const squareSize = Math.floor(size / 8);
+  const actualBoardSize = squareSize * 8;
   const renderPiece = (piece) => {
     if (!piece) return null;
     const pieceKey = piece.color === 'w' ? piece.type.toUpperCase() : piece.type;
     const svg = PIECE_SVGS[pieceKey];
     if (!svg) return null;
     return (
-      <div 
+      <div
         className="w-[85%] h-[85%] z-10 pointer-events-none"
-        style={{ 
+        style={{
           filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3))',
           transition: 'transform 0.15s ease'
         }}
@@ -44,9 +44,9 @@ export const ChessBoardView = ({
     );
   };
   return (
-    <div 
+    <div
       className="inline-flex flex-col"
-      style={{ 
+      style={{
         backgroundColor: currentTheme.border,
         padding: '16px',
         borderRadius: '8px',
@@ -57,13 +57,13 @@ export const ChessBoardView = ({
         flexShrink: 0
       }}
     >
-      {}
+      { }
       <div className="flex mb-1" style={{ marginLeft: 0 }}>
         {cols.map(c => (
-          <div 
+          <div
             key={`top-${c}`}
             className="flex items-center justify-center"
-            style={{ 
+            style={{
               width: squareSize,
               height: '12px',
               fontSize: '10px',
@@ -77,13 +77,13 @@ export const ChessBoardView = ({
         ))}
       </div>
       <div className="flex">
-        {}
+        { }
         <div className="flex flex-col mr-1">
           {rows.map(r => (
-            <div 
+            <div
               key={`left-${r}`}
               className="flex items-center justify-center"
-              style={{ 
+              style={{
                 height: squareSize,
                 width: '12px',
                 fontSize: '10px',
@@ -95,10 +95,10 @@ export const ChessBoardView = ({
             </div>
           ))}
         </div>
-        {}
-        <div 
+        { }
+        <div
           className="grid grid-cols-8 overflow-hidden"
-          style={{ 
+          style={{
             width: actualBoardSize,
             height: actualBoardSize,
             borderRadius: '4px',
@@ -121,11 +121,11 @@ export const ChessBoardView = ({
               bgColor = currentTheme.selected;
             }
             return (
-              <div 
+              <div
                 key={squareLabel}
                 onClick={() => onSquareClick(squareLabel)}
                 className="chess-square relative flex items-center justify-center cursor-pointer"
-                style={{ 
+                style={{
                   backgroundColor: bgColor,
                   width: squareSize,
                   height: squareSize,
@@ -133,14 +133,14 @@ export const ChessBoardView = ({
                   boxShadow: isSelected ? `inset 0 0 0 2px ${currentTheme.moveIndicator}` : 'none'
                 }}
               >
-                {}
+                { }
                 {renderPiece(square)}
-                {}
+                { }
                 {isLegalMove && (
                   hasPiece ? (
-                    <div 
+                    <div
                       className="move-indicator capture absolute rounded-full pointer-events-none"
-                      style={{ 
+                      style={{
                         inset: '4px',
                         border: `3px solid ${currentTheme.moveIndicator}`,
                         opacity: 0.7,
@@ -148,9 +148,9 @@ export const ChessBoardView = ({
                       }}
                     />
                   ) : (
-                    <div 
+                    <div
                       className="move-indicator absolute rounded-full pointer-events-none"
-                      style={{ 
+                      style={{
                         width: '30%',
                         height: '30%',
                         backgroundColor: currentTheme.moveIndicator,
@@ -164,13 +164,13 @@ export const ChessBoardView = ({
             );
           }))}
         </div>
-        {}
+        { }
         <div className="flex flex-col ml-1">
           {rows.map(r => (
-            <div 
+            <div
               key={`right-${r}`}
               className="flex items-center justify-center"
-              style={{ 
+              style={{
                 height: squareSize,
                 width: '12px',
                 fontSize: '10px',
@@ -183,13 +183,13 @@ export const ChessBoardView = ({
           ))}
         </div>
       </div>
-      {}
+      { }
       <div className="flex mt-1" style={{ marginLeft: 0 }}>
         {cols.map(c => (
-          <div 
+          <div
             key={`bottom-${c}`}
             className="flex items-center justify-center"
-            style={{ 
+            style={{
               width: squareSize,
               height: '12px',
               fontSize: '10px',

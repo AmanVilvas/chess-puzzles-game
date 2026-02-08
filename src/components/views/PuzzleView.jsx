@@ -485,6 +485,7 @@ export const PuzzleView = ({
           flex: 1,
           minHeight: 0,
           position: "relative",
+          paddingTop: "20px",
         }}
       >
         {isLoadingPuzzles && (
@@ -969,6 +970,7 @@ export const PuzzleView = ({
             position: "relative",
             overflow: "visible",
             flexShrink: 0,
+            paddingTop: "5px",
           }}
         >
           { }
@@ -1003,6 +1005,7 @@ export const PuzzleView = ({
                   size={boardSize}
                   selectedSquare={selectedSquare}
                   showLegalMoves={true}
+                  isCompact={blockNumber === 3 && level?.id === 1}
                 />
               </div>
             )}
@@ -1094,7 +1097,8 @@ export const PuzzleView = ({
               alignItems: "center",
               flexWrap: "nowrap",
               flexShrink: 0,
-              marginTop: "16px",
+              marginTop: "1px",
+              marginBottom: "1px",
             }}
           >
             {Array.from({ length: totalPuzzles }).map((_, idx) => {
@@ -1147,6 +1151,7 @@ export const PuzzleView = ({
               fontSize: "12px",
               fontStyle: "italic",
               fontWeight: 500,
+              marginTop: "-7px",
             }}
           >
             Puzzle {currentPuzzleIndex + 1} of {totalPuzzles} in Block{" "}
