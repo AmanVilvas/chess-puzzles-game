@@ -342,11 +342,24 @@ export const PuzzleView = ({
     }
   };
   const handleNextPuzzle = () => {
-    if (onPuzzleChange && currentPuzzleIndex < totalPuzzles - 1) {
-      setIsPuzzleComplete(false);
-      setShowSuccessModal(false);
-      setIsWrongMove(false);
-      onPuzzleChange(currentPuzzleIndex + 1);
+    if (currentPuzzleIndex < totalPuzzles - 1) {
+      if (onPuzzleChange) {
+        setIsPuzzleComplete(false);
+        setShowSuccessModal(false);
+        setIsWrongMove(false);
+        onPuzzleChange(currentPuzzleIndex + 1);
+      }
+    } else {
+      // Last puzzle in block
+      const hasNextBlock = topic?.blocks && blockNumber < topic.blocks.length;
+
+      if (hasNextBlock && onBlockChange) {
+        setShowSuccessModal(false);
+        onBlockChange(blockNumber);
+      } else if (onBack) {
+        setShowSuccessModal(false);
+        onBack();
+      }
     }
   };
   const handleFirstPuzzle = () => {
@@ -1431,7 +1444,7 @@ export const PuzzleView = ({
                 {
                   icon: ChevronRight,
                   onClick: handleNextPuzzle,
-                  disabled: currentPuzzleIndex === totalPuzzles - 1,
+                  disabled: currentPuzzleIndex === totalPuzzles - 1 && (!topic?.blocks || blockNumber >= topic.blocks.length),
                   label: "Next",
                 },
                 {
@@ -1641,7 +1654,9 @@ export const PuzzleView = ({
                     boxShadow: "0 2px 8px rgba(16, 185, 129, 0.3)",
                   }}
                 >
-                  Next Puzzle
+                  {currentPuzzleIndex < totalPuzzles - 1
+                    ? "Next Puzzle"
+                    : (topic?.blocks && blockNumber < topic.blocks.length ? "Next Block" : "Finish Topic")}
                 </button>
               </div>
             </div>
