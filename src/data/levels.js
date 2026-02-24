@@ -7,6 +7,7 @@ import { QUEEN, KNIGHT, KING } from './level1_part4.js';
 import { ROLE_OF_KING, CASTLING } from './level1_part5.js';
 
 // Level 2 Puzzle Data
+import { DECOY_PUZZLES } from './level2_decoy.js';
 import { MATE_IN_1_PUZZLES } from './level2_mate_in_1.js';
 import { MATE_IN_2_PUZZLES } from './level2_mate_in_2.js';
 import { VALUE_OF_PIECES } from './level2_value_of_pieces.js';
@@ -61,20 +62,9 @@ const rawLevels = [
     topics: [
       {
         id: "t2-1",
-        title: VALUE_OF_PIECES.title,
-        blocks: VALUE_OF_PIECES.blocks.map((block, blockIdx) => ({
+        title: DECOY_PUZZLES.title,
+        blocks: DECOY_PUZZLES.blocks.map((block, blockIdx) => ({
           id: `b1-${blockIdx + 1}-2`,
-          name: block.name || `Block ${blockIdx + 1}`,
-          total: block.puzzles.length,
-          completed: 0,
-          puzzles: block.puzzles
-        }))
-      },
-      {
-        id: "t2-2",
-        title: TOPIC_2_CAPTURES.title,
-        blocks: TOPIC_2_CAPTURES.blocks.map((block, blockIdx) => ({
-          id: `b2-${blockIdx + 1}-2`,
           name: block.name,
           total: block.puzzles.length,
           completed: 0,
@@ -82,9 +72,20 @@ const rawLevels = [
         }))
       },
       {
+        id: "t2-2",
+        title: VALUE_OF_PIECES.title,
+        blocks: VALUE_OF_PIECES.blocks.map((block, blockIdx) => ({
+          id: `b2-${blockIdx + 1}-2`,
+          name: block.name || `Block ${blockIdx + 1}`,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
+      },
+      {
         id: "t2-3",
-        title: TOPIC_3_CHECKS.title,
-        blocks: TOPIC_3_CHECKS.blocks.map((block, blockIdx) => ({
+        title: TOPIC_2_CAPTURES.title,
+        blocks: TOPIC_2_CAPTURES.blocks.map((block, blockIdx) => ({
           id: `b3-${blockIdx + 1}-2`,
           name: block.name,
           total: block.puzzles.length,
@@ -94,20 +95,9 @@ const rawLevels = [
       },
       {
         id: "t2-4",
-        title: "Mate in 1",
-        blocks: MATE_IN_1_PUZZLES.blocks.map((block, blockIdx) => ({
+        title: TOPIC_3_CHECKS.title,
+        blocks: TOPIC_3_CHECKS.blocks.map((block, blockIdx) => ({
           id: `b4-${blockIdx + 1}-2`,
-          name: `Block ${blockIdx + 1}`,
-          total: block.puzzles.length,
-          completed: 0,
-          puzzles: block.puzzles
-        }))
-      },
-      {
-        id: "t2-5",
-        title: TOPIC_5_LAWNMOWER.title,
-        blocks: TOPIC_5_LAWNMOWER.blocks.map((block, blockIdx) => ({
-          id: `b5-${blockIdx + 1}-2`,
           name: block.name,
           total: block.puzzles.length,
           completed: 0,
@@ -115,9 +105,20 @@ const rawLevels = [
         }))
       },
       {
+        id: "t2-5",
+        title: "Mate in 1",
+        blocks: MATE_IN_1_PUZZLES.blocks.map((block, blockIdx) => ({
+          id: `b5-${blockIdx + 1}-2`,
+          name: `Block ${blockIdx + 1}`,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
+      },
+      {
         id: "t2-6",
-        title: TOPIC_6_DRAW.title,
-        blocks: TOPIC_6_DRAW.blocks.map((block, blockIdx) => ({
+        title: TOPIC_5_LAWNMOWER.title,
+        blocks: TOPIC_5_LAWNMOWER.blocks.map((block, blockIdx) => ({
           id: `b6-${blockIdx + 1}-2`,
           name: block.name,
           total: block.puzzles.length,
@@ -127,8 +128,8 @@ const rawLevels = [
       },
       {
         id: "t2-7",
-        title: TOPIC_7_PAWN_STRUCTURE.title,
-        blocks: TOPIC_7_PAWN_STRUCTURE.blocks.map((block, blockIdx) => ({
+        title: TOPIC_6_DRAW.title,
+        blocks: TOPIC_6_DRAW.blocks.map((block, blockIdx) => ({
           id: `b7-${blockIdx + 1}-2`,
           name: block.name,
           total: block.puzzles.length,
@@ -138,9 +139,20 @@ const rawLevels = [
       },
       {
         id: "t2-8",
+        title: TOPIC_7_PAWN_STRUCTURE.title,
+        blocks: TOPIC_7_PAWN_STRUCTURE.blocks.map((block, blockIdx) => ({
+          id: `b8-${blockIdx + 1}-2`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
+      },
+      {
+        id: "t2-9",
         title: TOPIC_8_ETIQUETTE.title,
         blocks: TOPIC_8_ETIQUETTE.blocks.map((block, blockIdx) => ({
-          id: `b8-${blockIdx + 1}-2`,
+          id: `b9-${blockIdx + 1}-2`,
           name: block.name,
           total: block.puzzles.length,
           completed: 0,

@@ -1,6 +1,26 @@
 import React, { useMemo } from 'react';
 import { Chess } from 'chess.js';
 import { PIECE_SVGS, BOARD_THEMES } from '../../constants/pieces';
+
+// Parse a FEN string into an 8x8 board array without requiring kings (for educational puzzles)
+const parseFenToBoard = (fen) => {
+  const pieceMap = { p: 'p', r: 'r', n: 'n', b: 'b', q: 'q', k: 'k', P: 'P', R: 'R', N: 'N', B: 'B', Q: 'Q', K: 'K' };
+  const board = Array(8).fill(null).map(() => Array(8).fill(null));
+  const ranks = fen.split(' ')[0].split('/');
+  ranks.forEach((rank, r) => {
+    let c = 0;
+    for (const ch of rank) {
+      if (/\d/.test(ch)) { c += parseInt(ch); }
+      else if (pieceMap[ch]) {
+        const isWhite = ch === ch.toUpperCase();
+        board[r][c] = { type: ch.toLowerCase(), color: isWhite ? 'w' : 'b' };
+        c++;
+      }
+    }
+  });
+  return board;
+};
+
 export const ChessBoardView = ({
   position,
   lastMove,
@@ -11,10 +31,16 @@ export const ChessBoardView = ({
   selectedSquare = null,
   showLegalMoves = true
 }) => {
-  const game = useMemo(() => new Chess(position), [position]);
-  const board = useMemo(() => game.board(), [game]);
+  // Try chess.js first; fall back to custom parser for positions without kings
+  const game = useMemo(() => {
+    try { return new Chess(position); } catch { return null; }
+  }, [position]);
+  const board = useMemo(() => {
+    if (game) return game.board();
+    return parseFenToBoard(position || '8/8/8/8/8/8/8/8 w - - 0 1');
+  }, [game, position]);
   const legalMoves = useMemo(() => {
-    if (!selectedSquare || !showLegalMoves) return [];
+    if (!selectedSquare || !showLegalMoves || !game) return [];
     try {
       const moves = game.moves({ square: selectedSquare, verbose: true });
       return moves.map(m => m.to);

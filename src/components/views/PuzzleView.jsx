@@ -89,41 +89,24 @@ export const PuzzleView = ({
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      const isLevel1Block3 = level?.id === 1 && blockNumber === 3;
-
-      // Calculate board size based on available width
+      // Use compact board for Block 3 AND any Level 1 puzzle that has a FEN (pawn board puzzles)
+      const hasFenProp = !!(safePuzzle.fen && safePuzzle.fen.trim());
+      const useCompact = (level?.id === 1 && blockNumber === 3) || (level?.id === 1 && hasFenProp);
 
       if (width < 640) {
-        // Mobile
-        if (isLevel1Block3) {
-          // STRICT REQUEST: "board size is way too much". Make it small to fit quiz options.
-          setBoardSize(Math.min(260, width * 0.65));
-        } else {
-          // Standard mobile board size (readable but not huge)
-          setBoardSize(Math.min(340, width - 40));
-        }
+        setBoardSize(useCompact ? Math.min(260, width * 0.65) : Math.min(340, width - 40));
       } else if (width < 1024) {
-        // Tablet
-        if (isLevel1Block3) {
-          setBoardSize(Math.min(320, width - 64));
-        } else {
-          setBoardSize(Math.min(472, width - 64));
-        }
+        setBoardSize(useCompact ? Math.min(320, width - 64) : Math.min(472, width - 64));
       } else {
-        // Desktop
-        if (isLevel1Block3) {
-          setBoardSize(320);
-        } else {
-          setBoardSize(520);
-        }
+        setBoardSize(useCompact ? 320 : 520);
       }
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); // Initial calculation
+    handleResize();
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [level, blockNumber]);
+  }, [level, blockNumber, safePuzzle.fen]);
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")
@@ -414,12 +397,11 @@ export const PuzzleView = ({
     }
   };
 
-  // Determine if board should be shown
-  // Level 1 logic: Show board only if Block 3
+  // Show board when: not level 1, OR it's level 1 block 3, OR the puzzle has a FEN position
   const isLevel1 = level?.id === 1;
   const isBlock3 = blockNumber === 3;
-  const isLevel2Topic1 = level?.id === 2 && topic?.id === 't2-1';
-  const showBoard = (!isLevel1 || isBlock3) && !isLevel2Topic1;
+  const puzzleHasFen = !!(safePuzzle.fen && safePuzzle.fen.trim());
+  const showBoard = (!isLevel1 || isBlock3 || puzzleHasFen);
 
   // If it's a quiz with NO board, we might want to center the quiz
   // or use the board area for the quiz.
@@ -966,7 +948,7 @@ export const PuzzleView = ({
                 }}
               >
                 <ChessBoardView
-                  position={game.fen()}
+                  position={safePuzzle.fen || (game ? game.fen() : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")}
                   onSquareClick={handleSquareClick}
                   lastMove={moveHistory[moveHistory.length - 1]}
                   orientation={orientation}
@@ -974,13 +956,15 @@ export const PuzzleView = ({
                   size={boardSize}
                   selectedSquare={selectedSquare}
                   showLegalMoves={true}
-                  isCompact={blockNumber === 3 && level?.id === 1}
+                  isCompact={(blockNumber === 3 && level?.id === 1) || (level?.id === 1 && !!(safePuzzle.fen && safePuzzle.fen.trim()))}
                 />
               </div>
             )}
 
             {safePuzzle.type === 'quiz' && (() => {
-              const isSpecialQuiz = level?.id === 1 && blockNumber === 3;
+              // Use compact board+quiz layout for Block 3 AND any Level 1 FEN quiz puzzle
+              const hasFenProp = !!(safePuzzle.fen && safePuzzle.fen.trim());
+              const isSpecialQuiz = (level?.id === 1 && blockNumber === 3) || (level?.id === 1 && hasFenProp);
 
               return (
                 <div
