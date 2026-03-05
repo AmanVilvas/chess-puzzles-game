@@ -226,11 +226,12 @@ export const TOPIC_8_ETIQUETTE = {
                     id: "et_1_3",
                     type: "quiz",
                     fen: "8/8/8/8/4k3/8/4K3/8 w - - 0 1",
-                    goal: "You touched the King. Move it.",
-                    solution: ["e2d2"],
-                    turn: "w",
-                    themes: ["etiquette"],
-                    explanation: "Touch-move rule: touched piece must be moved if legal."
+                    question: "You touched the King. What must you do according to rules?",
+                    options: ["Move the King", "Move any piece", "Resign", "Skip turn"],
+                    correctAnswer: 0,
+                    explanation: "Touch-move rule: touched piece must be moved if a legal move exists.",
+                    rating: 100,
+                    themes: ["etiquette"]
                 }
             ]
         }

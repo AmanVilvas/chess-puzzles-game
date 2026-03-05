@@ -18,6 +18,88 @@ import { Chess } from "chess.js";
 import { ChessBoardView } from "../chess/ChessBoardView";
 import { BOARD_THEMES } from "../../constants/pieces";
 import { getBlockProgress } from "../../utils/progressManager";
+
+/**
+ * Creates a Chess.js game from an arbitrary FEN string.
+ * Teaching puzzles often have incomplete positions (only one king etc).
+ * We fall back to skipValidation so those FENs still produce a playable game.
+ */
+const STARTING_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+const createGameFromFen = (fen) => {
+  const safeFen = fen || STARTING_FEN;
+  try {
+    return new Chess(safeFen);
+  } catch {
+    try {
+      const g = new Chess();
+      g.load(safeFen, { skipValidation: true });
+      return g;
+    } catch {
+      return new Chess();
+    }
+  }
+};
+
+// ── Manual move helpers for educational positions (may lack both kings) ──────
+
+/** Parse a FEN string into an 8×8 board array. */
+const parseFenBoard = (fen) => {
+  const SYMBOLS = 'prnbqkPRNBQK';
+  const board = Array(8).fill(null).map(() => Array(8).fill(null));
+  const ranks = fen.split(' ')[0].split('/');
+  ranks.forEach((rank, r) => {
+    let c = 0;
+    for (const ch of rank) {
+      if (/\d/.test(ch)) { c += parseInt(ch); }
+      else if (SYMBOLS.includes(ch)) {
+        board[r][c] = { type: ch.toLowerCase(), color: ch === ch.toUpperCase() ? 'w' : 'b', symbol: ch };
+        c++;
+      }
+    }
+  });
+  return board;
+};
+
+/** Apply from→to on a FEN and return the new FEN (with turn flipped). */
+const applyMoveToFen = (fen, fromSq, toSq, playerColor) => {
+  const board = parseFenBoard(fen);
+  const fc = fromSq.charCodeAt(0) - 97, fr = 8 - parseInt(fromSq[1]);
+  const tc = toSq.charCodeAt(0) - 97, tr = 8 - parseInt(toSq[1]);
+  const piece = board[fr][fc];
+  if (!piece) return null;
+  board[tr][tc] = piece;
+  board[fr][fc] = null;
+  // Rebuild FEN position string
+  const rows = board.map(row => {
+    let s = '', empty = 0;
+    row.forEach(sq => {
+      if (!sq) { empty++; }
+      else { if (empty) { s += empty; empty = 0; } s += sq.symbol; }
+    });
+    if (empty) s += empty;
+    return s;
+  });
+  const parts = fen.split(' ');
+  parts[0] = rows.join('/');
+  parts[1] = playerColor === 'w' ? 'w' : 'b'; // keep same turn (we re-flip after storing)
+  parts[3] = '-'; // clear en-passant
+  return parts.join(' ');
+};
+
+/** Generate simplified SAN for a move (enough for king/piece captures). */
+const generateQuizSan = (board, fromSq, toSq) => {
+  const fc = fromSq.charCodeAt(0) - 97, fr = 8 - parseInt(fromSq[1]);
+  const tc = toSq.charCodeAt(0) - 97, tr = 8 - parseInt(toSq[1]);
+  const movingPiece = board[fr][fc];
+  const targetPiece = board[tr][tc];
+  if (!movingPiece) return null;
+  const sym = movingPiece.type === 'p' ? '' : movingPiece.type.toUpperCase();
+  const cap = targetPiece ? 'x' : '';
+  // Pawn capture: include from-file
+  if (movingPiece.type === 'p' && targetPiece) return fromSq[0] + 'x' + toSq;
+  return sym + cap + toSq;
+};
+
 export const PuzzleView = ({
   puzzle = {},
   game,
@@ -49,7 +131,7 @@ export const PuzzleView = ({
     goal: puzzle.goal || "Find the best move",
     rating: puzzle.rating || 1000,
     themes: Array.isArray(puzzle.themes) ? puzzle.themes : ["tactics"],
-    solution: Array.isArray(puzzle.solution) ? puzzle.solution : ["e2e4"],
+    solution: Array.isArray(puzzle.solution) ? puzzle.solution : [],
     turn: puzzle.turn || "w",
     type: puzzle.type || "normal",
     question: puzzle.question,
@@ -57,6 +139,36 @@ export const PuzzleView = ({
     correctAnswer: puzzle.correctAnswer,
     explanation: puzzle.explanation,
   };
+
+  // Parse SAN moves from option text like "Kg4 then Kg3 then Kh2" or "fxe4, exd5"
+  const parseMovesFromText = (text) => {
+    if (!text) return [];
+    const parts = text.split(/\s+then\s+|,\s*/i);
+    // Basic SAN pattern: optional piece, optional file/rank, optional x, dest square, optional promo/check
+    const movePattern = /^([KQRBN]?[a-h]?[1-8]?x?[a-h][1-8]([KQRBN])?[+#!?]*|O-O(-O)?)$/;
+    return parts.map(p => p.trim()).filter(p => movePattern.test(p));
+  };
+
+  // Derived move solution for quiz puzzles (from correct option text)
+  const quizDerivedSolution = React.useMemo(() => {
+    if (safePuzzle.type !== 'quiz') return [];
+    const correctText = safePuzzle.options?.[safePuzzle.correctAnswer] ?? '';
+    return parseMovesFromText(correctText);
+  }, [puzzle.id, safePuzzle.type, safePuzzle.correctAnswer]);
+
+  // Board is playable for quiz puzzles only when the correct option is a move sequence
+  const isQuizBoardMode = safePuzzle.type === 'quiz' && quizDerivedSolution.length > 0;
+
+  // Active solution: for quiz board mode use derived, otherwise use data solution
+  const activeSolution = isQuizBoardMode ? quizDerivedSolution : safePuzzle.solution;
+
+  // In quiz board mode the user always plays the color from the initial FEN (usually 'w')
+  const quizPlayerColor = React.useMemo(() => {
+    if (!isQuizBoardMode || !safePuzzle.fen) return 'w';
+    const parts = safePuzzle.fen.split(' ');
+    return (parts[1] === 'b') ? 'b' : 'w';
+  }, [isQuizBoardMode, safePuzzle.fen]);
+
 
   // Use sessionStats from props or provide defaults
   const stats = sessionStats || {
@@ -66,14 +178,17 @@ export const PuzzleView = ({
     totalSolved: 0,
     accuracy: 100,
   };
-  const [boardSize, setBoardSize] = useState(520);
-  const [boardTheme, setBoardTheme] = useState("neutral");
+  const [boardSize, setBoardSize] = useState(720);
+  const [boardTheme, setBoardTheme] = useState("green");
   // solvedIndices removed in favor of blockCompletedCount tracking
   const [showThemePopover, setShowThemePopover] = useState(false);
   const themeButtonRef = React.useRef(null);
   const [isPuzzleComplete, setIsPuzzleComplete] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [isWrongMove, setIsWrongMove] = useState(false);
+  const [autoAdvanceCount, setAutoAdvanceCount] = useState(null); // countdown seconds or null
+  const autoAdvanceRef = React.useRef(null);
+  const countdownRef = React.useRef(null);
 
   // Quiz specific state
   const [selectedOption, setSelectedOption] = useState(null);
@@ -94,11 +209,11 @@ export const PuzzleView = ({
       const useCompact = (level?.id === 1 && blockNumber === 3) || (level?.id === 1 && hasFenProp);
 
       if (width < 640) {
-        setBoardSize(useCompact ? Math.min(260, width * 0.65) : Math.min(340, width - 40));
+        setBoardSize(useCompact ? Math.min(320, width * 0.75) : Math.min(420, width - 40));
       } else if (width < 1024) {
-        setBoardSize(useCompact ? Math.min(320, width - 64) : Math.min(472, width - 64));
+        setBoardSize(useCompact ? Math.min(420, width - 64) : Math.min(580, width - 64));
       } else {
-        setBoardSize(useCompact ? 320 : 520);
+        setBoardSize(useCompact ? 460 : 680);
       }
     };
 
@@ -150,112 +265,189 @@ export const PuzzleView = ({
     }
   }, [block, level, topic]);
 
+  // Clear auto-advance timers helper
+  const clearAutoAdvance = () => {
+    if (autoAdvanceRef.current) { clearTimeout(autoAdvanceRef.current); autoAdvanceRef.current = null; }
+    if (countdownRef.current) { clearInterval(countdownRef.current); countdownRef.current = null; }
+    setAutoAdvanceCount(null);
+  };
+
+  // Start 5-second auto-advance
+  const startAutoAdvance = (advanceFn) => {
+    clearAutoAdvance();
+    setAutoAdvanceCount(5);
+    let count = 4;
+    countdownRef.current = setInterval(() => {
+      setAutoAdvanceCount(count);
+      count--;
+      if (count < 0) {
+        clearInterval(countdownRef.current);
+        countdownRef.current = null;
+      }
+    }, 1000);
+    autoAdvanceRef.current = setTimeout(() => {
+      clearAutoAdvance();
+      advanceFn();
+    }, 5000);
+  };
+
   // Reset state when puzzle changes
   useEffect(() => {
+    clearAutoAdvance();
     setIsPuzzleComplete(false);
     setShowSuccessModal(false);
     setIsWrongMove(false);
     setSelectedOption(null);
     setShowExplanation(false);
     setQuizFeedback(null);
-    try {
-      setGame(new Chess(puzzle.fen || "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"));
-    } catch (error) {
-      console.error("Invalid FEN:", puzzle.fen, error);
-      // Fallback to starting position
-      setGame(new Chess());
-    }
+    setGame(createGameFromFen(puzzle.fen));
   }, [puzzle.id]);
+
+  // Cleanup on unmount
+  useEffect(() => () => clearAutoAdvance(), []);
 
 
 
   const handleSquareClick = (sq) => {
     if (isPuzzleComplete) return;
+    if (safePuzzle.type === 'quiz' && !isQuizBoardMode) return; // view-only
+
+    const allowedColor = isQuizBoardMode ? quizPlayerColor : game.turn();
+
+    // ── Selection phase ────────────────────────────────────────────────────────
     if (!selectedSquare) {
-      const piece = game.get(sq);
-      if (piece && piece.color === game.turn()) {
+      // Use parseFenBoard for quiz mode (works without both kings)
+      const board = isQuizBoardMode ? parseFenBoard(game.fen()) : null;
+      const piece = isQuizBoardMode
+        ? (board ? board[8 - parseInt(sq[1])][sq.charCodeAt(0) - 97] : null)
+        : game.get(sq);
+      if (piece && piece.color === allowedColor) setSelectedSquare(sq);
+      return;
+    }
+
+    // Re-select a different piece of the same color
+    {
+      const board = isQuizBoardMode ? parseFenBoard(game.fen()) : null;
+      const piece = isQuizBoardMode
+        ? (board ? board[8 - parseInt(sq[1])][sq.charCodeAt(0) - 97] : null)
+        : game.get(sq);
+      if (piece && piece.color === allowedColor) {
         setSelectedSquare(sq);
+        return;
       }
+    }
+
+    // ── Move phase ─────────────────────────────────────────────────────────────
+    if (isQuizBoardMode) {
+      // ── QUIZ BOARD MODE: manual move (bypasses chess.js king-validation) ──
+      const currentFen = game.fen();
+      const board = parseFenBoard(currentFen);
+      const san = generateQuizSan(board, selectedSquare, sq);
+      const coordNotation = `${selectedSquare}${sq}`;
+      const currentMoveIndex = moveHistory.length;
+      const expectedMove = activeSolution[currentMoveIndex];
+
+      const isCorrectMove =
+        san === expectedMove ||
+        coordNotation === expectedMove;
+
+      if (isCorrectMove) {
+        setIsWrongMove(false);
+        const fakeMove = { san, from: selectedSquare, to: sq, piece: board[8 - parseInt(selectedSquare[1])][selectedSquare.charCodeAt(0) - 97]?.type };
+        const newMoveHistory = [...moveHistory, fakeMove];
+        const isLastMove = currentMoveIndex === activeSolution.length - 1;
+
+        // Apply the move to FEN and create the next game state
+        const newFen = applyMoveToFen(currentFen, selectedSquare, sq, quizPlayerColor);
+        if (newFen) {
+          const nextGame = new Chess();
+          try { nextGame.load(newFen, { skipValidation: true }); } catch { /* keep default */ }
+          setGame(nextGame);
+        }
+        setMoveHistory(newMoveHistory);
+
+        if (isLastMove) {
+          // ✅ Puzzle solved — exactly matching the correct option
+          setIsPuzzleComplete(true);
+          setSelectedOption(safePuzzle.correctAnswer);
+          setQuizFeedback('correct');
+          setShowExplanation(true);
+          if (onPuzzleComplete) {
+            onPuzzleComplete(safePuzzle.id, true);
+            if (block?.id && level?.id && topic?.id) {
+              setTimeout(() => {
+                const newProgress = getBlockProgress(block.id, level.id, topic.id);
+                setBlockCompletedCount(newProgress.completed || 0);
+              }, 50);
+            }
+          }
+          setTimeout(() => startAutoAdvance(handleNextPuzzle), 1500);
+        }
+        // else: more moves remain, user continues playing (turn stays quizPlayerColor)
+      } else {
+        // ❌ Wrong move
+        setIsWrongMove(true);
+        setTimeout(() => setIsWrongMove(false), 1500);
+      }
+
+      setSelectedSquare(null);
       return;
     }
-    const piece = game.get(sq);
-    if (piece && piece.color === game.turn()) {
-      setSelectedSquare(sq);
-      return;
-    }
+
+    // ── NORMAL PUZZLE MODE: use chess.js ──────────────────────────────────────
     try {
       const move = game.move({ from: selectedSquare, to: sq, promotion: "q" });
       if (move) {
         const newMoveHistory = [...moveHistory, move];
         const currentMoveIndex = newMoveHistory.length - 1;
         const moveNotation = `${selectedSquare}${sq}`;
-        const moveNotationWithPromotion = move.promotion
-          ? `${selectedSquare}${sq}${move.promotion}`
-          : moveNotation;
+        const moveNotationWithPromotion = move.promotion ? `${selectedSquare}${sq}${move.promotion}` : moveNotation;
         const algebraicNotation = move.san;
-        const expectedMove = safePuzzle.solution[currentMoveIndex];
+        const expectedMove = activeSolution[currentMoveIndex];
         const isCorrectMove =
           expectedMove === moveNotation ||
           expectedMove === moveNotationWithPromotion ||
           expectedMove === algebraicNotation;
+
         if (isCorrectMove) {
           setIsWrongMove(false);
           setGame(new Chess(game.fen()));
           setMoveHistory(newMoveHistory);
-          if (currentMoveIndex === safePuzzle.solution.length - 1) {
+          const isLastMove = currentMoveIndex === activeSolution.length - 1;
+          if (isLastMove) {
             setIsPuzzleComplete(true);
-            // Track puzzle completion
             if (onPuzzleComplete) {
               onPuzzleComplete(safePuzzle.id, true);
-              // Update local count immediately for better UX
               if (block?.id && level?.id && topic?.id) {
-                const progress = getBlockProgress(block.id, level.id, topic.id);
-                // The progressManager handles the update via onPuzzleComplete storing it,
-                // but we read it back or increment locally if we trust it's new.
-                // Actually, onPuzzleComplete likely calls markPuzzleCompleted.
-                // So re-reading progress is safer to get the exact count.
-                // But might be slightly delayed if async. 
-                // Let's increment if not already completed in our local view of progress?
-                // Simpler: Just increment locally as a visual feedback, assuming success.
-                // But wait, if re-solving?
-                // Let's re-fetch.
                 setTimeout(() => {
                   const newProgress = getBlockProgress(block.id, level.id, topic.id);
                   setBlockCompletedCount(newProgress.completed || 0);
                 }, 50);
               }
             }
-            setTimeout(() => {
-              setShowSuccessModal(true);
-            }, 300);
+            setTimeout(() => startAutoAdvance(handleNextPuzzle), 300);
           } else {
+            // Auto-play opponent's next move
             const nextMoveIndex = currentMoveIndex + 1;
-            if (nextMoveIndex < safePuzzle.solution.length) {
+            if (nextMoveIndex < activeSolution.length) {
               setTimeout(() => {
-                const opponentMove = safePuzzle.solution[nextMoveIndex];
+                const opponentMove = activeSolution[nextMoveIndex];
                 try {
                   let opponentMoveResult;
-                  try {
-                    opponentMoveResult = game.move(opponentMove);
-                  } catch {
+                  try { opponentMoveResult = game.move(opponentMove); }
+                  catch {
                     if (opponentMove.length >= 4) {
                       const from = opponentMove.substring(0, 2);
                       const to = opponentMove.substring(2, 4);
-                      const promotion =
-                        opponentMove.length > 4 ? opponentMove[4] : "q";
+                      const promotion = opponentMove.length > 4 ? opponentMove[4] : "q";
                       opponentMoveResult = game.move({ from, to, promotion });
                     }
                   }
                   if (opponentMoveResult) {
-                    const updatedHistory = [
-                      ...newMoveHistory,
-                      opponentMoveResult,
-                    ];
                     setGame(new Chess(game.fen()));
-                    setMoveHistory(updatedHistory);
-                    if (nextMoveIndex === safePuzzle.solution.length - 1) {
+                    setMoveHistory([...newMoveHistory, opponentMoveResult]);
+                    if (nextMoveIndex === activeSolution.length - 1) {
                       setIsPuzzleComplete(true);
-                      // Track puzzle completion
                       if (onPuzzleComplete) {
                         onPuzzleComplete(safePuzzle.id, true);
                         if (block?.id && level?.id && topic?.id) {
@@ -265,14 +457,10 @@ export const PuzzleView = ({
                           }, 50);
                         }
                       }
-                      setTimeout(() => {
-                        setShowSuccessModal(true);
-                      }, 500);
+                      setTimeout(() => startAutoAdvance(handleNextPuzzle), 500);
                     }
                   }
-                } catch (e) {
-                  console.error("Failed to play opponent move:", e);
-                }
+                } catch (e) { console.error("opponent move failed:", e); }
               }, 600);
             }
           }
@@ -280,21 +468,16 @@ export const PuzzleView = ({
           setIsWrongMove(true);
           game.undo();
           setGame(new Chess(game.fen()));
-          setTimeout(() => {
-            setIsWrongMove(false);
-          }, 1500);
+          setTimeout(() => setIsWrongMove(false), 1500);
         }
       }
-    } catch (e) { }
+    } catch (e) { /* move rejected by chess.js */ }
     setSelectedSquare(null);
   };
+
   const handleRetry = () => {
-    try {
-      setGame(new Chess(puzzle.fen || "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"));
-    } catch (error) {
-      console.error("Invalid FEN on retry:", puzzle.fen, error);
-      setGame(new Chess());
-    }
+    clearAutoAdvance();
+    setGame(createGameFromFen(puzzle.fen));
     setMoveHistory([]);
     setSelectedSquare(null);
     setIsPuzzleComplete(false);
@@ -388,9 +571,8 @@ export const PuzzleView = ({
           }, 50);
         }
       }
-      setTimeout(() => {
-        setShowSuccessModal(true);
-      }, 1500); // Wait a bit to read explanation
+      // Auto-advance after 5 seconds (giving time to read explanation)
+      setTimeout(() => startAutoAdvance(handleNextPuzzle), 1500);
     } else {
       setQuizFeedback('incorrect');
       setTimeout(() => setQuizFeedback(null), 1000);
@@ -948,7 +1130,7 @@ export const PuzzleView = ({
                 }}
               >
                 <ChessBoardView
-                  position={safePuzzle.fen || (game ? game.fen() : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")}
+                  position={isQuizBoardMode && game ? game.fen() : (safePuzzle.fen || (game ? game.fen() : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"))}
                   onSquareClick={handleSquareClick}
                   lastMove={moveHistory[moveHistory.length - 1]}
                   orientation={orientation}
@@ -968,27 +1150,27 @@ export const PuzzleView = ({
 
               return (
                 <div
-                  className={`quiz-card w-full max-w-[520px] 
-                  ${isSpecialQuiz ? 'md:bg-transparent md:border-0 md:shadow-none md:p-0' : 'md:bg-[var(--color-bg-elevated)] md:border-[var(--color-border-primary)] md:shadow-xl md:p-6'}
-                  bg-[var(--color-bg-elevated)] border border-[var(--color-border-primary)] rounded-xl shadow-xl p-6
+                  className={`quiz-card w-full max-w-[420px] 
+                  ${isSpecialQuiz ? 'md:bg-transparent md:border-0 md:shadow-none md:p-0' : 'md:bg-[var(--color-bg-elevated)] md:border-[var(--color-border-primary)] md:shadow-xl md:p-3'}
+                  bg-[var(--color-bg-elevated)] border border-[var(--color-border-primary)] rounded-xl shadow-xl p-3
                   transition-all duration-300
                 `}
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: isSpecialQuiz ? "16px" : "20px"
+                    gap: isSpecialQuiz ? "6px" : "8px"
                   }}
                 >
                   <div className={`quiz-header ${isSpecialQuiz ? 'md:text-center' : ''}`}>
-                    <h2 className={`font-bold text-[var(--color-text-primary)] leading-tight mb-2 
-                    ${isSpecialQuiz ? 'md:text-xl md:uppercase md:tracking-wider md:mb-4' : 'text-xl md:text-2xl'}
+                    <h2 className={`font-bold text-[var(--color-text-primary)] leading-tight mb-1 
+                    ${isSpecialQuiz ? 'md:text-base md:uppercase md:tracking-wider md:mb-2' : 'text-sm md:text-base'}
                   `}>
                       {safePuzzle.question}
                     </h2>
-                    <div className={`h-1 w-20 bg-orange-500/50 rounded-full ${isSpecialQuiz ? 'md:hidden' : ''}`}></div>
+                    <div className={`h-0.5 w-10 bg-orange-500/50 rounded-full ${isSpecialQuiz ? 'md:hidden' : ''}`}></div>
                   </div>
 
-                  <div className="quiz-options flex flex-col md:grid md:grid-cols-2 gap-3">
+                  <div className="quiz-options flex flex-col md:grid md:grid-cols-2 gap-2">
                     {safePuzzle.options?.map((option, idx) => {
                       let btnClass = "bg-[var(--color-bg-secondary)] hover:bg-[var(--color-bg-tertiary)] border-[var(--color-border-primary)] text-[var(--color-text-primary)]";
                       if (selectedOption !== null) {
@@ -1007,15 +1189,15 @@ export const PuzzleView = ({
                           onClick={() => handleOptionClick(idx)}
                           disabled={isPuzzleComplete}
                           className={`
-                          p-4 text-left rounded-lg border transition-all duration-200
-                          font-medium text-base relative
+                          p-1.5 text-left rounded-md border transition-all duration-200
+                          font-medium text-xs relative
                           ${btnClass}
                           ${isSpecialQuiz ? 'md:text-center md:flex md:justify-center md:items-center' : ''}
                         `}
                         >
-                          <div className={`flex items-center gap-3 ${isSpecialQuiz ? 'md:justify-center md:w-full' : ''}`}>
+                          <div className={`flex items-center gap-1.5 ${isSpecialQuiz ? 'md:justify-center md:w-full' : ''}`}>
                             <span className={`
-                            w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border
+                            w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold border flex-shrink-0
                             ${selectedOption === idx || (isPuzzleComplete && idx === safePuzzle.correctAnswer) ? 'border-transparent bg-white/20' : 'border-neutral-600 bg-transparent text-neutral-400'}
                             ${isSpecialQuiz ? 'md:hidden' : ''}
                           `}>
@@ -1167,6 +1349,11 @@ export const PuzzleView = ({
                     ? "Playing as White"
                     : "Playing as Black"}
                 </p>
+                {isQuizBoardMode && !isPuzzleComplete && (
+                  <p style={{ color: "var(--color-accent-orange)", fontSize: "11px", fontWeight: 600, marginTop: "2px" }}>
+                    ▶ Play the move on the board
+                  </p>
+                )}
               </div>
             </div>
             <div
@@ -1526,127 +1713,73 @@ export const PuzzleView = ({
         </aside>
       </main >
       { }
-      {
-        showSuccessModal && (
-          <div
+      {/* Auto-advance toast banner */}
+      {autoAdvanceCount !== null && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: "24px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 1000,
+            display: "flex",
+            alignItems: "center",
+            gap: "12px",
+            padding: "12px 20px",
+            backgroundColor: "var(--color-bg-secondary)",
+            border: "2px solid var(--color-accent-emerald)",
+            borderRadius: "var(--radius-xl)",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
+            animation: "fadeIn 0.3s ease-out",
+            whiteSpace: "nowrap",
+          }}
+        >
+          <div style={{
+            width: "28px", height: "28px", borderRadius: "50%",
+            backgroundColor: "var(--color-accent-emerald)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            flexShrink: 0,
+          }}>
+            <Check className="w-4 h-4" style={{ color: "white" }} />
+          </div>
+          <span style={{ color: "var(--color-text-primary)", fontWeight: 700, fontSize: "14px" }}>
+            ✓ Correct!
+          </span>
+          <span style={{ color: "var(--color-text-muted)", fontSize: "13px" }}>
+            Next in {autoAdvanceCount}s
+          </span>
+          <button
+            onClick={handleRetry}
             style={{
-              position: "fixed",
-              inset: 0,
-              backgroundColor: "rgba(0, 0, 0, 0.7)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              zIndex: 1000,
-              animation: "fadeIn 0.3s ease-out",
+              padding: "4px 12px",
+              backgroundColor: "var(--color-bg-elevated)",
+              border: "1px solid var(--color-border-primary)",
+              borderRadius: "var(--radius-md)",
+              fontSize: "12px",
+              fontWeight: 600,
+              color: "var(--color-text-primary)",
+              cursor: "pointer",
             }}
           >
-            <div
-              style={{
-                backgroundColor: "var(--color-bg-secondary)",
-                border: "2px solid var(--color-accent-emerald)",
-                borderRadius: "var(--radius-xl)",
-                padding: "32px",
-                boxShadow: "0 20px 50px rgba(0, 0, 0, 0.5)",
-                minWidth: "320px",
-                textAlign: "center",
-                animation: "scaleIn 0.3s ease-out",
-                position: "relative",
-              }}
-            >
-              <button
-                onClick={() => setShowSuccessModal(false)}
-                style={{
-                  position: "absolute",
-                  top: "16px",
-                  right: "16px",
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  color: "var(--color-text-muted)",
-                }}
-              >
-                <X className="w-5 h-5" />
-              </button>
-              { }
-              <div
-                style={{
-                  width: "64px",
-                  height: "64px",
-                  margin: "0 auto 20px",
-                  borderRadius: "50%",
-                  backgroundColor: "var(--color-accent-emerald)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  boxShadow: "0 4px 12px rgba(16, 185, 129, 0.4)",
-                }}
-              >
-                <Check className="w-8 h-8" style={{ color: "white" }} />
-              </div>
-              { }
-              <h2
-                style={{
-                  color: "var(--color-text-primary)",
-                  fontSize: "24px",
-                  fontWeight: 700,
-                  marginBottom: "8px",
-                }}
-              >
-                Puzzle Solved!
-              </h2>
-              <p
-                style={{
-                  color: "var(--color-text-muted)",
-                  fontSize: "14px",
-                  marginBottom: "24px",
-                }}
-              >
-                Great job! You completed this puzzle.
-              </p>
-              { }
-              <div style={{ display: "flex", gap: "12px" }}>
-                <button
-                  onClick={handleRetry}
-                  className="transition-base"
-                  style={{
-                    flex: 1,
-                    padding: "12px 20px",
-                    backgroundColor: "var(--color-bg-elevated)",
-                    border: "1px solid var(--color-border-primary)",
-                    borderRadius: "var(--radius-lg)",
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    color: "var(--color-text-primary)",
-                    cursor: "pointer",
-                  }}
-                >
-                  Retry
-                </button>
-                <button
-                  onClick={handleNextPuzzle}
-                  className="transition-base"
-                  style={{
-                    flex: 1,
-                    padding: "12px 20px",
-                    backgroundColor: "var(--color-accent-emerald)",
-                    border: "none",
-                    borderRadius: "var(--radius-lg)",
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    color: "white",
-                    cursor: "pointer",
-                    boxShadow: "0 2px 8px rgba(16, 185, 129, 0.3)",
-                  }}
-                >
-                  {currentPuzzleIndex < totalPuzzles - 1
-                    ? "Next Puzzle"
-                    : (topic?.blocks && blockNumber < topic.blocks.length ? "Next Block" : "Finish Topic")}
-                </button>
-              </div>
-            </div>
-          </div>
-        )
-      }
+            Retry
+          </button>
+          <button
+            onClick={() => { clearAutoAdvance(); handleNextPuzzle(); }}
+            style={{
+              padding: "4px 12px",
+              backgroundColor: "var(--color-accent-emerald)",
+              border: "none",
+              borderRadius: "var(--radius-md)",
+              fontSize: "12px",
+              fontWeight: 600,
+              color: "white",
+              cursor: "pointer",
+            }}
+          >
+            Next →
+          </button>
+        </div>
+      )}
     </div >
   );
 };

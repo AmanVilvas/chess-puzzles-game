@@ -1,42 +1,133 @@
-// Part 1: Introduction, Notation, Pieces (Quiz only topics)
+// Part 1: Introduction, Notation, Pieces
 export const INTRO = {
     title: "Introduction",
-    blocks: [{
-        id: "block_1",
-        puzzles: [
-            { id: "intro_1", type: "quiz", question: "What is the goal of chess?", options: ["Capture all pieces", "Checkmate the opponent's king", "Control the center", "Promote a pawn"], correctAnswer: 1, explanation: "Chess ends when one king is checkmated - attacked with no escape.", rating: 100, themes: ["intro"] },
-            { id: "intro_2", type: "quiz", question: "Who moves first in chess?", options: ["Black", "White", "The younger player", "Random"], correctAnswer: 1, explanation: "White always makes the first move.", rating: 100, themes: ["intro"] },
-            { id: "intro_3", type: "quiz", question: "How many squares are on a chessboard?", options: ["32", "64", "48", "100"], correctAnswer: 1, explanation: "A chessboard has 8x8 = 64 squares.", rating: 100, themes: ["intro"] },
-            { id: "intro_4", type: "quiz", question: "What are the two colors in chess?", options: ["Red and Blue", "White and Black", "Gold and Silver", "Green and Yellow"], correctAnswer: 1, explanation: "Chess is played between White and Black.", rating: 100, themes: ["intro"] },
-            { id: "intro_5", type: "quiz", question: "How many pieces does each player start with?", options: ["8", "12", "16", "20"], correctAnswer: 2, explanation: "Each player starts with 16 pieces.", rating: 100, themes: ["intro"] }
-        ]
-    }]
+    blocks: [
+        {
+            id: "block_1",
+            puzzles: [
+                { id: "L1_t1_b1_1", type: "quiz", fen: "8/8/8/8/8/8/8/8 b - - 0 1", question: "Where was chess invented?", options: ["Bangladesh", "India", "Pakistan"], correctAnswer: 1, explanation: "Chess was invented in India, around the 6th century AD.", rating: 100, themes: ["intro"] },
+                { id: "L1_t1_b1_2", type: "quiz", fen: "8/8/8/8/8/8/8/8 b - - 0 1", question: "How many players can play chess on one board?", options: ["One player", "Two players", "Three players"], correctAnswer: 1, explanation: "Chess is a two-player game — one controls White and the other controls Black.", rating: 100, themes: ["intro"] },
+                { id: "L1_t1_b1_3", type: "quiz", fen: "8/8/8/8/8/8/8/8 b - - 0 1", question: "How many squares are on the whole board?", options: ["45 squares", "56 squares", "64 squares"], correctAnswer: 2, explanation: "A chessboard has 8×8 = 64 squares.", rating: 100, themes: ["intro"] },
+                { id: "L1_t1_b1_4", type: "quiz", fen: "8/8/8/8/8/8/8/8 b - - 0 1", question: "How many squares are on one file?", options: ["4 squares", "8 squares", "16 squares"], correctAnswer: 1, explanation: "Each file (a–h) has 8 squares.", rating: 100, themes: ["intro"] },
+                { id: "L1_t1_b1_5", type: "quiz", fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1", question: "Is this the starting position?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! This is the standard starting position of a chess game.", rating: 100, themes: ["intro"] },
+                { id: "L1_t1_b1_6", type: "quiz", fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1", question: "Is this how people start the game?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! Every chess game starts from this exact position.", rating: 100, themes: ["intro"] },
+                { id: "L1_t1_b1_7", type: "quiz", fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1", question: "How many Black knights are there?", options: ["One", "Two", "Three"], correctAnswer: 1, explanation: "Black starts with 2 knights — one on b8 and one on g8.", rating: 100, themes: ["intro"] },
+                { id: "L1_t1_b1_8", type: "quiz", fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1", question: "Who moves after White moves?", options: ["Black", "White"], correctAnswer: 0, explanation: "Players alternate turns — White moves first, then Black, and so on.", rating: 100, themes: ["intro"] },
+                { id: "L1_t1_b1_9", type: "quiz", fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1", question: "How many pieces are there in total?", options: ["34", "55", "32"], correctAnswer: 2, explanation: "There are 32 pieces total — 16 White and 16 Black.", rating: 100, themes: ["intro"] },
+                { id: "L1_t1_b1_10", type: "quiz", fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1", question: "How many white pawns are there?", options: ["10 pawns", "6 pawns", "8 pawns"], correctAnswer: 2, explanation: "White has 8 pawns, all on the 2nd rank at the start.", rating: 100, themes: ["intro"] },
+                { id: "L1_t1_b1_11", type: "quiz", fen: "8/8/8/3R4/8/8/8/8 b - - 0 1", question: "What is the name of the piece?", options: ["Queen", "Rook", "King"], correctAnswer: 1, explanation: "That is a Rook — it moves in straight lines (horizontally or vertically).", rating: 100, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b1_12", type: "quiz", fen: "8/8/8/8/4B3/8/8/8 b - - 0 1", question: "What is the name of the piece?", options: ["Bishop", "Knight", "Queen"], correctAnswer: 0, explanation: "That is a Bishop — it moves diagonally.", rating: 100, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b1_13", type: "quiz", fen: "8/8/4n3/8/8/8/8/8 b - - 0 1", question: "What is the name of the piece?", options: ["Rook", "King", "Knight"], correctAnswer: 2, explanation: "That is a Knight — it moves in an L-shape.", rating: 100, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b1_14", type: "quiz", fen: "8/8/8/8/8/8/8/4K3 b - - 0 1", question: "What is the name of the piece?", options: ["King", "Queen", "Elephant"], correctAnswer: 0, explanation: "That is the King — the most important piece in chess!", rating: 100, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b1_15", type: "quiz", fen: "8/8/8/3Q4/8/8/8/8 b - - 0 1", question: "What is the name of the piece?", options: ["King", "Queen", "Zebra"], correctAnswer: 1, explanation: "That is the Queen — the most powerful piece on the board.", rating: 100, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b1_16", type: "quiz", fen: "8/8/8/8/8/1P6/8/8 b - - 0 1", question: "What is the name of the piece?", options: ["Pawn", "Bishop", "Knight"], correctAnswer: 0, explanation: "That is a Pawn — the smallest but most numerous piece.", rating: 100, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b1_17", type: "quiz", fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1", question: "Do we shake hands before playing?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! Shaking hands before a game is a tradition of sportsmanship.", rating: 100, themes: ["intro", "etiquette"] },
+                { id: "L1_t1_b1_18", type: "quiz", fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1", question: "How many rooks are there in total?", options: ["4 rooks", "7 rooks", "3 rooks"], correctAnswer: 0, explanation: "There are 4 rooks — 2 per player.", rating: 100, themes: ["intro"] },
+                { id: "L1_t1_b1_19", type: "quiz", fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1", question: "How many white kings are there?", options: ["One", "Two", "Three"], correctAnswer: 0, explanation: "Each player has exactly one king.", rating: 100, themes: ["intro"] },
+                { id: "L1_t1_b1_20", type: "quiz", fen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1", question: "Who should move first?", options: ["White", "Black"], correctAnswer: 0, explanation: "White always moves first in chess.", rating: 100, themes: ["intro"] }
+            ]
+        },
+        {
+            id: "block_2",
+            puzzles: [
+                { id: "L1_t1_b2_21", type: "quiz", fen: "8/8/8/3R4/8/8/8/8 b - - 0 1", question: "What is the name of the piece?", options: ["Rook", "Bishop", "Queen"], correctAnswer: 0, explanation: "It is a Rook.", rating: 200, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b2_22", type: "quiz", fen: "8/8/8/8/3K4/8/8/8 b - - 0 1", question: "What is the name of the piece?", options: ["King", "Queen", "Pawn"], correctAnswer: 0, explanation: "It is the King.", rating: 200, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b2_23", type: "quiz", fen: "8/8/8/8/3B4/8/8/8 b - - 0 1", question: "What is the name of the piece?", options: ["Knight", "Bishop", "Rook"], correctAnswer: 1, explanation: "It is a Bishop.", rating: 200, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b2_24", type: "quiz", fen: "8/8/8/8/3N4/8/8/8 b - - 0 1", question: "What is the name of the piece?", options: ["Rook", "Bishop", "Knight"], correctAnswer: 2, explanation: "It is a Knight.", rating: 200, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b2_25", type: "quiz", fen: "8/8/8/8/3P4/8/8/8 b - - 0 1", question: "What is the name of the piece?", options: ["Pawn", "Knight", "Bishop"], correctAnswer: 0, explanation: "It is a Pawn.", rating: 200, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b2_26", type: "quiz", fen: "8/8/5Q2/8/8/8/8/8 b - - 0 1", question: "What is the name of the piece?", options: ["King", "Rook", "Queen"], correctAnswer: 2, explanation: "It is the Queen — the most powerful piece.", rating: 200, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b2_27", type: "quiz", fen: "8/8/5Q2/8/8/8/8/8 b - - 0 1", question: "How does the Queen move?", options: ["All ways", "Diagonally only", "Straight only"], correctAnswer: 0, explanation: "The Queen moves in all directions — diagonally, horizontally, and vertically.", rating: 200, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b2_28", type: "quiz", fen: "8/8/8/8/3R4/8/8/8 b - - 0 1", question: "Does the rook move in all directions?", options: ["No, only straight lines", "Yes", "Only diagonally"], correctAnswer: 0, explanation: "No! The rook only moves in straight lines — horizontally or vertically.", rating: 200, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b2_29", type: "quiz", fen: "8/8/8/8/3R4/8/8/8 b - - 0 1", question: "Can the Bishop land on the opposite colour?", options: ["No", "Yes", "Sometimes"], correctAnswer: 0, explanation: "No! A bishop always stays on the same colour square throughout the game.", rating: 200, themes: ["intro", "pieces"] },
+                { id: "L1_t1_b2_30", type: "quiz", fen: "8/8/8/8/3N4/8/8/8 b - - 0 1", question: "Is the knight more powerful than the Pawn?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! The knight (3 points) is worth much more than a pawn (1 point).", rating: 200, themes: ["intro", "pieces"] }
+            ]
+        }
+    ]
 };
 
 export const NOTATION = {
     title: "Notation",
-    blocks: [{
-        id: "block_1",
-        puzzles: [
-            { id: "not_1", type: "quiz", question: "What does 'e4' mean in chess notation?", options: ["King moves to e4", "A piece moves to the e4 square", "Capture on e4", "Check on e4"], correctAnswer: 1, explanation: "e4 means a piece (usually pawn) moves to the e4 square.", rating: 100, themes: ["notation"] },
-            { id: "not_2", type: "quiz", question: "Columns (vertical) on the board are called?", options: ["Ranks", "Files", "Rows", "Lines"], correctAnswer: 1, explanation: "Vertical columns are called files (a-h).", rating: 100, themes: ["notation"] },
-            { id: "not_3", type: "quiz", question: "Rows (horizontal) on the board are called?", options: ["Ranks", "Files", "Columns", "Lines"], correctAnswer: 0, explanation: "Horizontal rows are called ranks (1-8).", rating: 100, themes: ["notation"] },
-            { id: "not_4", type: "quiz", question: "What square is bottom-left for White?", options: ["a8", "h1", "a1", "h8"], correctAnswer: 2, explanation: "a1 is the bottom-left corner for White.", rating: 100, themes: ["notation"] },
-            { id: "not_5", type: "quiz", question: "What does 'x' mean in notation?", options: ["Check", "Checkmate", "Capture", "Castling"], correctAnswer: 2, explanation: "'x' indicates a capture (e.g., Bxe5).", rating: 100, themes: ["notation"] }
-        ]
-    }]
+    blocks: [
+        {
+            id: "block_1",
+            puzzles: [
+                { id: "L1_t2_b1_1", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "What is the order of ranks from bottom to top?", options: ["3–5", "1–8", "5–6"], correctAnswer: 1, explanation: "Ranks are numbered 1 to 8, with rank 1 at White's bottom and rank 8 at the top.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_2", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "What is the order of files from left to right?", options: ["a–h", "b–g", "c–a"], correctAnswer: 0, explanation: "Files are labeled a to h from White's left to right.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_3", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "Is every square a different colour?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! Adjacent squares are always different colours — light and dark alternate.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_4", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "What colour is the a1 square?", options: ["White", "Black"], correctAnswer: 1, explanation: "a1 is a dark square. Remember: the bottom-left corner is always dark.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_5", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "Is h1 to h8 a file?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! h1 to h8 is the h-file — a vertical column on the board.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_6", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "Is g3 to e5 a diagonal?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! g3, f4, e5 are on the same diagonal.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_7", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "What colour is h8?", options: ["White", "Black"], correctAnswer: 1, explanation: "h8 is a dark square. Files alternate starting with a light square on a8.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_8", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "What is the distance between a1 and a4?", options: ["Two squares", "Four squares", "Five squares"], correctAnswer: 1, explanation: "Four squares apart: a1, a2, a3, a4.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_9", type: "quiz", fen: "8/8/5q2/8/8/8/8/8 w - - 0 1", question: "Which square is the Queen on?", options: ["a6", "g6", "f6"], correctAnswer: 2, explanation: "The queen is on f6 — column f, rank 6.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_10", type: "quiz", fen: "6B1/8/8/8/8/8/8/8 w - - 0 1", question: "Which square is the bishop on?", options: ["b8", "f8", "g8"], correctAnswer: 2, explanation: "The bishop is on g8 — column g, rank 8.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_11", type: "quiz", fen: "8/8/8/2N5/8/8/8/8 w - - 0 1", question: "Which square is the knight on?", options: ["g5", "a8", "c5"], correctAnswer: 2, explanation: "The knight is on c5 — column c, rank 5.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_12", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "What colour is h4?", options: ["White", "Black"], correctAnswer: 1, explanation: "h4 is a dark square.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_13", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "Is e1 to h4 a diagonal?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! e1, f2, g3, h4 are all on the same diagonal.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_14", type: "quiz", fen: "8/8/8/8/4K3/8/8/8 w - - 0 1", question: "Which square is the king on?", options: ["e4", "h4", "K4"], correctAnswer: 0, explanation: "The king is on e4 — column e, rank 4.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_15", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "Which is the correct coordinate?", options: ["a9", "b7", "j5"], correctAnswer: 1, explanation: "b7 is correct — files go a–h and ranks go 1–8. a9 and j5 are off the board.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_16", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "What colour is b6?", options: ["White", "Black"], correctAnswer: 0, explanation: "b6 is a light square.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_17", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "Is a1 to a8 a diagonal?", options: ["Yes", "No"], correctAnswer: 1, explanation: "No! a1 to a8 is the a-file — a vertical straight line, not a diagonal.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_18", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "What colour is c7?", options: ["White", "Black"], correctAnswer: 1, explanation: "c7 is a dark square.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_19", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "Is a1 to d4 a diagonal?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! a1, b2, c3, d4 are all on the same diagonal.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_20", type: "quiz", fen: "8/8/8/8/8/8/8/8 w - - 0 1", question: "What colour is c1?", options: ["White", "Black"], correctAnswer: 1, explanation: "c1 is a dark square.", rating: 100, themes: ["notation"] },
+                { id: "L1_t2_b1_21", type: "quiz", fen: "8/8/8/8/8/1P6/8/8 w - - 0 1", question: "The pawn has moved one square up — what square is it on?", options: ["b4", "b3", "b5"], correctAnswer: 0, explanation: "The pawn is on b3 in the position, but after moving one square up it reaches b4.", rating: 200, themes: ["notation"] },
+                { id: "L1_t2_b1_22", type: "quiz", fen: "8/8/8/8/8/8/4K3/8 w - - 0 1", question: "Which square is the king on?", options: ["e2", "f2", "e3"], correctAnswer: 0, explanation: "The king is on e2.", rating: 200, themes: ["notation"] },
+                { id: "L1_t2_b1_23", type: "quiz", fen: "8/8/8/8/8/5B2/8/8 w - - 0 1", question: "Can you identify the square the bishop is on?", options: ["f3", "e4", "g4"], correctAnswer: 0, explanation: "The bishop is on f3.", rating: 200, themes: ["notation"] },
+                { id: "L1_t2_b1_24", type: "quiz", fen: "8/8/8/8/8/8/2N5/8 w - - 0 1", question: "Which file is the knight on?", options: ["c file", "b file", "d file"], correctAnswer: 0, explanation: "The knight is on c2, so it is on the c file.", rating: 200, themes: ["notation"] },
+                { id: "L1_t2_b1_25", type: "quiz", fen: "8/8/1Q6/8/8/8/8/8 w - - 0 1", question: "Which file is the Queen on?", options: ["b file", "c file", "a file"], correctAnswer: 0, explanation: "The queen is on b6, so it is on the b file.", rating: 200, themes: ["notation"] },
+                { id: "L1_t2_b1_26", type: "quiz", fen: "8/8/8/4R3/8/8/8/8 w - - 0 1", question: "Which file is the rook on?", options: ["e file", "d file", "f file"], correctAnswer: 0, explanation: "The rook is on e5, so it is on the e file.", rating: 200, themes: ["notation"] },
+                { id: "L1_t2_b1_27", type: "quiz", fen: "8/8/8/8/8/8/8/1R6 w - - 0 1", question: "Which file is the rook on?", options: ["b file", "a file", "c file"], correctAnswer: 0, explanation: "The rook is on b1 — the b file.", rating: 200, themes: ["notation"] },
+                { id: "L1_t2_b1_28", type: "quiz", fen: "8/8/8/8/8/8/6B1/8 w - - 0 1", question: "Which square is the bishop on?", options: ["g2", "h2", "f2"], correctAnswer: 0, explanation: "The bishop is on g2.", rating: 200, themes: ["notation"] },
+                { id: "L1_t2_b1_29", type: "quiz", fen: "7Q/8/8/8/8/8/8/8 w - - 0 1", question: "Which square is the queen on?", options: ["h8", "g8", "f8"], correctAnswer: 0, explanation: "The queen is on h8.", rating: 200, themes: ["notation"] },
+                { id: "L1_t2_b1_30", type: "quiz", fen: "8/8/8/4R3/8/8/8/8 w - - 0 1", question: "Which square is the rook on?", options: ["e5", "e4", "f5"], correctAnswer: 0, explanation: "The rook is on e5.", rating: 200, themes: ["notation"] }
+            ]
+        }
+    ]
 };
 
 export const PIECES = {
     title: "Pieces",
-    blocks: [{
-        id: "block_1",
-        puzzles: [
-            { id: "pcs_1", type: "quiz", question: "How many pawns does each player start with?", options: ["6", "8", "10", "12"], correctAnswer: 1, explanation: "Each player starts with 8 pawns.", rating: 100, themes: ["pieces"] },
-            { id: "pcs_2", type: "quiz", question: "Which piece can jump over others?", options: ["Bishop", "Rook", "Knight", "Queen"], correctAnswer: 2, explanation: "Only the Knight can jump over other pieces.", rating: 100, themes: ["pieces"] },
-            { id: "pcs_3", type: "quiz", question: "Which piece is the most powerful?", options: ["King", "Queen", "Rook", "Bishop"], correctAnswer: 1, explanation: "The Queen is the most powerful piece.", rating: 100, themes: ["pieces"] },
-            { id: "pcs_4", type: "quiz", question: "How many rooks does each player have?", options: ["1", "2", "3", "4"], correctAnswer: 1, explanation: "Each player has 2 rooks in the corners.", rating: 100, themes: ["pieces"] },
-            { id: "pcs_5", type: "quiz", question: "Which piece must be protected at all costs?", options: ["Queen", "Rook", "King", "Knight"], correctAnswer: 2, explanation: "The King - if checkmated, you lose!", rating: 100, themes: ["pieces"] }
-        ]
-    }]
+    blocks: [
+        {
+            id: "block_1",
+            puzzles: [
+                { id: "L1_t3_b1_1", type: "quiz", fen: "8/8/8/8/4K3/8/8/8 w - - 0 1", question: "What piece is this called?", options: ["Queen", "King", "Rook"], correctAnswer: 1, explanation: "That is the King — the most important piece in chess.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_2", type: "quiz", fen: "8/8/8/8/4K3/8/8/8 w - - 0 1", question: "Is the king the main piece that we protect?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! The entire game revolves around protecting your king.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_3", type: "quiz", fen: "8/8/8/8/4K3/8/8/8 w - - 0 1", question: "Can we play a game without a king?", options: ["Yes", "No"], correctAnswer: 1, explanation: "No! You must always have a king on the board.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_4", type: "quiz", fen: "8/8/8/8/4K3/8/8/8 w - - 0 1", question: "When is the king most active?", options: ["Opening", "Middlegame", "Endgame"], correctAnswer: 2, explanation: "In the endgame! When most pieces are off the board, the king becomes an active fighter.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_5", type: "quiz", fen: "8/8/8/8/4K3/8/8/8 w - - 0 1", question: "Can we capture a king?", options: ["Yes", "No"], correctAnswer: 1, explanation: "No! When the king is in checkmate, the game ends. Kings are never actually captured.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_6", type: "quiz", fen: "8/8/8/8/4K3/8/8/8 w - - 0 1", question: "How does the king move?", options: ["Straight only", "Vertically only", "One square in all directions"], correctAnswer: 2, explanation: "The king moves one square in any direction — up, down, left, right, or diagonal.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_7", type: "quiz", fen: "8/8/3R4/8/8/8/8/8 w - - 0 1", question: "What is this piece called?", options: ["Pawn", "Rook", "Queen"], correctAnswer: 1, explanation: "That is a Rook — it moves in straight lines along ranks and files.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_8", type: "quiz", fen: "8/8/3R4/8/8/8/8/8 w - - 0 1", question: "How does the rook move?", options: ["Straight", "Vertically only", "Diagonally"], correctAnswer: 0, explanation: "The rook moves in straight lines — horizontally and vertically.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_9", type: "quiz", fen: "8/8/3R4/8/8/8/8/8 w - - 0 1", question: "Does the rook jump over other pieces?", options: ["Yes", "No"], correctAnswer: 1, explanation: "No! Only the knight can jump over other pieces.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_10", type: "quiz", fen: "8/8/3R1P2/8/8/8/8/8 w - - 0 1", question: "Does the rook have more value than a Pawn?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! A rook is worth 5 points, while a pawn is only 1 point.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_11", type: "quiz", fen: "8/8/3R1N2/8/8/8/8/8 w - - 0 1", question: "Is the rook more valuable than the knight?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! Rook (5 pts) > Knight (3 pts).", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_12", type: "quiz", fen: "8/8/8/4N3/8/8/8/8 w - - 0 1", question: "What is this piece called?", options: ["Bishop", "Knight", "Rook"], correctAnswer: 1, explanation: "That is a Knight — it moves in an L-shape.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_13", type: "quiz", fen: "8/8/8/4N3/8/8/8/8 w - - 0 1", question: "How does the Knight move?", options: ["Vertically", "L shape", "Diagonally"], correctAnswer: 1, explanation: "The knight moves in an L-shape: 2 squares in one direction, then 1 square perpendicular.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_14", type: "quiz", fen: "8/8/8/4N3/8/8/8/8 w - - 0 1", question: "How many squares can a knight reach from the center?", options: ["3 squares", "8 squares", "6 squares"], correctAnswer: 1, explanation: "From the center, a knight controls up to 8 different squares.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_15", type: "quiz", fen: "8/8/8/4PP2/3N4/8/8/8 w - - 0 1", question: "Can the knight jump over a piece?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! The knight is the only piece that can jump over other pieces.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_16", type: "quiz", fen: "8/8/8/4PP2/3N4/8/8/8 w - - 0 1", question: "Can the Knight move straight forward?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! The knight can move forward as part of its L-shaped move (2 up + 1 side, or 1 up + 2 side).", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_17", type: "quiz", fen: "8/8/8/8/3B4/8/8/8 w - - 0 1", question: "What is this piece called?", options: ["Bishop", "Knight", "Queen"], correctAnswer: 0, explanation: "That is a Bishop — it moves diagonally.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_18", type: "quiz", fen: "8/8/8/8/3B4/8/8/8 w - - 0 1", question: "How does the Bishop move?", options: ["Straight", "Diagonally", "Vertically"], correctAnswer: 1, explanation: "The bishop moves diagonally any number of squares.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_19", type: "quiz", fen: "8/8/8/8/8/8/8/B7 w - - 0 1", question: "Can the bishop move to the top right corner?", options: ["Yes", "No"], correctAnswer: 0, explanation: "Yes! The bishop on a1 can travel diagonally all the way to h8.", rating: 100, themes: ["pieces"] },
+                { id: "L1_t3_b1_20", type: "quiz", fen: "8/8/8/8/8/8/8/B7 w - - 0 1", question: "What is the bishop's range?", options: ["Short", "Long"], correctAnswer: 1, explanation: "Long! The bishop can travel across the entire diagonal in one move.", rating: 100, themes: ["pieces"] }
+            ]
+        },
+        {
+            id: "block_2",
+            puzzles: [
+                { id: "L1_t3_b2_21", type: "quiz", fen: "8/8/8/8/8/8/3R4/8 w - - 0 1", question: "What is the rook's range?", options: ["Long", "Short", "Medium"], correctAnswer: 0, explanation: "Long! The rook can move the entire length of the board in one move.", rating: 200, themes: ["pieces"] },
+                { id: "L1_t3_b2_22", type: "quiz", fen: "8/8/8/5N2/8/8/8/8 w - - 0 1", question: "What is the knight's range?", options: ["Long", "Short", "Medium"], correctAnswer: 1, explanation: "Short! The knight can only jump one L-shape away per move.", rating: 200, themes: ["pieces"] },
+                { id: "L1_t3_b2_23", type: "quiz", fen: "8/8/8/5N2/8/8/8/8 w - - 0 1", question: "Does the knight play a crucial role in defense?", options: ["Yes!", "No"], correctAnswer: 0, explanation: "Yes! Knights are excellent defenders because they can jump over pieces and cover unique squares.", rating: 200, themes: ["pieces"] },
+                { id: "L1_t3_b2_24", type: "quiz", fen: "8/8/8/8/3Q4/8/8/8 w - - 0 1", question: "What is this piece called?", options: ["Queen", "King", "Rook"], correctAnswer: 0, explanation: "It is the Queen — the most powerful piece on the board.", rating: 200, themes: ["pieces"] },
+                { id: "L1_t3_b2_25", type: "quiz", fen: "8/8/8/8/3Q4/8/8/8 w - - 0 1", question: "How does it move?", options: ["All ways", "Only straight", "Only diagonal"], correctAnswer: 0, explanation: "The queen moves in all directions — combining the power of rook and bishop.", rating: 200, themes: ["pieces"] },
+                { id: "L1_t3_b2_26", type: "quiz", fen: "8/8/8/8/3P4/2P1P3/3Q4/8 w - - 0 1", question: "Can the queen jump over pieces?", options: ["No", "Yes"], correctAnswer: 0, explanation: "No! The queen cannot jump over other pieces — only knights can.", rating: 200, themes: ["pieces"] },
+                { id: "L1_t3_b2_27", type: "quiz", fen: "8/8/8/8/8/8/P7/8 w - - 0 1", question: "What is this piece called?", options: ["Pawn", "Bishop", "Knight"], correctAnswer: 0, explanation: "It is a Pawn — the smallest piece, but they are the soul of chess!", rating: 200, themes: ["pieces"] },
+                { id: "L1_t3_b2_28", type: "quiz", fen: "8/8/8/8/4P3/8/8/8 w - - 0 1", question: "How does the pawn move in this position?", options: ["One square forward", "Two squares forward", "Diagonally"], correctAnswer: 0, explanation: "One square forward — this pawn is not on its starting rank, so it can only advance one square.", rating: 200, themes: ["pieces"] },
+                { id: "L1_t3_b2_29", type: "quiz", fen: "8/8/8/4n3/3P4/8/8/8 w - - 0 1", question: "How can the pawn capture?", options: ["Left side forward", "Straight forward", "Backward"], correctAnswer: 0, explanation: "The pawn captures diagonally forward — and the knight on e5 is to the left forward of the d4 pawn.", rating: 200, themes: ["pieces"] },
+                { id: "L1_t3_b2_30", type: "quiz", fen: "8/8/8/8/8/8/P7/8 w - - 0 1", question: "How many squares can a pawn move at most?", options: ["2 squares", "1 square", "3 squares"], correctAnswer: 0, explanation: "2 squares maximum — only from its starting rank can a pawn move two squares.", rating: 200, themes: ["pieces"] }
+            ]
+        }
+    ]
 };

@@ -27,7 +27,7 @@ export const ChessBoardView = ({
   onSquareClick,
   orientation = 'w',
   theme = 'modern',
-  size = 440,
+  size = 780,
   selectedSquare = null,
   showLegalMoves = true
 }) => {
@@ -74,7 +74,7 @@ export const ChessBoardView = ({
       className="inline-flex flex-col"
       style={{
         backgroundColor: currentTheme.border,
-        padding: '16px',
+        padding: '0.5px',
         borderRadius: '8px',
         boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.6)',
         userSelect: 'none',

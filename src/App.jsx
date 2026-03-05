@@ -1,6 +1,17 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Routes, Route, useNavigate, useParams, Navigate, useLocation } from 'react-router-dom';
 import { Chess } from 'chess.js';
+
+// Handles incomplete teaching FENs (e.g. single king) that chess.js rejects normally
+const createGameFromFen = (fen) => {
+  const safeFen = fen || 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
+  try { return new Chess(safeFen); } catch {
+    try { const g = new Chess(); g.load(safeFen, { skipValidation: true }); return g; } catch {
+      return new Chess();
+    }
+  }
+};
+
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { MobileMenu } from './components/layout/MobileMenu';
@@ -119,17 +130,13 @@ const PuzzlePage = () => {
   }, [topic, block, blockNumber, levelId, navigate]);
 
   const initGame = (puzzle) => {
-    if (puzzle && puzzle.type !== 'quiz' && puzzle.fen) {
-      try {
-        setGame(new Chess(puzzle.fen));
-      } catch (e) {
-        console.error('Invalid FEN', e);
-        setGame(new Chess());
-      }
+    if (puzzle && puzzle.fen) {
+      setGame(createGameFromFen(puzzle.fen));
     } else {
       setGame(new Chess());
     }
   };
+
 
   const handlePuzzleChange = (index) => {
     if (index >= 0 && index < currentPuzzles.length) {

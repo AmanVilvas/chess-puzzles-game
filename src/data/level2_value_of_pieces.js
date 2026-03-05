@@ -8,6 +8,7 @@ export const VALUE_OF_PIECES = {
                 {
                     id: "val_1_1",
                     type: "quiz",
+                    fen: "8/8/8/8/8/8/8/8 w - - 0 1",
                     question: "What is the standard point value of a Pawn?",
                     options: ["1 point", "3 points", "5 points", "0 points"],
                     correctAnswer: 0,
@@ -18,6 +19,7 @@ export const VALUE_OF_PIECES = {
                 {
                     id: "val_1_2",
                     type: "quiz",
+                    fen: "8/8/8/8/8/8/8/8 w - - 0 1",
                     question: "How many points is a Knight worth?",
                     options: ["1 point", "3 points", "5 points", "9 points"],
                     correctAnswer: 1,
@@ -28,6 +30,7 @@ export const VALUE_OF_PIECES = {
                 {
                     id: "val_1_3",
                     type: "quiz",
+                    fen: "8/8/8/8/8/8/8/8 w - - 0 1",
                     question: "What is the approximate value of a Bishop?",
                     options: ["1 point", "3 points", "5 points", "10 points"],
                     correctAnswer: 1,
@@ -38,6 +41,7 @@ export const VALUE_OF_PIECES = {
                 {
                     id: "val_1_4",
                     type: "quiz",
+                    fen: "8/8/8/8/8/8/8/8 w - - 0 1",
                     question: "How much is a Rook worth?",
                     options: ["3 points", "5 points", "7 points", "9 points"],
                     correctAnswer: 1,
@@ -48,6 +52,7 @@ export const VALUE_OF_PIECES = {
                 {
                     id: "val_1_5",
                     type: "quiz",
+                    fen: "8/8/8/8/8/8/8/8 w - - 0 1",
                     question: "What is the value of the Queen?",
                     options: ["5 points", "9 points", "10 points", "Infinite"],
                     correctAnswer: 1,
@@ -64,6 +69,7 @@ export const VALUE_OF_PIECES = {
                 {
                     id: "val_2_1",
                     type: "quiz",
+                    fen: "8/8/8/8/8/8/8/8 w - - 0 1",
                     question: "Which piece has a higher value?",
                     options: ["Knight (3)", "Rook (5)", "They are equal", "Pawn (1)"],
                     correctAnswer: 1,
@@ -74,6 +80,7 @@ export const VALUE_OF_PIECES = {
                 {
                     id: "val_2_2",
                     type: "quiz",
+                    fen: "8/8/8/8/8/8/8/8 w - - 0 1",
                     question: "Is it a good trade to give up a Queen for a Rook?",
                     options: ["Yes, always", "No, because 9 > 5", "Yes, they are equal", "Only if it's Tuesday"],
                     correctAnswer: 1,
@@ -84,6 +91,7 @@ export const VALUE_OF_PIECES = {
                 {
                     id: "val_2_3",
                     type: "quiz",
+                    fen: "8/8/8/8/8/8/8/8 w - - 0 1",
                     question: "Which pair of pieces has the same total value?",
                     options: ["Rook & Pawn (6)", "Two Knights (6)", "Bishop & Knight (6)", "All of the above"],
                     correctAnswer: 3,
@@ -94,6 +102,7 @@ export const VALUE_OF_PIECES = {
                 {
                     id: "val_2_4",
                     type: "quiz",
+                    fen: "8/8/8/8/8/8/8/8 w - - 0 1",
                     question: "Who is winning in material? White: Rook + Pawn vs Black: Bishop + Knight.",
                     options: ["White is winning", "Black is winning", "Material is equal", "Impossible to tell"],
                     correctAnswer: 2,
@@ -104,6 +113,7 @@ export const VALUE_OF_PIECES = {
                 {
                     id: "val_2_5",
                     type: "quiz",
+                    fen: "8/8/8/8/8/8/8/8 w - - 0 1",
                     question: "Which combination is worth the most points?",
                     options: ["Two Rooks (10)", "One Queen (9)", "Three Minor Pieces (9)", "Eight Pawns (8)"],
                     correctAnswer: 0,

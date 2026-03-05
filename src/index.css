@@ -465,8 +465,8 @@ h3 {
   .puzzle-container {
     display: flex !important;
     flex-direction: column !important;
-    padding: 16px !important;
-    gap: 16px !important;
+    padding: 8px !important;
+    gap: 8px !important;
     justify-content: flex-start !important;
     height: auto !important;
     min-height: auto !important;
@@ -477,13 +477,13 @@ h3 {
   /* Mobile sidebar - hide less important elements */
   .puzzle-sidebar {
     width: 100% !important;
-    max-width: 400px !important;
+    max-width: 100% !important;
     min-width: auto !important;
     order: 2;
     flex-shrink: 0 !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 16px !important;
+    gap: 6px !important;
   }
 
   .puzzle-sidebar>* {
@@ -494,27 +494,28 @@ h3 {
   /* Mobile board area - responsive sizing */
   .puzzle-board-area {
     width: 100% !important;
-    max-width: 400px !important;
-    /* Match sidebar width */
+    max-width: 100% !important;
     min-width: auto !important;
     order: 1;
     display: flex !important;
-    justify-content: center !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
     align-items: center !important;
     flex-shrink: 0 !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 4px !important;
+    overflow: visible !important;
   }
 
-  /* Board container responsive */
+  /* Board+quiz container - let height grow naturally with content */
   .puzzle-board-area>div:first-child {
     width: 100% !important;
-    /* Ensure it doesn't overflow screen width - padding */
-    max-width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 16px) !important;
     height: auto !important;
-    aspect-ratio: 1 !important;
     display: flex !important;
-    justify-content: center !important;
+    flex-direction: column !important;
     align-items: center !important;
+    gap: 8px !important;
+    overflow: visible !important;
   }
 
   /* Left sidebar hidden on mobile */
@@ -524,20 +525,28 @@ h3 {
 
   /* Quiz card mobile */
   .quiz-card {
-    padding: 12px !important;
-    gap: 10px !important;
+    padding: 8px !important;
+    gap: 6px !important;
     height: auto !important;
     min-height: auto !important;
     width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Quiz options — 2 column on mobile */
+  .quiz-options {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
   }
 
   .quiz-question {
-    font-size: 18px !important;
+    font-size: 13px !important;
   }
 
   .quiz-option {
-    padding: 12px !important;
-    font-size: 14px !important;
+    padding: 6px !important;
+    font-size: 12px !important;
   }
 
   /* Pagination buttons mobile */
@@ -698,15 +707,13 @@ h3 {
   }
 }
 
-/* Touch-friendly tap targets for mobile */
+/* Touch-friendly tap targets for mobile - only for nav buttons, not quiz options */
 @media (max-width: 1023px) {
 
-  button,
-  a,
-  input[type="button"],
-  input[type="submit"] {
-    min-height: 44px;
-    min-width: 44px;
+  nav button,
+  header button,
+  header a {
+    min-height: 36px;
   }
 }
 
