@@ -143,9 +143,10 @@ export const PuzzleView = ({
   // Parse SAN moves from option text like "Kg4 then Kg3 then Kh2" or "fxe4, exd5"
   const parseMovesFromText = (text) => {
     if (!text) return [];
-    const parts = text.split(/\s+then\s+|,\s*/i);
-    // Basic SAN pattern: optional piece, optional file/rank, optional x, dest square, optional promo/check
-    const movePattern = /^([KQRBN]?[a-h]?[1-8]?x?[a-h][1-8]([KQRBN])?[+#!?]*|O-O(-O)?)$/;
+    // Split on 'then', 'and', commas, or arrow variations
+    const parts = text.split(/\s+then\s+|\s+and\s+|,\s*|\s*→\s*|\s*->\s*|\s*=>\s*/i);
+    // Basic SAN pattern: optional piece, optional file/rank, optional x or -, dest square, optional promo/check
+    const movePattern = /^([KQRBN]?[a-h]?[1-8]?[-x]?[a-h][1-8]([KQRBN])?[+#!?]*|O-O(-O)?)$/;
     return parts.map(p => p.trim()).filter(p => movePattern.test(p));
   };
 
@@ -209,11 +210,15 @@ export const PuzzleView = ({
       const useCompact = (level?.id === 1 && blockNumber === 3) || (level?.id === 1 && hasFenProp);
 
       if (width < 640) {
-        setBoardSize(useCompact ? Math.min(320, width * 0.75) : Math.min(420, width - 40));
+        setBoardSize(useCompact ? Math.min(340, width * 0.8) : Math.min(420, width - 40));
       } else if (width < 1024) {
-        setBoardSize(useCompact ? Math.min(420, width - 64) : Math.min(580, width - 64));
+        setBoardSize(useCompact ? Math.min(460, width - 64) : Math.min(580, width - 64));
+      } else if (width < 1280) {
+        setBoardSize(useCompact ? 500 : 640);
+      } else if (width < 1536) {
+        setBoardSize(useCompact ? 560 : 760);
       } else {
-        setBoardSize(useCompact ? 460 : 680);
+        setBoardSize(useCompact ? 600 : 840);
       }
     };
 
@@ -1098,12 +1103,15 @@ export const PuzzleView = ({
         </aside>
         { }
         <div
-          className="flex flex-col items-center justify-center gap-4 puzzle-board-area"
+          className="flex flex-col items-center gap-4 puzzle-board-area"
           style={{
             position: "relative",
-            overflow: "visible",
-            flexShrink: 0,
+            overflowY: "auto",
+            overflowX: "hidden",
+            flexShrink: 1,
+            maxHeight: "100%",
             paddingTop: "5px",
+            paddingBottom: "24px",
           }}
         >
           { }
@@ -1227,10 +1235,10 @@ export const PuzzleView = ({
             className="flex gap-2"
             style={{
               width: "100%",
-              maxWidth: "552px",
+              maxWidth: "100%",
               justifyContent: "center",
               alignItems: "center",
-              flexWrap: "nowrap",
+              flexWrap: "wrap",
               flexShrink: 0,
               marginTop: "1px",
               marginBottom: "1px",
