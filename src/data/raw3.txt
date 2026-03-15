@@ -1,0 +1,453 @@
+                              Level 2 Piece Exchange 
+
+                                                              Block 3
+
+I'd: l2_t1_b3_1    
+Fen 1 :8/p1p3rk/1pP5/3P4/6R1/8/PP6/1K6 w - - 0 2
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question : Is trading Rook safe here?
+Answer : 1.Rxg7
+
+I'd: l2_t1_b3_2    
+Fen 2 :6k1/6p1/5n2/4P3/1p6/1P3N2/6P1/6K1 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Should you take the Knight?
+Answer : 1.exf6
+
+I'd: l2_t1_b3_3    
+Fen 3 : 4k3/2p3p1/3r1n2/4P3/8/1B3N2/2P2K2/8 b - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is the rook trade winning?
+Answer : 1.exd6
+
+I'd: l2_t1_b3_4     
+Fen 4 :5rk1/7p/1p4p1/4n3/8/3R1B1P/2P3P1/7K w - - 0 2
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Does exchanging rooks help your attack?
+Answer : 1.(...) Nxd3
+
+I'd: l2_t1_b3_5     
+Fen 5 :r4rk1/p5pp/1p3n2/8/8/1P4P1/2P3BP/3RR1K1 b - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Trade your bishop against your Rook?
+Answer :1.Bxa8
+
+I'd: l2_t1_b3_6     
+Fen 6 : 5rk1/1p1q1ppp/p4n2/8/8/1B3Q2/1PP3PP/3R2K1 b - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Exchange Queen for a Rook.
+Answer : 1.Rxd7
+
+I'd: l2_t1_b3_7    
+Fen 7 : 6k1/5pp1/2n1p2p/1p1r4/8/2N5/1PP2PPP/4R1K1 b - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Should you exchange Rook for a Knight?
+Answer : 1.Nxd5
+
+I'd: l2_t1_b3_8     
+Fen 8 :r2r2k1/2p2pp1/7p/6b1/8/2N4P/1P3PP1/2R2RK1 w - - 0 2
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is the rook trade winning?
+Answer : 1.(...) Bxc1
+
+I'd: l2_t1_b3_9     
+Fen 9 :q5k1/5p1p/2p3p1/8/1p3P2/1P4P1/2r2QKP/3R4 w - - 0 2
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is trading queens for a Rook safe here?
+Answer : 1.(...) Rxf2
+
+I'd: l2_t1_b3_10     
+Fen 10 :4k2r/4bppp/5n2/4p3/3p4/2N1PP2/1P2B1PP/4K2R w - - 0 3
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Does take the Knight help your attack?
+Answer : 1.(...) dxc3
+
+I'd: l2_t1_b3_11     
+Fen 11 : 5rk1/p3bppp/1p3n2/4p3/P2p4/2N1PP2/1P2B1PP/5RK1 w - - 0 3
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Exchange the knight or retreat?
+Answer : 1.(...) dxc3
+
+I'd: l2_t1_b3_12     
+Fen 12 :3q1rk1/2p2p1p/3b2p1/8/2P2Q2/R4NP1/1P3P2/6K1 w - - 0 4
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Trade the Queen or keep pressure?
+Answer : 1.(...) Bxf4
+
+I'd: l2_t1_b3_13     
+Fen 13 :r4rk1/p5pp/1pp5/3n4/2P5/1P4P1/2P3NP/3RR1K1 w - - 0 2
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question : Take the Knight?
+Answer : 1.cxd5
+
+I'd: l2_t1_b3_14     
+Fen 14 :q2r4/2p3pk/1p3p1p/1P6/8/5NP1/6PP/Q1R4K w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Should you exchange queens?
+Answer : 1.Qxa8
+
+I'd: l2_t1_b3_15     
+Fen 15 :rk2r3/2p2qp1/1p2np1p/1P6/8/5NPB/5QPP/R1R4K w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Does exchanging rooks help your attack?
+Answer : 1.Rxa8
+
+I'd: l2_t1_b3_16     
+Fen 16 :1k1r3r/2p3pq/1p3p1p/1Pn5/8/5NPB/6PP/RQR4K w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is trading queens safe here?
+Answer : 1.Qxh7
+
+I'd: l2_t1_b3_17     
+Fen 17 :3r1r2/2p1q1pk/1p1n3p/3p4/7N/2PQ2PB/1P4PP/2R2R1K w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is the rook trade winning?
+Answer : 1.Rxf8
+
+I'd: l2_t1_b3_18     
+Fen 18 :3r1r1k/2p1q1p1/1p1p1p1p/7b/8/1NP1NnP1/1PQ2PBP/2R2RK1 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Trade your bad bishop?
+Answer : 1.Bxf3
+
+I'd: l2_t1_b3_19     
+Fen 19 :2r5/5p1k/4b1p1/7p/7P/4B1P1/5PNK/2R5 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Exchange rooks now or later?
+Answer : 1. Rxc8
+
+I'd: l2_t1_b3_20     
+Fen 20 :2r3k1/5p2/4b1p1/6Np/7P/4B1P1/5P1K/1R6 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Trade the bishop or keep pressure?
+Answer : 1.Nxe6
+
+I'd: l2_t1_b3_21     
+Fen 21 :r5kq/5p2/4b1p1/1p4Np/1P1Q3P/4B1P1/5P1K/1R6 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Trade queens or attack?
+Answer : 1.Qxh8
+
+I'd: l2_t1_b3_22    
+Fen 22 :r5kq/5p2/4b1p1/1p5p/1PnQ3P/4B1P1/5P1K/1R6 w - - 0 1
+Goal : Capture
+Turn : Black 
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Exchange the Queen’s or retreat?
+Answer : 1.(...) Qxd4
+
+I'd: l2_t1_b3_23     
+Fen 23 :6k1/5pb1/4b1p1/1p5p/1P1B3P/r4NP1/5PBK/4R3 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Trade your bishop?
+Answer : 1.Bxg7
+
+I'd: l2_t1_b3_24     
+Fen 24 :6k1/5p2/3Nb1p1/1pB4p/1P5P/r3R1P1/1b3PBK/8 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Exchange rooks now or later?
+Answer : 1.Rxa3
+
+I'd: l2_t1_b3_25     
+Fen 25 :6k1/2q2p2/4bnp1/1p5p/1P5P/3B2P1/1bQ2PBK/8 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Trade queens or attack?
+Answer : 1.(...) Qxc2
+
+I'd: l2_t1_b3_26     
+Fen 26 :6k1/5p2/4bnp1/1p5p/1P2N2P/3B2P1/1b3P1K/8 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Exchange the knight or retreat?
+Answer : 1.(...) Nxe4
+
+I'd: l2_t1_b3_27     
+Fen 27 :6k1/5p2/5np1/1pN4p/pPbp3P/3B2P1/5P1K/8 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Trade the bishop or keep pressure?
+Answer : 1.(...) Bxd3
+
+I'd: l2_t1_b3_28     
+Fen 28 :6k1/5p2/5np1/PpN4p/1Pb4P/2PB2P1/5P1K/8 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Trade your bad bishop?
+Answer : 1.Bxc4
+
+I'd: l2_t1_b3_29    
+Fen 29 :4q1k1/5p2/5npp/PpN5/1P6/2P3P1/4QP1P/6K1 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is trading queens safe here?
+Answer : 1.Qxe8
+
+I'd: l2_t1_b3_30    
+Fen 30 :6k1/1q3p2/5np1/1p5p/1P3N2/p1P3P1/5PQP/5K2 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question : Is this Queen trade simplifying too much?
+Answer : 1.(...) Qxg2
+
+I'd: l2_t1_b3_31   
+Fen 31 :r2qr1kn/pb3np1/5pNp/1p6/1P6/2P3N1/1QB2PPP/R4RK1 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question : Is trading your bad Knight correct?
+Answer : 1.(...)Nxg6
+
+I'd: l2_t1_b3_32     
+Fen 32 :r1r1q2k/pp4p1/2p2nbp/8/3P4/2P2NP1/PP4PK/R2RQ3 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question : Does exchanging this Queen’s weaken your control?
+Answer : 1.(...)Qxe1
+
+I'd: l2_t1_b3_33   
+Fen 33 :r1r1q2k/ppb3p1/2p2n1p/8/3P1PN1/2PB3P/PPQ3P1/R4R1K w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Does exchanging the knight is possible?
+Answer :1.Nxf6
+
+I'd: l2_t1_b3_34     
+Fen 34 :1qr1r2k/1p4p1/p1n2n1p/8/7P/P1B2NP1/1PP2P2/1KQR3R w - - 0 1
+Goal : Capture
+Turn :  White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is this knight exchange favorable?
+Answer : 1.Bxf6
+
+I'd: l2_t1_b3_35     
+Fen 35 :r1q1rb1k/2p3pp/1p3n2/pn6/8/1PNR3P/P1P3P1/1K1Q3R w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is trading this knight good for you?
+Answer : 1.(...)Nxc3
+
+I'd: l2_t1_b3_36     
+Fen 36 :r3rb1k/2p3pp/qp3n2/pQ6/8/1PNR3P/P1P3P1/1K1R4 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is trading queens safe here?
+Answer : 1.(...) Qxb5
+
+I'd: l2_t1_b3_37    
+Fen 37 :r3rb1k/1qp3pp/1p3p2/p2Qp3/8/1P3P1P/P1P1B3/1K1R2R1 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Should you exchange queens?
+Answer : 1.(...) Qxd5
+
+I'd: l2_t1_b3_38     
+Fen 38 :r4brk/1qp4p/1p3p2/p3p2Q/4P3/1P3P1P/P1P1B3/1K1R2R1 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is the rook trade winning?
+Answer : 1.Rxg8
+
+I'd: l2_t1_b3_39    
+Fen 39 :1rk5/8/3K4/5pP1/4pP1p/4P2P/8/1R6 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is this rook trade simplifying too much?
+Answer : 1.Rxb8
+
+I'd: l2_t1_b3_40  
+Fen 40 :r5rk/1pp3bp/p5p1/q3p3/4P3/1Pn3P1/PBP1Q1NP/3R1R1K w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is trading your bad bishop correct?
+Answer : 1.Bxc3
+
+I'd: l2_t1_b3_41    
+Fen 41 :r2r2k1/1pp3bp/p5p1/q3p3/4P2N/1P4PQ/PBP4P/3R1R1K w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Does exchanging rooks help your attack?
+Answer :1.Rxd8
+
+I'd: l2_t1_b3_42     
+Fen 42 :8/8/1p6/p1n2k2/P3N2P/5KP1/8/8 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is trading this knight good for you?
+Answer : 1.Nxc5
+
+I'd: l2_t1_b3_43     
+Fen 43 :8/8/1p1n4/p4k1p/2N4P/1P2K1P1/8/8 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Does exchanging the knight weaken your control?
+Answer : 1.(...) Nxc4
+
+I'd: l2_t1_b3_44    
+Fen 44 :8/8/1p6/p3rk1p/P1K4P/1P4P1/4R3/8 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question : Is the rook trade winning?
+Answer : 1.Rxe5
+
+I'd: l2_t1_b3_45     
+Fen 45 :8/8/1pN5/p3nk1p/P1K4P/1P4P1/8/8 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is this knight exchange favorable?
+Answer : 1.Nxe5
+
+I'd: l2_t1_b3_46     
+Fen 46 :8/8/1p6/p3p2p/P1N4P/1PK1nkP1/8/8 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is this knight exchange favorable?
+Answer : 1.(...) Nxc4
+
+I'd: l2_t1_b3_47    
+Fen 47 :r2q1rk1/1bp2p1p/p4np1/1p6/6N1/3B4/PPPB1PPP/R3QRK1 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Does exchanging the knight possible?
+Answer : 1.Nxf6
+
+I'd: l2_t1_b3_48    
+Fen 48 :4r3/8/1p6/p3p2p/P3n1pP/1P3kP1/2KN4/3R4 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is trading your Knight correct?
+Answer : 1.(...) Nxd2
+
+I'd: l2_t1_b3_49    
+Fen 49 :8/8/8/p1nk2p1/P4pPp/1NK2P2/7P/8 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question :Is trading this knight good for you?
+Answer : 1.(...)Nxb3
+
+I'd: l2_t1_b3_50    
+Fen 50 :8/8/8/p3k1p1/P4pPp/1R2rP2/2K4P/8 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Piece Exchange 
+Question : Is this rook trade simplifying too much?
+Answer: 1.(...) Rxb3

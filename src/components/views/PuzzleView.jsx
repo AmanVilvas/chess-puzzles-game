@@ -138,7 +138,12 @@ export const PuzzleView = ({
     options: puzzle.options,
     correctAnswer: puzzle.correctAnswer,
     explanation: puzzle.explanation,
+    description: puzzle.description,
+    exampleText: puzzle.exampleText,
   };
+
+  // Detect description-heavy puzzles (interactive board with rule description)
+  const isEtiquette = safePuzzle.type === 'etiquette' || !!safePuzzle.description;
 
   // Parse SAN moves from option text like "Kg4 then Kg3 then Kh2" or "fxe4, exd5"
   const parseMovesFromText = (text) => {
@@ -205,28 +210,35 @@ export const PuzzleView = ({
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      // Use compact board for Block 3 AND any Level 1 puzzle that has a FEN (pawn board puzzles)
-      const hasFenProp = !!(safePuzzle.fen && safePuzzle.fen.trim());
-      const useCompact = (level?.id === 1 && blockNumber === 3) || (level?.id === 1 && hasFenProp);
+      const height = window.innerHeight;
+      // Cap board to 85% of viewport height minus padding so it never overflows
+      const maxByHeight = Math.floor(height * 0.85) - 40;
 
+      // Compact mode only for Level 1 block 3 (pawn structure)
+      const useCompact = level?.id === 1 && blockNumber === 3;
+
+      let size;
       if (width < 640) {
-        setBoardSize(useCompact ? Math.min(340, width * 0.8) : Math.min(420, width - 40));
+        size = useCompact ? Math.min(320, width * 0.8) : Math.min(360, width - 40);
       } else if (width < 1024) {
-        setBoardSize(useCompact ? Math.min(460, width - 64) : Math.min(580, width - 64));
+        size = useCompact ? Math.min(400, width - 64) : Math.min(480, width - 64);
       } else if (width < 1280) {
-        setBoardSize(useCompact ? 500 : 640);
+        size = useCompact ? 440 : 540;
       } else if (width < 1536) {
-        setBoardSize(useCompact ? 560 : 760);
+        size = useCompact ? 480 : 600;
       } else {
-        setBoardSize(useCompact ? 600 : 840);
+        size = useCompact ? 520 : 660;
       }
+
+      // Never let the board taller than what the viewport can show
+      setBoardSize(Math.min(size, maxByHeight));
     };
 
     window.addEventListener('resize', handleResize);
     handleResize();
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [level, blockNumber, safePuzzle.fen]);
+  }, [level, blockNumber]);
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")
@@ -590,1137 +602,251 @@ export const PuzzleView = ({
   const puzzleHasFen = !!(safePuzzle.fen && safePuzzle.fen.trim());
   const showBoard = (!isLevel1 || isBlock3 || puzzleHasFen);
 
-  // If it's a quiz with NO board, we might want to center the quiz
-  // or use the board area for the quiz.
-
   const themeOptions = Object.entries(BOARD_THEMES);
+
   return (
     <div
-      className="flex flex-col min-h-screen md:h-[100dvh] md:overflow-hidden"
-      style={{
-        backgroundColor: "var(--color-bg-primary)",
-      }}
+      className="flex flex-col min-h-screen md:h-[100dvh] p-4 md:p-6 fade-in"
+      style={{ backgroundColor: "var(--color-bg-primary)" }}
     >
-      { }
-      <header
-        className="flex-shrink-0 flex items-center justify-between px-6"
-        style={{
-          height: "56px",
-          backgroundColor: "var(--color-bg-secondary)",
-          borderBottom: "1px solid var(--color-border-primary)",
-          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.3)",
-          zIndex: 10,
-          position: "relative",
-        }}
+      <div 
+        className="flex flex-col lg:flex-row gap-5 h-full w-full max-w-[1400px] mx-auto overflow-hidden"
       >
-        <div className="flex items-center gap-2 md:gap-6">
-          <div className="flex items-center gap-2 md:gap-3">
-            <span className="text-xl md:text-2xl">👑</span>
-            <span
-              className="text-base md:text-xl font-bold tracking-tight"
-              style={{
-                color: "var(--color-text-primary)",
-              }}
-            >
-              RATHISHRAVI
-            </span>
-          </div>
-          <button
-            onClick={onBack}
-            className="transition-base flex items-center gap-2 px-2 py-2 sm:px-4"
-            style={{
-              fontSize: "14px",
-              fontWeight: 600,
-              backgroundColor: "var(--color-bg-elevated)",
-              border: "1px solid var(--color-border-primary)",
-              borderRadius: "var(--radius-md)",
-              cursor: "pointer",
-              color: "var(--color-text-primary)",
-            }}
-          >
-            <ChevronLeft className="w-4 h-4" />
-            <span className="hidden sm:inline">PUZZLES</span>
-          </button>
-        </div>
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => window.open("https://chesswithrathish.com/", "_blank")}
-            className="flex items-center gap-2 px-3 py-2 sm:px-5 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-            style={{
-              background: "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)",
-              borderRadius: "var(--radius-lg)",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
-              cursor: "pointer",
-              boxShadow: "0 4px 12px rgba(245, 158, 11, 0.3)",
-            }}
-          >
-            <BookOpen
-              className="w-4 h-4 text-white/90 group-hover:text-white"
-            />
-            <span
-              style={{
-                color: "white",
-                fontSize: "14px",
-                fontWeight: 700,
-                letterSpacing: "0.5px",
-                textShadow: "0 1px 2px rgba(0,0,0,0.1)",
-              }}
-            >
-              LEARN
-            </span>
-          </button>
-          <div
-            className="flex items-center gap-2 px-2 py-2 sm:px-4"
-            style={{
-              backgroundColor: "var(--color-bg-elevated)",
-              borderRadius: "var(--radius-lg)",
-              border: "1px solid var(--color-border-primary)",
-            }}
-          >
-            <Check
-              className="w-4 h-4"
-              style={{ color: "var(--color-accent-emerald)" }}
-            />
-            <span
-              style={{
-                color: "var(--color-text-muted)",
-                fontSize: "13px",
-                fontWeight: 500,
-              }}
-            >
-              <span className="hidden sm:inline">Total Solved</span>
-            </span>
-            <span
-              style={{
-                color: "var(--color-accent-emerald)",
-                fontWeight: 700,
-                fontSize: "16px",
-              }}
-            >
-              {stats.totalSolved}
-            </span>
-          </div>
-        </div>
-      </header >
-      { }
-      < main
-        className="flex puzzle-container"
-        style={{
-          flex: 1,
-          minHeight: 0,
-          position: "relative",
-          paddingTop: "20px",
-        }}
-      >
-        {isLoadingPuzzles && (
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              backgroundColor: "rgba(0, 0, 0, 0.55)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              zIndex: 50,
-            }}
-          >
-            <div
-              style={{
-                padding: "16px 24px",
-                backgroundColor: "var(--color-bg-elevated)",
-                border: "1px solid var(--color-border-primary)",
-                borderRadius: "var(--radius-lg)",
-                color: "var(--color-text-primary)",
-                fontWeight: 600,
-              }}
-            >
-              Loading puzzles from Lichess...
-            </div>
-          </div>
-        )}
-        { }
-        <aside
-          className="flex flex-col gap-3 puzzle-sidebar left-sidebar"
-          style={{
-            overflowY: "auto",
-            overflowX: "hidden",
-            position: "relative",
-            zIndex: 1,
-            flexShrink: 0,
-          }}
-        >
-          { }
-          <div
-            className="card"
-            style={{
-              padding: "14px",
-              background:
-                "linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-elevated) 100%)",
-              borderLeft: "3px solid var(--color-accent-orange)",
-            }}
-          >
-            <h2
-              style={{
-                color: "var(--color-text-primary)",
-                fontSize: "14px",
-                fontWeight: 700,
-                lineHeight: "1.3",
-                marginBottom: "4px",
-              }}
-            >
-              Learn Chess: Beginner to Club
-            </h2>
-            <p
-              style={{
-                color: "var(--color-accent-orange)",
-                fontSize: "12px",
-                fontWeight: 600,
-                lineHeight: "1.3",
-              }}
-            >
-              {topic
-                ? `${topic.title} › ${block?.name || `Block ${blockNumber}`}`
-                : "Mating a lone king › Block 1"}
-            </p>
-          </div>
-          { }
-          <div className="card" style={{ padding: "16px" }}>
-            <div className="flex items-center gap-3 mb-3">
-              <div
-                className="flex items-center justify-center"
-                style={{
-                  width: "28px",
-                  height: "28px",
-                  borderRadius: "50%",
-                  backgroundColor:
-                    currentPuzzleIndex >= 0
-                      ? "var(--color-accent-emerald)"
-                      : "var(--color-border-primary)",
-                  boxShadow:
-                    currentPuzzleIndex >= 0
-                      ? "0 2px 6px rgba(16, 185, 129, 0.3)"
-                      : "none",
-                }}
-              >
-                {currentPuzzleIndex >= 0 && (
-                  <Check className="w-4 h-4" style={{ color: "white" }} />
-                )}
-              </div>
-              <div>
-                <h3
-                  style={{
-                    color: "var(--color-text-primary)",
-                    fontWeight: 700,
-                    fontSize: "15px",
-                    marginBottom: "2px",
-                  }}
-                >
-                  Puzzle #{safePuzzle.id}
-                </h3>
-                <p
-                  style={{
-                    color: "var(--color-text-muted)",
-                    fontSize: "11px",
-                  }}
-                >
-                  {currentPuzzleIndex + 1} of {totalPuzzles}
-                </p>
-              </div>
+        {/* LEFT SIDEBAR */}
+        <aside className="flex flex-col gap-5 w-full lg:w-[320px] flex-shrink-0 order-2 lg:order-1">
+          <div className="card flex flex-col gap-4 p-4 lg:p-5 shadow-sm h-full" style={{ borderLeft: "4px solid var(--color-accent-orange)", background: "var(--color-bg-secondary)" }}>
+            {/* Back, Topic, Puzzle Num */}
+            <div className="flex items-center gap-4">
+               <button onClick={onBack} className="btn btn-secondary py-1.5 px-3 flex items-center gap-1 text-sm font-semibold">
+                 <ChevronLeft className="w-4 h-4" />
+                 back
+               </button>
+               <div className="flex flex-col" style={{ overflow: "hidden" }}>
+                 <span className="text-sm font-bold text-[var(--color-text-primary)] leading-tight truncate">{topic ? topic.title : "Topic Name"}</span>
+                 <span className="text-xs font-semibold mt-0.5" style={{ color: "var(--color-accent-orange)" }}>puzzle {currentPuzzleIndex + 1} of {totalPuzzles}</span>
+               </div>
             </div>
 
-            <div style={{ marginBottom: "6px" }}>
-              <span
-                style={{
-                  color: "var(--color-text-muted)",
-                  fontSize: "11px",
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.5px",
-                }}
-              >
-                Themes
-              </span>
+            {/* Retry & Skip */}
+            <div className="flex gap-3">
+               <button onClick={handleRetry} className="btn btn-secondary flex-1 flex justify-center items-center gap-2 shadow-sm text-sm hover:scale-[1.02] transition-base">
+                 retry
+               </button>
+               <button onClick={handleSkip} className="btn btn-secondary flex-1 flex justify-center items-center gap-2 shadow-sm text-sm hover:scale-[1.02] transition-base">
+                 skip
+               </button>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {safePuzzle.themes.map((theme, idx) => (
-                <span
-                  key={idx}
-                  className="transition-base"
-                  style={{
-                    backgroundColor: "var(--color-bg-elevated)",
-                    color: "var(--color-text-secondary)",
-                    padding: "5px 10px",
-                    borderRadius: "var(--radius-full)",
-                    fontSize: "11px",
-                    fontWeight: 600,
-                    border: "1px solid var(--color-border-primary)",
-                  }}
-                >
-                  {theme}
-                </span>
-              ))}
-            </div>
-          </div>
-          { }
-          <div className="card" style={{ padding: "16px" }}>
-            <h3
-              style={{
-                color: "var(--color-text-muted)",
-                marginBottom: "12px",
-                fontSize: "11px",
-                fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.5px",
-              }}
-            >
-              Session Stats
-            </h3>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "8px" }}
-            >
-              <div
-                className="flex justify-between items-center"
-                style={{
-                  padding: "8px",
-                  backgroundColor: "var(--color-bg-elevated)",
-                  borderRadius: "var(--radius-sm)",
-                }}
-              >
-                <span
-                  style={{
-                    color: "var(--color-text-secondary)",
-                    fontSize: "13px",
-                    fontWeight: 500,
-                  }}
-                >
-                  Total Solved
-                </span>
-                <span
-                  style={{
-                    color: "var(--color-accent-emerald)",
-                    fontWeight: 700,
-                    fontSize: "15px",
-                  }}
-                >
-                  {stats.totalSolved}
-                </span>
-              </div>
 
-            </div>
-          </div>
-          { }
-          <div
-            ref={themeButtonRef}
-            style={{
-              position: "relative",
-              zIndex: 100,
-            }}
-          >
-            { }
-            <button
-              onClick={toggleThemePopover}
-              className="transition-base flex items-center justify-center gap-2"
-              style={{
-                width: "100%",
-                padding: "12px 16px",
-                backgroundColor: "var(--color-bg-elevated)",
-                border: "1px solid var(--color-border-primary)",
-                borderRadius: "var(--radius-lg)",
-                fontSize: "13px",
-                fontWeight: 600,
-                color: "var(--color-text-primary)",
-                cursor: "pointer",
-                boxShadow: showThemePopover
-                  ? "var(--shadow-md)"
-                  : "var(--shadow-sm)",
-              }}
-            >
-              <Palette
-                className="w-4 h-4"
-                style={{ color: "var(--color-accent-orange)" }}
-              />
-              <span>Board Theme</span>
-            </button>
-            { }
-            {showThemePopover && (
-              <div
-                className="fade-in"
-                style={{
-                  position: "absolute",
-                  top: "calc(100% + 8px)",
-                  left: 0,
-                  width: "260px",
-                  backgroundColor: "var(--color-bg-secondary)",
-                  border: "1px solid var(--color-border-primary)",
-                  borderRadius: "var(--radius-lg)",
-                  boxShadow: "var(--shadow-xl)",
-                  padding: "12px",
-                  zIndex: 1000,
-                  animation: "fadeIn 0.2s ease-out",
-                }}
-              >
-                <div style={{ marginBottom: "10px" }}>
-                  <span
-                    style={{
-                      color: "var(--color-text-muted)",
-                      fontSize: "11px",
-                      fontWeight: 700,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.5px",
-                    }}
-                  >
-                    Select Theme
-                  </span>
-                </div>
-                { }
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(2, 1fr)",
-                    gap: "10px",
-                  }}
-                >
-                  {themeOptions.map(([key, theme]) => (
-                    <button
-                      key={key}
-                      onClick={() => handleThemeChange(key)}
-                      className="transition-base"
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "6px",
-                        padding: "10px",
-                        backgroundColor:
-                          boardTheme === key
-                            ? "var(--color-bg-elevated)"
-                            : "transparent",
-                        border:
-                          boardTheme === key
-                            ? "2px solid var(--color-accent-orange)"
-                            : "2px solid var(--color-border-primary)",
-                        borderRadius: "var(--radius-md)",
-                        cursor: "pointer",
-                        boxShadow:
-                          boardTheme === key ? "var(--shadow-md)" : "none",
-                        transition: "all 0.2s ease",
-                      }}
-                      onMouseEnter={(e) => {
-                        if (boardTheme !== key) {
-                          e.currentTarget.style.borderColor =
-                            "var(--color-border-secondary)";
-                          e.currentTarget.style.backgroundColor =
-                            "var(--color-bg-elevated)";
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        if (boardTheme !== key) {
-                          e.currentTarget.style.borderColor =
-                            "var(--color-border-primary)";
-                          e.currentTarget.style.backgroundColor = "transparent";
-                        }
-                      }}
-                    >
-                      { }
-                      <div
-                        style={{
-                          width: "48px",
-                          height: "48px",
-                          display: "grid",
-                          gridTemplateColumns: "1fr 1fr",
-                          gap: "2px",
-                          borderRadius: "var(--radius-sm)",
-                          overflow: "hidden",
-                          boxShadow: "var(--shadow-sm)",
-                          pointerEvents: "none",
-                        }}
-                      >
-                        <div
-                          style={{
-                            backgroundColor: theme.light,
-                            width: "100%",
-                            height: "100%",
-                          }}
-                        />
-                        <div
-                          style={{
-                            backgroundColor: theme.dark,
-                            width: "100%",
-                            height: "100%",
-                          }}
-                        />
-                        <div
-                          style={{
-                            backgroundColor: theme.dark,
-                            width: "100%",
-                            height: "100%",
-                          }}
-                        />
-                        <div
-                          style={{
-                            backgroundColor: theme.light,
-                            width: "100%",
-                            height: "100%",
-                          }}
-                        />
-                      </div>
-                      { }
-                      <span
-                        style={{
-                          fontSize: "11px",
-                          fontWeight: 600,
-                          color:
-                            boardTheme === key
-                              ? "var(--color-accent-orange)"
-                              : "var(--color-text-secondary)",
-                          textAlign: "center",
-                          pointerEvents: "none",
-                        }}
-                      >
-                        {theme.name}
-                      </span>
-                      { }
-                      {boardTheme === key && (
-                        <div
-                          style={{
-                            position: "absolute",
-                            top: "8px",
-                            right: "8px",
-                            width: "8px",
-                            height: "8px",
-                            borderRadius: "50%",
-                            backgroundColor: "var(--color-accent-orange)",
-                            boxShadow: "0 0 0 2px var(--color-bg-elevated)",
-                          }}
-                        />
-                      )}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </aside>
-        { }
-        <div
-          className="flex flex-col items-center gap-4 puzzle-board-area"
-          style={{
-            position: "relative",
-            overflowY: "auto",
-            overflowX: "hidden",
-            flexShrink: 1,
-            maxHeight: "100%",
-            paddingTop: "5px",
-            paddingBottom: "24px",
-          }}
-        >
-          { }
-          <div
-            style={{
-              position: "relative",
-              width: "100%",
-              flexShrink: 0,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "24px"
-            }}
-          >
-            {showBoard && (
-              <div
-                style={{
-                  position: "relative",
-                  width: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <ChessBoardView
-                  position={isQuizBoardMode && game ? game.fen() : (safePuzzle.fen || (game ? game.fen() : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"))}
-                  onSquareClick={handleSquareClick}
-                  lastMove={moveHistory[moveHistory.length - 1]}
-                  orientation={orientation}
-                  theme={boardTheme}
-                  size={boardSize}
-                  selectedSquare={selectedSquare}
-                  showLegalMoves={true}
-                  isCompact={(blockNumber === 3 && level?.id === 1) || (level?.id === 1 && !!(safePuzzle.fen && safePuzzle.fen.trim()))}
-                />
-              </div>
-            )}
-
-            {safePuzzle.type === 'quiz' && (() => {
-              // Use compact board+quiz layout for Block 3 AND any Level 1 FEN quiz puzzle
-              const hasFenProp = !!(safePuzzle.fen && safePuzzle.fen.trim());
-              const isSpecialQuiz = (level?.id === 1 && blockNumber === 3) || (level?.id === 1 && hasFenProp);
-
-              return (
-                <div
-                  className={`quiz-card w-full max-w-[420px] 
-                  ${isSpecialQuiz ? 'md:bg-transparent md:border-0 md:shadow-none md:p-0' : 'md:bg-[var(--color-bg-elevated)] md:border-[var(--color-border-primary)] md:shadow-xl md:p-3'}
-                  bg-[var(--color-bg-elevated)] border border-[var(--color-border-primary)] rounded-xl shadow-xl p-3
-                  transition-all duration-300
-                `}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: isSpecialQuiz ? "6px" : "8px"
-                  }}
-                >
-                  <div className={`quiz-header ${isSpecialQuiz ? 'md:text-center' : ''}`}>
-                    <h2 className={`font-bold text-[var(--color-text-primary)] leading-tight mb-1 
-                    ${isSpecialQuiz ? 'md:text-base md:uppercase md:tracking-wider md:mb-2' : 'text-sm md:text-base'}
-                  `}>
-                      {safePuzzle.question}
-                    </h2>
-                    <div className={`h-0.5 w-10 bg-orange-500/50 rounded-full ${isSpecialQuiz ? 'md:hidden' : ''}`}></div>
-                  </div>
-
-                  <div className="quiz-options flex flex-col md:grid md:grid-cols-2 gap-2">
-                    {safePuzzle.options?.map((option, idx) => {
-                      let btnClass = "bg-[var(--color-bg-secondary)] hover:bg-[var(--color-bg-tertiary)] border-[var(--color-border-primary)] text-[var(--color-text-primary)]";
-                      if (selectedOption !== null) {
-                        if (idx === safePuzzle.correctAnswer && (selectedOption === idx || isPuzzleComplete)) {
-                          btnClass = "bg-green-600 border-green-500 text-white";
-                        } else if (idx === selectedOption && idx !== safePuzzle.correctAnswer) {
-                          btnClass = "bg-red-600 border-red-500 text-white";
-                        } else if (isPuzzleComplete && idx !== safePuzzle.correctAnswer) {
-                          btnClass = "bg-[#2a2a2a] opacity-50";
-                        }
-                      }
-
-                      return (
-                        <button
-                          key={idx}
-                          onClick={() => handleOptionClick(idx)}
-                          disabled={isPuzzleComplete}
-                          className={`
-                          p-1.5 text-left rounded-md border transition-all duration-200
-                          font-medium text-xs relative
-                          ${btnClass}
-                          ${isSpecialQuiz ? 'md:text-center md:flex md:justify-center md:items-center' : ''}
-                        `}
-                        >
-                          <div className={`flex items-center gap-1.5 ${isSpecialQuiz ? 'md:justify-center md:w-full' : ''}`}>
-                            <span className={`
-                            w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold border flex-shrink-0
-                            ${selectedOption === idx || (isPuzzleComplete && idx === safePuzzle.correctAnswer) ? 'border-transparent bg-white/20' : 'border-neutral-600 bg-transparent text-neutral-400'}
-                            ${isSpecialQuiz ? 'md:hidden' : ''}
-                          `}>
-                              {String.fromCharCode(65 + idx)}
-                            </span>
-                            <span>{option}</span>
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {showExplanation && (
-                    <div className="mt-4 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg fade-in">
-                      <p className="text-blue-200 text-sm leading-relaxed">
-                        <strong className="text-blue-100 block mb-1">Explanation:</strong>
-                        {safePuzzle.explanation}
-                      </p>
+            {/* Move History */}
+            <div className="flex flex-col p-3 rounded-2xl border border-[var(--color-border-primary)] mt-1 shadow-inner" style={{ backgroundColor: "var(--color-bg-primary)" }}>
+              <h3 className="text-[12px] font-bold text-[var(--color-text-primary)] flex justify-center items-center gap-2 mb-3">
+                 Move history
+              </h3>
+              <div className="flex flex-row overflow-x-auto gap-2 pb-2 custom-scrollbar w-full min-h-[44px] items-center">
+                {moveHistory.length === 0 ? (
+                   <div className="flex-1 text-center text-xs text-[var(--color-text-muted)] italic opacity-50">
+                     <div className="inline-block border-2 border-dashed border-[var(--color-border-primary)] rounded-md px-4 py-1.5">No moves yet</div>
+                   </div>
+                ) : (
+                  moveHistory.map((m, i) => (
+                    <div key={i} className="flex flex-shrink-0 gap-2 text-xs py-1.5 px-2.5 rounded-lg border border-[var(--color-border-primary)] shadow-sm items-center transition-base hover:border-[var(--color-border-secondary)] badge-pulse" style={{ backgroundColor: "var(--color-bg-secondary)" }}>
+                       <span className="text-[var(--color-text-muted)] font-bold">{i + 1}.</span>
+                       <span className="font-mono font-bold text-[var(--color-text-primary)] tracking-tight">{m.san}</span>
                     </div>
-                  )}
-                </div>
-              );
-            })()}
-          </div>
-          { }
-          <div
-            className="flex gap-2"
-            style={{
-              width: "100%",
-              maxWidth: "100%",
-              justifyContent: "center",
-              alignItems: "center",
-              flexWrap: "wrap",
-              flexShrink: 0,
-              marginTop: "1px",
-              marginBottom: "1px",
-            }}
-          >
-            {Array.from({ length: totalPuzzles }).map((_, idx) => {
-              const isCurrentPuzzle = idx === currentPuzzleIndex;
-              // We can't easily know if *this specific index* is completed without the full puzzle list and check.
-              // For now, let's just highlight current.
-              // Or better, let's fetch the puzzle ID if available.
-              // PuzzleView receives `puzzle` for ONE puzzle. It doesn't receive the list.
-              // So we can't accurately color the pagination dots for *other* puzzles unless we have their IDs.
-              // But we can check if the *current* puzzle is completed.
-              // Let's rely on blockCompletedCount generally, and maybe remove per-dot completion status if we can't track it.
-              // Or just show current.
-              const isCompleted = false; // We don't have the ID for index `idx`.
-              return (
-                <button
-                  key={idx}
-                  onClick={() => onPuzzleChange && onPuzzleChange(idx)}
-                  className="transition-base"
-                  style={{
-                    width: "36px",
-                    height: "36px",
-                    minWidth: "36px",
-                    minHeight: "36px",
-                    borderRadius: "var(--radius-md)",
-                    fontWeight: 700,
-                    fontSize: "14px",
-                    cursor: "pointer",
-                    backgroundColor: isCurrentPuzzle
-                      ? "var(--color-accent-blue)"
-                      : isCompleted
-                        ? "var(--color-accent-emerald)"
-                        : "var(--color-bg-elevated)",
-                    color:
-                      isCurrentPuzzle || isCompleted
-                        ? "white"
-                        : "var(--color-text-muted)",
-                    boxShadow: isCurrentPuzzle
-                      ? "0 3px 10px rgba(37, 99, 235, 0.4)"
-                      : isCompleted
-                        ? "0 2px 6px rgba(16, 185, 129, 0.3)"
-                        : "var(--shadow-sm)",
-                    border: isCurrentPuzzle
-                      ? "2px solid rgba(255, 255, 255, 0.2)"
-                      : "none",
-                    flexShrink: 0,
-                  }}
-                  title={`Puzzle ${idx + 1}`}
-                >
-                  {idx + 1}
-                </button>
-              );
-            })}
-          </div>
-          { }
-          <p
-            style={{
-              color: "var(--color-text-muted)",
-              fontSize: "12px",
-              fontStyle: "italic",
-              fontWeight: 500,
-              marginTop: "-7px",
-            }}
-          >
-            Puzzle {currentPuzzleIndex + 1} of {totalPuzzles} in Block{" "}
-            {blockNumber}
-          </p>
-        </div>
-        { }
-        <aside
-          className="flex flex-col gap-3 puzzle-sidebar"
-          style={{
-            overflowY: "auto",
-            overflowX: "hidden",
-            position: "relative",
-            zIndex: 1,
-            flexShrink: 0,
-          }}
-        >
-          { }
-          <div className="card" style={{ padding: "14px" }}>
-            <div className="flex items-center gap-2 mb-3">
-              <div
-                style={{
-                  width: "12px",
-                  height: "12px",
-                  borderRadius: "50%",
-                  backgroundColor: puzzle.turn === "w" ? "white" : "#2a2a2a",
-                  border: "1px solid var(--color-border-primary)",
-                  boxShadow:
-                    puzzle.turn === "w"
-                      ? "0 2px 6px rgba(0, 0, 0, 0.1)"
-                      : "none",
-                }}
-              />
-              <div>
-                <h3
-                  style={{
-                    color: "var(--color-text-primary)",
-                    fontWeight: 700,
-                    fontSize: "15px",
-                    marginBottom: "2px",
-                  }}
-                >
-                  Your turn
-                </h3>
-                <p
-                  style={{
-                    color: "var(--color-text-muted)",
-                    fontSize: "12px",
-                  }}
-                >
-                  {puzzle.turn === "w"
-                    ? "Playing as White"
-                    : "Playing as Black"}
-                </p>
-                {isQuizBoardMode && !isPuzzleComplete && (
-                  <p style={{ color: "var(--color-accent-orange)", fontSize: "11px", fontWeight: 600, marginTop: "2px" }}>
-                    ▶ Play the move on the board
-                  </p>
+                  ))
                 )}
               </div>
             </div>
-            <div
-              className="flex items-center gap-2"
-              style={{
-                padding: "10px",
-                backgroundColor: "var(--color-accent-green-dark)",
-                borderRadius: "var(--radius-md)",
-                marginBottom: "10px",
-              }}
-            >
-              <Target
-                className="w-4 h-4"
-                style={{ color: "white", flexShrink: 0 }}
-              />
-              <div>
-                <p
-                  style={{
-                    color: "rgba(255, 255, 255, 0.7)",
-                    fontSize: "10px",
-                    fontWeight: 600,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.5px",
-                    marginBottom: "2px",
-                  }}
-                >
-                  Goal
-                </p>
-                <p
-                  style={{
-                    color: "white",
-                    fontSize: "13px",
-                    fontWeight: 700,
-                    lineHeight: "1.2",
-                  }}
-                >
-                  {safePuzzle.goal}
-                </p>
-              </div>
-            </div>
-            { }
-            {isWrongMove && (
-              <div
-                className="flex items-center gap-2"
-                style={{
-                  padding: "10px",
-                  backgroundColor: "var(--color-error)",
-                  borderRadius: "var(--radius-md)",
-                  marginBottom: "10px",
-                }}
-              >
-                <span style={{ fontSize: "16px" }}>❌</span>
-                <p
-                  style={{
-                    color: "white",
-                    fontSize: "13px",
-                    fontWeight: 700,
-                  }}
-                >
-                  Wrong move! Try again
-                </p>
-              </div>
-            )}
-            <div className="flex gap-2">
-              <div
-                className="flex items-center gap-2 flex-1"
-                style={{
-                  padding: "8px",
-                  backgroundColor: "var(--color-bg-elevated)",
-                  borderRadius: "var(--radius-md)",
-                  border: "1px solid var(--color-border-primary)",
-                }}
-              >
-                <Clock
-                  className="w-4 h-4"
-                  style={{ color: "var(--color-text-muted)" }}
-                />
-                <span
-                  style={{
-                    color: "var(--color-text-primary)",
-                    fontSize: "13px",
-                    fontWeight: 700,
-                    fontFamily: "monospace",
-                  }}
-                >
-                  {formatTime(timer)}
-                </span>
-              </div>
-              <div
-                className="flex items-center gap-2 flex-1"
-                style={{
-                  padding: "8px",
-                  backgroundColor: "var(--color-accent-orange)",
-                  borderRadius: "var(--radius-md)",
-                }}
-              >
-                <span
-                  style={{
-                    color: "white",
-                    fontSize: "12px",
-                    fontWeight: 700,
-                    fontFamily: "monospace",
-                  }}
-                >
-                  {blockCompletedCount}/{totalPuzzles}
-                </span>
-              </div>
-            </div>
-          </div>
-          { }
-          <div className="flex gap-2">
-            <button
-              onClick={handleRetry}
-              className="transition-base flex-1 flex items-center justify-center gap-2"
-              style={{
-                padding: "12px",
-                fontSize: "13px",
-                fontWeight: 600,
-                backgroundColor: "var(--color-bg-elevated)",
-                border: "1px solid var(--color-border-primary)",
-                borderRadius: "var(--radius-md)",
-                cursor: "pointer",
-                color: "var(--color-text-primary)",
-              }}
-            >
-              <RotateCcw className="w-4 h-4" />
-              Retry
-            </button>
-            <button
-              onClick={handleSkip}
-              className="transition-base flex-1 flex items-center justify-center gap-2"
-              style={{
-                padding: "12px",
-                fontSize: "13px",
-                fontWeight: 600,
-                backgroundColor: "var(--color-bg-elevated)",
-                border: "1px solid var(--color-border-primary)",
-                borderRadius: "var(--radius-md)",
-                cursor: "pointer",
-                color: "var(--color-text-primary)",
-              }}
-            >
-              Skip
-              <SkipForward className="w-4 h-4" />
-            </button>
-          </div>
-          { }
-          <div
-            className="card flex-1"
-            style={{
-              padding: "14px",
-              minHeight: "120px",
-              maxHeight: "160px",
-              overflow: "hidden",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <h3
-              style={{
-                marginBottom: "10px",
-                fontSize: "11px",
-                fontWeight: 700,
-                textTransform: "uppercase",
-                letterSpacing: "0.5px",
-                color: "var(--color-text-muted)",
-              }}
-            >
-              Move History
-            </h3>
-            <div
-              style={{
-                flex: 1,
-                overflowY: "auto",
-                display: "flex",
-                flexDirection: "column",
-                gap: "6px",
-              }}
-            >
-              {moveHistory.length === 0 ? (
-                <div
-                  className="flex items-center justify-center"
-                  style={{ height: "100%" }}
-                >
-                  <div
-                    className="flex items-center justify-center"
-                    style={{
-                      width: "40px",
-                      height: "40px",
-                      border: "2px solid var(--color-accent-blue)",
-                      borderRadius: "var(--radius-md)",
-                      opacity: 0.4,
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "8px",
-                        height: "8px",
-                        backgroundColor: "var(--color-accent-blue)",
-                        borderRadius: "2px",
-                      }}
-                    />
-                  </div>
+
+            {/* Board Themes */}
+            <div className="relative mt-1" ref={themeButtonRef}>
+              <button onClick={toggleThemePopover} className="btn btn-secondary w-full py-3.5 px-4 flex justify-center items-center gap-2 shadow-sm hover:scale-[1.02] transition-base border border-[var(--color-border-primary)]" style={{ backgroundColor: "var(--color-bg-primary)" }}>
+                 Board themes
+              </button>
+              {showThemePopover && (
+                <div className="absolute bottom-[calc(100%+12px)] left-0 w-full card shadow-xl p-3 z-50 fade-in">
+                   <div className="grid grid-cols-2 gap-2">
+                      {themeOptions.map(([key, theme]) => (
+                        <button key={key} onClick={() => handleThemeChange(key)} className="btn btn-secondary text-xs font-semibold py-2.5 transition-colors text-center flex justify-center items-center hover:bg-[var(--color-bg-tertiary)] hover:border-[var(--color-border-secondary)]">
+                          {theme.name}
+                        </button>
+                      ))}
+                   </div>
                 </div>
-              ) : (
-                moveHistory.map((m, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-3"
-                    style={{
-                      padding: "6px 8px",
-                      backgroundColor: "var(--color-bg-elevated)",
-                      borderRadius: "var(--radius-sm)",
-                      border: "1px solid var(--color-border-primary)",
-                    }}
-                  >
-                    <span
-                      style={{
-                        color: "var(--color-text-muted)",
-                        fontSize: "12px",
-                        fontWeight: 600,
-                        width: "20px",
-                      }}
-                    >
-                      {i + 1}.
-                    </span>
-                    <span
-                      style={{
-                        color: "var(--color-text-primary)",
-                        fontWeight: 700,
-                        fontSize: "13px",
-                        fontFamily: "monospace",
-                      }}
-                    >
-                      {m.san}
-                    </span>
-                  </div>
-                ))
               )}
             </div>
-          </div>
-          { }
-          <div className="card" style={{ padding: "10px" }}>
-            <div className="flex items-center justify-between gap-2">
-              {[
-                {
-                  icon: ChevronsLeft,
-                  onClick: handleFirstPuzzle,
-                  disabled: currentPuzzleIndex === 0,
-                  label: "First",
-                },
-                {
-                  icon: ChevronLeft,
-                  onClick: handlePrevPuzzle,
-                  disabled: currentPuzzleIndex === 0,
-                  label: "Previous",
-                },
-                { icon: Play, onClick: () => { }, label: "Play" },
-                {
-                  icon: ChevronRight,
-                  onClick: handleNextPuzzle,
-                  disabled: currentPuzzleIndex === totalPuzzles - 1 && (!topic?.blocks || blockNumber >= topic.blocks.length),
-                  label: "Next",
-                },
-                {
-                  icon: ChevronsRight,
-                  onClick: handleLastPuzzle,
-                  disabled: currentPuzzleIndex === totalPuzzles - 1,
-                  label: "Last",
-                },
-              ].map((btn, idx) => {
-                const Icon = btn.icon;
-                return (
-                  <button
-                    key={idx}
-                    onClick={btn.onClick}
-                    disabled={btn.disabled}
-                    title={btn.label}
-                    className="transition-base"
-                    style={{
-                      padding: "8px",
-                      backgroundColor: "var(--color-bg-elevated)",
-                      border: "1px solid var(--color-border-primary)",
-                      borderRadius: "var(--radius-md)",
-                      cursor: btn.disabled ? "not-allowed" : "pointer",
-                      opacity: btn.disabled ? 0.4 : 1,
-                      flex: 1,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Icon
-                      className="w-4 h-4"
-                      style={{ color: "var(--color-text-primary)" }}
-                    />
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-          { }
-          <div className="flex gap-2">
-            <button
-              onClick={handleFlipBoard}
-              className="transition-base flex-1 flex items-center justify-center gap-2"
-              style={{
-                padding: "10px",
-                fontSize: "12px",
-                fontWeight: 600,
-                backgroundColor: "var(--color-bg-elevated)",
-                border: "1px solid var(--color-border-primary)",
-                borderRadius: "var(--radius-md)",
-                cursor: "pointer",
-                color: "var(--color-text-primary)",
-              }}
-            >
-              <RotateCcw className="w-4 h-4" />
-              Flip
-            </button>
 
-          </div>
-          { }
-          <div
-            className="flex justify-center gap-3"
-            style={{
-              fontSize: "11px",
-              color: "var(--color-text-muted)",
-              paddingTop: "4px",
-            }}
-          >
-            {[
-              { key: "H", label: "Hint" },
-              { key: "R", label: "Retry" },
-              { key: "F", label: "Flip" },
-            ].map(({ key, label }) => (
-              <div key={key} className="flex items-center gap-1">
-                <span
-                  style={{
-                    backgroundColor: "var(--color-bg-elevated)",
-                    padding: "3px 5px",
-                    borderRadius: "var(--radius-sm)",
-                    fontSize: "10px",
-                    fontFamily: "monospace",
-                    fontWeight: 700,
-                    border: "1px solid var(--color-border-primary)",
-                  }}
-                >
-                  {key}
-                </span>
-                <span style={{ fontWeight: 500, fontSize: "10px" }}>
-                  {label}
-                </span>
-              </div>
-            ))}
+            {/* Empty space filler */}
+            <div className="flex-1"></div>
           </div>
         </aside>
-      </main >
-      { }
+
+        {/* CENTER: CHESS BOARD */}
+        <div className="flex-1 flex flex-col items-center justify-center card p-4 lg:p-8 min-h-[400px] lg:min-h-0 relative shadow-md order-1 lg:order-2 overflow-hidden">
+           <div className="relative z-10 w-full h-full flex flex-col items-center justify-center">
+             {showBoard ? (
+               <ChessBoardView
+                 position={isQuizBoardMode && game ? game.fen() : (safePuzzle.fen || (game ? game.fen() : STARTING_FEN))}
+                 onSquareClick={handleSquareClick}
+                 lastMove={moveHistory[moveHistory.length - 1]}
+                 orientation={orientation}
+                 theme={boardTheme}
+                 size={boardSize}
+                 selectedSquare={selectedSquare}
+                 showLegalMoves={true}
+               />
+             ) : (
+                <div className="text-[var(--color-text-muted)] text-sm italic py-10">No board available for this puzzle.</div>
+             )}
+             
+             {isWrongMove && (
+                <div className="absolute top-[10%] left-1/2 -translate-x-1/2 text-white px-6 py-3 rounded-xl font-bold font-sans shadow-xl flex items-center gap-2 z-50 backdrop-blur-sm fade-in" style={{ backgroundColor: "var(--color-error)", animation: "shake 0.5s" }}>
+                  <span className="text-xl">❌</span> Wrong move! Try again
+                </div>
+             )}
+           </div>
+        </div>
+
+        {/* RIGHT SIDEBAR */}
+        <aside className="flex flex-col gap-5 w-full lg:w-[360px] flex-shrink-0 order-3 lg:order-3">
+           <div className="flex flex-col gap-4 h-full">
+             
+             {/* Info Block — etiquette card, quiz options, or plain question */}
+             {isEtiquette ? (
+               /* ── ETIQUETTE RULE CARD ─────────────────────────────────── */
+               <div className="card shadow-sm flex flex-col gap-0 overflow-hidden" style={{ backgroundColor: "var(--color-bg-elevated)", border: "2px solid var(--color-accent-orange)" }}>
+                 {/* Header strip */}
+                  <div className="flex items-center gap-2 px-4 py-3" style={{ backgroundColor: "var(--color-accent-orange)", opacity: 0.95 }}>
+                    <span style={{ fontSize: 18 }}>📖</span>
+                    <span className="text-sm font-extrabold text-white uppercase tracking-wider">{safePuzzle.themes?.[0] || 'Chess Topic'}</span>
+                  </div>
+
+                 {/* Rule description */}
+                 <div className="px-4 pt-4 pb-3 flex flex-col gap-3">
+                   <p className="text-[13px] font-semibold leading-snug" style={{ color: "var(--color-text-primary)" }}>
+                     {safePuzzle.description}
+                   </p>
+
+                   {/* Example box */}
+                   <div className="rounded-xl p-3 flex flex-col gap-1" style={{ backgroundColor: "var(--color-bg-secondary)", border: "1px solid var(--color-border-primary)" }}>
+                     <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: "var(--color-accent-orange)" }}>Example</span>
+                     <p className="text-[12px] leading-snug" style={{ color: "var(--color-text-secondary)" }}>
+                       {safePuzzle.explanation}
+                     </p>
+                     {safePuzzle.exampleText && (
+                       <div className="mt-1 px-2 py-1 rounded-md inline-block font-mono font-bold text-xs" style={{ backgroundColor: "var(--color-bg-primary)", color: "var(--color-accent-emerald)", border: "1px solid var(--color-border-primary)" }}>
+                         {safePuzzle.exampleText}
+                       </div>
+                     )}
+                   </div>
+
+                   {/* Turn indicator + prompt */}
+                   <div className="flex items-center justify-between">
+                     <div className="flex items-center gap-2">
+                       <div style={{ width: 12, height: 12, borderRadius: "50%", backgroundColor: safePuzzle.turn === "w" ? "white" : "#2a2a2a", border: "2px solid var(--color-border-primary)", flexShrink: 0 }} />
+                       <span className="text-xs font-bold" style={{ color: "var(--color-text-secondary)" }}>
+                         {safePuzzle.turn === "w" ? "White" : "Black"} to play
+                       </span>
+                     </div>
+                     {!isPuzzleComplete && safePuzzle.solution?.length > 0 && (
+                       <span className="text-[11px] font-semibold" style={{ color: "var(--color-text-muted)" }}>Play the example move ↑</span>
+                     )}
+                     {isPuzzleComplete && (
+                       <span className="text-[11px] font-bold" style={{ color: "var(--color-accent-emerald)" }}>✓ Well done!</span>
+                     )}
+                   </div>
+                 </div>
+               </div>
+             ) : (
+               /* ── REGULAR PUZZLE INFO BLOCK ───────────────────────────── */
+               <div className="card p-5 shadow-sm flex flex-col gap-3" style={{ backgroundColor: "var(--color-bg-elevated)", minHeight: "130px" }}>
+                 <div className="flex items-center gap-2">
+                   <div style={{ width: 14, height: 14, borderRadius: "50%", backgroundColor: safePuzzle.turn === "w" ? "white" : "#2a2a2a", border: "1px solid var(--color-border-primary)" }} />
+                   <span className="text-sm font-bold text-[var(--color-text-secondary)]">
+                     playing as {safePuzzle.turn === "w" ? "white" : "black"}
+                   </span>
+                 </div>
+
+                 {/* Question text — always shown */}
+                 <div className="font-bold text-[15px] text-[var(--color-text-primary)]">
+                   ques: {safePuzzle.type === 'quiz'
+                     ? (safePuzzle.question || safePuzzle.explanation)
+                     : (safePuzzle.explanation || safePuzzle.goal)}
+                 </div>
+
+                 {/* Options — for any level quiz-type puzzles */}
+                 {safePuzzle.type === 'quiz' && safePuzzle.options && safePuzzle.options.length > 0 && (
+                   <div className="grid grid-cols-2 gap-3 flex-shrink-0 mt-1">
+                     {safePuzzle.options?.map((option, idx) => {
+                        let isSelected = selectedOption !== null && (idx === selectedOption || (idx === safePuzzle.correctAnswer && isPuzzleComplete));
+                        let className = "btn btn-secondary border px-3 py-2.5 text-xs font-bold transition-all shadow-sm flex flex-col items-center justify-center gap-1 rounded-xl h-auto relative";
+                        let style = {};
+                        if (selectedOption !== null) {
+                          if (idx === safePuzzle.correctAnswer && (selectedOption === idx || isPuzzleComplete)) {
+                             className = "btn px-3 py-2.5 text-xs font-bold transition-all shadow-lg flex flex-col items-center justify-center gap-1 rounded-xl text-white fade-in h-auto relative";
+                             style = { backgroundColor: "var(--color-accent-emerald)", borderColor: "var(--color-accent-emerald)", transform: "scale(1.02)" };
+                          } else if (idx === selectedOption && idx !== safePuzzle.correctAnswer) {
+                             className = "btn px-3 py-2.5 text-xs font-bold transition-all shadow-lg flex flex-col items-center justify-center gap-1 rounded-xl text-white h-auto relative";
+                             style = { backgroundColor: "var(--color-error)", borderColor: "var(--color-error)", transform: "scale(0.98)" };
+                          } else if (isPuzzleComplete && idx !== safePuzzle.correctAnswer) {
+                             className = "btn btn-secondary border px-3 py-2.5 text-xs font-bold transition-all flex flex-col items-center justify-center gap-1 rounded-xl opacity-50 h-auto relative";
+                          }
+                        }
+                        return (
+                          <button
+                            key={idx}
+                            onClick={() => handleOptionClick(idx)}
+                            disabled={isPuzzleComplete}
+                            className={className}
+                            style={style}
+                          >
+                            <span className="leading-tight mt-0.5" style={{ wordBreak: "break-word" }}>{option}</span>
+                          </button>
+                        );
+                     })}
+                   </div>
+                 )}
+               </div>
+             )}
+
+             {/* Pagination Block */}
+             <div className="card pt-5 pb-6 px-4 flex flex-col relative items-center justify-center shadow-sm flex-1" style={{ backgroundColor: "var(--color-bg-elevated)", minHeight: "200px" }}>
+               <h3 className="text-[12px] font-bold text-[var(--color-text-muted)] absolute top-4 left-4 uppercase tracking-widest opacity-80">
+                 puzzles pagination
+               </h3>
+               <div className="flex flex-wrap gap-2.5 justify-center max-w-[280px] mt-6">
+                 {(() => {
+                   const PAGE_SIZE = 50;
+                   const pageIndex = Math.floor(currentPuzzleIndex / PAGE_SIZE);
+                   const startIndex = pageIndex * PAGE_SIZE;
+                   const endIndex = Math.min(startIndex + PAGE_SIZE, totalPuzzles);
+                   const pagePuzzles = Array.from({ length: endIndex - startIndex }).map((_, i) => startIndex + i);
+                   
+                   return pagePuzzles.map((idx) => {
+                     const isCurrentPuzzle = idx === currentPuzzleIndex;
+                     const style = isCurrentPuzzle 
+                       ? { backgroundColor: "var(--color-accent-blue)", borderColor: "var(--color-accent-blue)", color: "white", boxShadow: "0 4px 12px rgba(37,99,235,0.4)", transform: "translateY(-2px)" }
+                       : { backgroundColor: "var(--color-bg-secondary)", borderColor: "var(--color-border-primary)", color: "var(--color-text-primary)" };
+                     
+                     return (
+                        <button
+                          key={idx}
+                           onClick={() => onPuzzleChange && onPuzzleChange(idx)}
+                           className="w-[36px] h-[36px] rounded-lg font-bold text-sm flex items-center justify-center border transition-all hover:-translate-y-0.5 shadow-sm"
+                           style={style}
+                        >
+                           {idx + 1}
+                        </button>
+                     );
+                   });
+                 })()}
+               </div>
+             </div>
+
+           </div>
+        </aside>
+      </div>
+
       {/* Auto-advance toast banner */}
       {autoAdvanceCount !== null && (
         <div
@@ -1745,10 +871,10 @@ export const PuzzleView = ({
           <div style={{
             width: "28px", height: "28px", borderRadius: "50%",
             backgroundColor: "var(--color-accent-emerald)",
-            display: "flex", alignItems: "center", justifyContent: "center",
+            display: "flex", alignItems: "center", justifyItems: "center",
             flexShrink: 0,
           }}>
-            <Check className="w-4 h-4" style={{ color: "white" }} />
+            <Check className="w-4 h-4 ml-[6px] mt-[6px]" style={{ color: "white" }} />
           </div>
           <span style={{ color: "var(--color-text-primary)", fontWeight: 700, fontSize: "14px" }}>
             ✓ Correct!
@@ -1788,6 +914,6 @@ export const PuzzleView = ({
           </button>
         </div>
       )}
-    </div >
+    </div>
   );
 };

@@ -113,3 +113,4 @@ Clears all progress data (use with caution!).
 - Add a progress history/timeline view
 - Export/import progress data
 - Sync progress across devices (requires backend)
+'

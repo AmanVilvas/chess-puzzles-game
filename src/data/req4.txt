@@ -1,0 +1,504 @@
+                               Level 2 Double check 
+
+                                                              Block 1
+
+
+I'd: l2_t2_b1_1
+Fen 1 :rn1qkbnr/ppp2pp1/8/7p/4Npb1/5N2/PPPPQ1PP/R1B1KB1R w KQkq - 0 7
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check 
+Question :What piece can deliver a double check and mate?
+Answer :1.Nf6+#
+
+I'd: l2_t2_b1_2
+Fen 2 :rn1qkbnr/ppp2ppp/8/8/4Np2/5b2/PPPPQ1PP/R1B1KB1R w KQkq - 0 7
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is a double check with a Knight possible here?
+Answer :1.Nf6+#
+
+I'd: l2_t2_b1_3
+Fen 3 :r1b1q1kr/ppNnb1pp/5n2/8/3P4/8/PPP2PPP/R1BQKB1R b KQ - 0 10
+
+Goal : Deliver Double Check
+Turn : Black
+Rating : 200-600
+Theme : Double check
+Question :How can you create a double check with Bishop and Queen?
+Answer :1.(...) Bb4+
+
+I'd: l2_t2_b1_4
+Fen 4 :r1bk3r/ppp2ppp/2p5/8/4n1q1/8/PPPB2PP/2KR1B1R w - - 0 2
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Can you give a double check and mate with Bishop and Rook?
+Answer :1.Bg5+
+
+I'd: l2_t2_b1_5
+Fen 5 :r2q4/pp3r1k/2p3Rp/3pB3/2nP4/4PP1P/PPB4K/4R3 w - - 1 4
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is there a double check in this position with the Rook?
+Answer :1.Rg7+
+
+I'd: l2_t2_b1_6
+Fen 6 :r2q3k/pp3rR1/2p4p/3pB3/2nP4/4PP1P/PPB4K/4R3 w - - 3 5
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Can the Rook on g7 give a double check?
+Answer :1.Rh7+
+
+I'd: l2_t2_b1_7
+Fen 7 :r4r1k/2p5/p3PpPB/1pb4Q/7K/1P2pbP1/P6P/5q2 w - - 3 4
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is double check winning?
+Answer :1.Bg7+
+
+I'd: l2_t2_b1_8
+Fen 8 :r5k1/pb1p2pp/1p2p3/1N1nn3/P2N4/6P1/1P3PKP/R2Q1R2 b - - 0 2
+
+Goal : Deliver Double Check
+Turn : Black
+Rating : 200-600
+Theme : Double check
+Question :Calculate the double check and choose between Ne3+ or Nf4+.
+Answer :1.(...) Nf4
+
+I'd: l2_t2_b1_9
+Fen 9 :2r4k/4Q1pp/3P4/8/3q4/1B6/P4nPP/5RK1 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : Black
+Rating : 200-600
+Theme : Double check
+Question :Is the king vulnerable to double check that leads to a mate?
+Answer :1.(...) Nh3+
+
+I'd: l2_t2_b1_10
+Fen 10 :3r1nk1/3P3p/pp3q2/2p1p3/P1P3B1/3b2R1/1P5P/6K1 w - - 0 2
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Find the double check with the Bishop .
+Answer :1.Be6+
+
+I'd: l2_t2_b1_11
+Fen 11 :r4rk1/8/p5n1/1p3b2/8/P1N1B1Q1/1PPR2PP/5K2 b - - 0 2
+
+Goal : Deliver Double Check
+Turn : Black
+Rating : 200-600
+Theme : Double check
+Question :Can the Bishop and Rook give a double check?
+Answer :1.(...) Bd3+
+
+I'd: l2_t2_b1_12
+Fen 12 :r4nkr/p3b2p/1pp1R2B/5q2/2BP4/2P3P1/P4P1P/6K1 w - - 0 2
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is the king vulnerable to double check?
+Answer :1.Rg6#
+
+I'd: l2_t2_b1_13
+Fen 13 :r2r2k1/5p2/3p2p1/1N2p1q1/2P2n2/4N1nP/5R1P/3RQBK1 b - - 0 2
+
+Goal : Deliver Double Check
+Turn : Black
+Rating : 200-600
+Theme :  Double check 
+Question :Find the double check with the Knight.
+Answer : 1.(...) Ne2+
+
+I'd: l2_t2_b1_14
+Fen 14 :3rk2r/pp3p1p/6n1/2Qnp3/8/P1P5/R3NPPP/2BK3R b k - 0 2
+
+Goal : Deliver Double Check
+Turn : Black
+Rating : 200-600
+Theme : Double check
+Question :Calculate the double check with the Knight.
+Answer :1.(...) Nxc3+
+
+I'd: l2_t2_b1_15
+Fen 15 :6r1/p4rkp/3R4/1pp1n1B1/2p1P3/2P3R1/P4qPK/8 w - - 0 2
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question : Which double check is winning Bf6 or Bh6?
+Answer :1.Bf6+
+
+I'd: l2_t2_b1_16
+Fen 16 :r1bk3r/ppp3pp/1qp5/2b1Pp2/4n3/5N2/PPPBNPPP/3RK2R w K - 0 2
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is there a double check in this position?
+Answer :1.Bg5+
+
+I'd: l2_t2_b1_17
+Fen 17 :7k/p4p2/1bb3pp/1p2R3/3Q4/qP6/2P3P1/1K6 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :What piece can deliver a double check?
+Answer :1.Re8+
+
+I'd: l2_t2_b1_18
+Fen 18 :k1q5/1pp5/8/8/N7/8/8/R5K1 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :How can you create mate with a double check?
+Answer : 1.Nb6+
+
+I'd: l2_t2_b1_19
+Fen 19 :8/6k1/8/4pp2/3q4/6B1/p7/5KR1 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is a double check possible here with Bishop?
+Answer :1.Bxe5+
+
+I'd: l2_t2_b1_20
+Fen 20 :r3k2r/ppp2pp1/2np4/2B1p2n/2B1P1N1/3P4/PPP2PP1/RN1Q1R1K b kq - 0 1
+
+Goal : Deliver Double Check
+Turn : Black
+Rating : 200-600
+Theme : Double check
+Question :Can you give a double check with Knight?
+Answer :1.(...) Ng3+
+
+I'd: l2_t2_b1_21
+Fen 21 :r1b1k2r/pppNnppp/8/1B1q4/2p5/B7/P4PPP/R3R1K1 w kq - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :What is the best continuation in double check?
+Answer : 1.Nf6+
+
+I'd: l2_t2_b1_22
+Fen 22 :1q3rk1/r6p/p2p1p1Q/1b1Np2p/4P3/1B3P2/1PP3P1/R3K3 w Q - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is there only one mating double check?
+Answer :1.Nxf6+
+
+I'd: l2_t2_b1_23
+Fen 23 :2r2r2/1q3p1k/1p2nBp1/7P/p1P5/N2B4/PP6/2Kb3R w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is the double check unexpected?
+Answer : 1.hxg6+
+
+I'd: l2_t2_b1_24
+Fen 24 :6k1/1b1p1r2/3P1p1p/2p5/6N1/6R1/3r1P1P/6K1 b - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Does double check win by force?
+Answer : 1.Nxh6+
+
+I'd: l2_t2_b1_25
+Fen 25 :r2r1k2/p3ppb1/2p1P2p/1p2nP1Q/4N3/1P6/PK4P1/2R2B1R b - - 0 1
+
+Goal : Deliver Double Check
+Turn : Black
+Rating : 200-600
+Theme : Double check
+Question :Can the knight give a double check without blocking the Rooks way?
+Answer : 1.(...) Nf4+
+
+I'd: l2_t2_b1_26
+Fen 26 : r3r1k1/ppp1bpp1/2bp3p/4P3/3BnP2/3B3P/PPP4P/R2Q1R1K b - - 0 1
+
+Goal : Deliver Double Check
+Turn : Black
+Rating : 200-600
+Theme : Double check
+Question :Is the king vulnerable to double check and mate to h3 Knight check?
+Answer : 1.(...) Nf2+
+
+I'd: l2_t2_b1_27
+Fen 27 :b1b1N1k1/pp3pbp/1q4p1/3p4/4PP2/2N5/PP2QnPP/1RB2BK1 b - - 0 1
+
+Goal : Deliver Double Check
+Turn : Black
+Rating : 200-600
+Theme : Double check
+Question :Find the double check with the Knight.
+Answer : 1.(...) Nh3+
+
+I'd: l2_t2_b1_28
+Fen 28 :13K1B1R/1PP2QPP/8/R3P3/8/2n2p2/pp1b1ppp/1k1rr3 b - - 0 1
+
+Goal : Deliver Double Check
+Turn : Black
+Rating : 200-600
+Theme : Double check
+Question :Calculate the double check.
+Answer : 1.(...) Bg5+
+
+I'd: l2_t2_b1_29
+Fen 29 :5rk1/1pp4p/p3R1p1/3R1n2/6B1/2P5/2PQ2PP/5K2 b - - 0 1
+
+Goal : Deliver Double Check
+Turn : Black
+Rating : 200-600
+Theme : Double check
+Question : Which double check is winning Ng3 or Ne3?
+Answer : 1.(...) Ng3+
+
+I'd: l2_t2_b1_30
+Fen 30 :r6k/5p2/5PpB/8/qp6/5N2/1KP5/7R w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is the double check unexpected with Bishop?
+Answer :1.Bg7+
+
+I'd: l2_t2_b1_31
+Fen 31 :1r3r2/kp6/p7/7p/3N3P/6P1/P4BK1/8 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :What piece can deliver a double check?
+Answer : 1.Nc6+
+
+I'd: l2_t2_b1_32
+Fen 32 :4R3/2r4k/2r2p2/p5pp/Pb1PR3/1P4P1/2B3K1/8 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is a double check possible here with Bishop and Rook?
+Answer :1.R4e7+
+
+I'd: l2_t2_b1_33
+Fen 33 :r4knr/pp1b2pp/2p5/2b4q/3pPB2/3Q4/PPP3PP/RN3RK1 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :How can you create a double check?
+Answer :1.Bd6+
+
+I'd: l2_t2_b1_34
+Fen 34 :r3kbnr/pb1n1Npp/1pq5/2pNp2Q/8/4B3/PPP2PPP/R4RK1 w kq - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Can you give a double check with Knight?
+Answer : 1.Nd6+
+
+I'd: l2_t2_b1_35
+Fen 35 :1kr5/ppR3p1/8/2n5/6P1/3q2BP/P5B1/R5K1 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is there a double check in this position with Rook?
+Answer :1.Rb7+
+
+I'd: l2_t2_b1_36
+Fen 36 :r2qkb1r/pp3pp1/1n1p1n1p/1N1Pp3/Q3P3/5P2/PP1B2PP/R3K1NR w KQkq - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Does double check leads to a mate with Knight on f5?
+Answer :1.Nxd6+
+
+I'd: l2_t2_b1_37
+Fen 37 :r4r2/1p2qpk1/2p2Npp/2bp4/P2Q4/1P6/6PP/R4R1K w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Can you create double check in one move, where to move the Knight?
+Answer :1.Nh5+
+
+I'd: l2_t2_b1_38
+Fen 38 :2r4k/pb2q2p/1p2n1p1/5p2/3Rn3/1P2Q2P/PBr2PP1/5RK1 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :What is the best continuations for double check?
+Answer : 1.Rd8+
+
+I'd: l2_t2_b1_39
+Fen 39 :2rqkb1r/1p3ppp/p4n2/3p4/3P4/1P3N1P/PBnQBPP1/R3R1K1 w k - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is there only one winning double check?
+Answer :1.Bb5+
+
+I'd: l2_t2_b1_40
+Fen 40 : 1r4rk/1q5P/8/p7/8/8/PP6/1K4RR w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is double check winning?
+Answer : 1.hxg8=Q#
+
+I'd: l2_t2_b1_41
+Fen 41 :2r2rk1/1p3Rpp/p7/8/1qB5/8/PB3PPP/6K1 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Calculate the double check with the Rook.
+Answer :1.Rxg7+
+
+I'd: l2_t2_b1_42
+Fen 42 :6r1/R4N1k/6pp/2b5/4p3/7P/6P1/7K w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Find the double check.
+Answer :1.Ng5+
+
+I'd: l2_t2_b1_43
+Fen 43 :5rk1/1pp4p/p1b2q1p/2b1r3/3n2BP/2N5/PPP2PQ1/1K1R2R1 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is the king vulnerable to double check?
+Answer :1.Be6+
+
+I'd: l2_t2_b1_44
+Fen 44 :3r1r2/pkpn2bp/6p1/2p1Nn2/4RP2/2P3P1/PP4BP/5RK1 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Can the Rook give a double check?
+Answer :1.Rb4+
+
+I'd: l2_t2_b1_45
+Fen 45 :r2q3r/1b2npbp/p1k1p1p1/Pp6/2P1RB2/6P1/1P3PBP/2RQ2K1 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is there a double check in this position with Rook?
+Answer :1.Rxe6+
+
+I'd: l2_t2_b1_46
+Fen 46 :r3r3/3q1pp1/pQN3k1/2pn3n/3bR3/3B3b/PPPB1PNP/2K3R1 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Can you give a double check with a Rook?
+Answer :1.Re6+
+
+I'd: l2_t2_b1_47
+Fen 47 :3r2k1/1b2bp2/p3p2B/1p3n2/3q2NQ/2N5/PPP4P/2K3R1 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :How can you create a double check with Knight?
+Answer :1. Nf6+
+
+I'd: l2_t2_b1_48
+Fen 48 :6k1/4br1p/3q4/p2p4/1prP2N1/5P2/PPP4P/1K1R2R1 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is a double check possible here with Knight?
+Answer : 1.Nh6+
+
+I'd: l2_t2_b1_49
+Fen 49 :r2qkb1r/ppp2ppp/5p2/8/3nN1b1/3B1N2/PPP1QPPP/R3K2R w KQkq - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :What piece can deliver a double check?
+Answer :1.Nf6+
+
+I'd: l2_t2_b1_50
+Fen 50 :r4b2/ppk2p1p/q5r1/4Rp2/B3bQ2/1PBn2P1/P4P1P/2R3K1 w - - 0 1
+
+Goal : Deliver Double Check
+Turn : White
+Rating : 200-600
+Theme : Double check
+Question :Is a double check possible here with Bishop?
+Answer: 1.Ba5

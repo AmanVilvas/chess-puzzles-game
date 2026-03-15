@@ -1,0 +1,454 @@
+                                Level 2 Recapture 
+
+                                                              Block 5
+
+
+I'd: l2_t1_b5_1
+Fen 1 :3q1rk1/1p1nbppp/p1rp4/3bp3/4P1P1/P2QBP2/1PP1B2P/1K1R3R w - - 0 17
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture 
+Question :Does Bishop recapture maintain structure?
+Answer :1.exd5
+
+I'd: l2_t1_b5_2
+Fen 2 :r1b1k2r/p4pp1/1pnbpq1p/2Pp4/P7/2P2NP1/1P2PPBP/RN1Q1RK1 b kq - 0 10
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture 
+Question :Does Bishop recapture create pressure?
+Answer :1.cxd6
+
+I'd: l2_t1_b5_3
+Fen 3 :8/5pp1/6kp/1bp5/2P4P/5KP1/5P2/8 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture 
+Question :Does Bishop recapture improve piece activity?
+Answer :1.cxb5
+
+I'd: l2_t1_b5_4
+Fen 4 :8/1p3pp1/p1krpn1p/P6P/2P2PP1/2B5/1PK5/4R3 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture 
+Question :Which recapture keeps tension?
+Answer :1.Bxf6
+
+I'd: l2_t1_b5_5
+Fen 5 :8/1p3p2/p1krp2p/P5pP/2P2P2/8/1PK5/4R3 w - - 0 3
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture 
+Question :Should you recapture with the pawn?
+Answer :1.fxg5
+
+I'd: l2_t1_b5_6
+Fen 6 :r1bqr1k1/pp3pp1/2pb1n1p/3p2B1/3P4/2P3P1/PPQ2PBP/R4RK1 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture increases winning chances?
+Answer :1.(...)hxg5
+
+I'd: l2_t1_b5_7
+Fen 7 :r2qr1k1/pp1b1pp1/2pb1n2/3p2p1/3P4/2P3P1/PPQ2PBP/3RR1K1 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Which is tactically safer?
+Answer :1.(...)Rxe1
+
+I'd: l2_t1_b5_8
+Fen 8 :r2qr1k1/pp1b1ppB/2pb4/3p2p1/3P4/2P3P1/PP3PBP/2QRR1K1 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Should you recapture with the King?
+Answer : 1.(...)Kxh7
+
+I'd: l2_t1_b5_9
+Fen 9 :r2q2k1/pp1b1ppp/2pb4/3p2B1/3P4/2P3P1/PPQ2PBP/3R2K1 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Does bishop recapture create pressure?
+Answer :1.(...) Qxg5
+
+I'd: l2_t1_b5_10
+Fen 10 :r2q2k1/1p3ppp/2pb4/p2p4/3P2b1/2P3PB/PP1Q1P1P/1K1R4 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Does bishop recapture improve piece activity?
+Answer : 1.Bxg4
+
+I'd: l2_t1_b5_11
+Fen 11 :r5k1/1p3pp1/2pb4/p2p3p/3P2B1/2PN2P1/PP1B1P1P/1K2R3 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Does bishop recapture maintain structure?
+Answer :1.(...) hxg4
+
+I'd: l2_t1_b5_12
+Fen 12 :r1k3nr/pp3p2/4p1p1/qB1p3p/3P3P/b1N1B3/1P3PP1/R2Q1RK1 w - - 0 15
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture keeps tension?
+Answer :1.Rxa3
+
+I'd: l2_t1_b5_13
+Fen 13 :4r1k1/1p3pp1/2pb4/p1Np4/3P2n1/2P2PP1/PP1B3P/1K5R w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme :  Recapture
+Question : Which recapture creates fewer weaknesses?
+Answer :1.fxg4
+
+I'd: l2_t1_b5_14
+Fen 14 :8/8/5p2/pn2pP2/P3Pk2/3K4/8/8 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Exchange is force, isn't it?
+Answer :1.axb5
+
+I'd: l2_t1_b5_15
+Fen 15 :8/8/5p1k/qp3P2/1P3K2/8/8/8 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Recapture and maintain pressure.
+Answer : 1.bxa5
+
+I'd: l2_t1_b5_16
+Fen 16 :8/8/2pq4/1pP2p1k/5P1P/5K2/8/8 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture is positionally correct?
+Answer :1.cxd6
+
+I'd: l2_t1_b5_17
+Fen 17 :r6k/3b2pp/7N/pp6/4P1q1/1QRP2P1/K6P/8 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Recapture and maintain pressure or exchange?
+Answer :1.Nxg4
+
+I'd: l2_t1_b5_18
+Fen 18 :7r/pk6/1pp3p1/2B2p1p/P1P5/2P4P/R4PP1/6K1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Exchange in force don't you think?
+Answer :1.(...) bxc5
+
+I'd: l2_t1_b5_19
+Fen 19 :2k5/ppp4p/8/1QP3p1/PB5n/2P4P/6P1/5q1K w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture creates win?
+Answer : 1.Qxf1
+
+I'd: l2_t1_b5_20
+Fen 20 :8/8/5k2/8/5b2/6n1/2P1N3/1K1R4 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture is tactically winning?
+Answer : 1.Nxf4
+
+I'd: l2_t1_b5_21
+Fen 21 :6k1/8/N7/7p/4r1n1/5P2/R5K1/8 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture increases winning chances?
+Answer :1.fxe4
+
+I'd: l2_t1_b5_22
+Fen 22 :1k6/4q3/5P2/6p1/8/3K4/8/8 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture keeps tension?
+Answer :1.fxe7
+
+I'd: l2_t1_b5_23
+Fen 23 :1k6/8/r1Q5/8/8/3K4/8/7n w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Does Rook recapture maintain structure?
+Answer :1.Qxa6
+
+I'd: l2_t1_b5_24
+Fen 24 :1r3bkr/6pp/8/8/8/1Q4P1/5PKP/8 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Does Queen recapture create pressure?
+Answer :1.(...) Rxb3
+
+I'd: l2_t1_b5_25
+Fen 25 :2rqr1k1/1p2p1b1/pn4pp/2nN2B1/1Q6/2P5/PP3PPP/3RRBK1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Does Knight recapture improve piece activity?
+Answer :1.(...) Nxd5
+
+I'd: l2_t1_b5_26
+Fen 26 :2rqr1k1/1p2p1b1/p5pp/2nR2B1/1Q6/2P5/PP3PPP/4RBK1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Should you recapture with the Queen?
+Answer :1.(...) Qxd5
+
+I'd: l2_t1_b5_27
+Fen 27 :r4rk1/p2q2b1/B5bp/2Ppppp1/Q7/2P1PNP1/PP3PP1/4K2R w - - 0 2
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture improves your worst piece?
+Answer :1.Qxd7
+
+I'd: l2_t1_b5_28
+Fen 28 :r4rk1/1b1nbpp1/pp2pn1p/3p4/2Pq1BPP/2N2P2/PP1QB3/2R2RK1 w - - 0 2
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture is positionally correct?
+Answer :1.Qxd4
+
+I'd: l2_t1_b5_29
+Fen 29 :r4rk1/1b1n1pp1/pp2pn1p/2Qp4/2P2BPP/2N2P2/PP2B3/2R2RK1 b - - 0 3
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Pawn or piece — which recapture is better?
+Answer :1.(...) Nxc5
+
+I'd: l2_t1_b5_30
+Fen 30 :r7/ppqn2pk/2pb1npp/3p4/5P2/P1NPr2P/1PPQB1P1/R4RK1 w - - 0 2
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture increases winning chances?
+Answer :1. Qxe3
+
+I'd: l2_t1_b5_31
+Fen 31 :rnbqk2r/ppp2ppp/4pn2/3p4/3P4/4PNb1/PPP2PPP/RN1QKB1R w KQkq - 0 6
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture keeps tension fxg3 or hxg3?
+Answer : 1.hxg3
+
+I'd: l2_t1_b5_32
+Fen 32 :rnbqk2r/ppp1Nppp/3p1n2/4p3/1PP5/4P3/PB1P1PPP/R2QKBNR b KQkq - 0 7
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question : Recapture with King or Queen?
+Answer :1.(...) Qxe7
+
+I'd: l2_t1_b5_33
+Fen 33 :r1b1r1k1/3n1pp1/p2p3p/6qP/2Pnp3/4P3/PR2BPP1/1N1Q1K1R w - - 0 25
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Should recapture with Queen or pawn?
+Answer :1.Qxd4
+
+I'd: l2_t1_b5_34
+Fen 34 :5bk1/2p3p1/pp3r2/3p3p/3PN3/P5P1/1Pr4P/2R3K1 w - - 0 2
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question : Which Rook white recapture first?
+Answer :1.Nxf6
+
+I'd: l2_t1_b5_35
+Fen 35 :5bk1/2p3p1/pp3r2/3p3p/3PN3/P5P1/1PR4P/6K1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Should you recapture with the pawn?
+Answer :1.(...)dxe4
+
+I'd: l2_t1_b5_36
+Fen 36 :r2Qnrk1/pp2bppp/4p3/8/8/1N3n2/PP2RPPP/R1B3K1 w - - 0 3
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture keep balanced?
+Answer :1.gxf3
+
+I'd: l2_t1_b5_37
+Fen 37 :4k1r1/1p1R1p2/p4p1p/4pB2/2r5/1PP2P2/2P3PP/2K5 w - - 1 3
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture is positionally correct?
+Answer :1.bxc4
+
+I'd: l2_t1_b5_38
+Fen 38 :1b6/q3kp2/2p1p1p1/1pPP2Pp/1P1b1P1P/2B1KB2/1Q6/8 w - - 1 2
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture increases winning chances?
+Answer :1.Bxd4
+
+I'd: l2_t1_b5_39
+Fen 39 :1b6/q2k1p2/2pPp1p1/1pP3Pp/1P3P1P/2b1KB2/1Q6/8 w - - 1 3
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Is recapture increase winning chances?
+Answer :1.Qxc3
+
+I'd: l2_t1_b5_40
+Fen 40 :R7/1Qn1k2r/4p2q/8/3P4/4P3/3K2P1/8 w - - 0 40
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture is positionally correct?
+Answer :1. Qxc7+
+
+I'd: l2_t1_b5_41
+Fen 41 :rnbqkb1r/pp2pNp1/2p2n1p/8/3P4/8/PPP2PPP/R1BQKBNR b KQkq - 0 6
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Recapture is force, isn't it?
+Answer :1.(...)Kxf7
+
+I'd: l2_t1_b5_42
+Fen 42 :rn1qkb1r/ppp1pNp1/5n1p/5b2/8/5N2/PPPP1PPP/R1BQKB1R b KQkq - 0 6
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture creates fewer weaknesses?
+Answer :1.(...) Kxf7
+
+I'd: l2_t1_b5_43
+Fen 43 :r4b1r/p1pnqk2/4Rn1p/1p4p1/2BN2b1/8/PPPP1PPP/R1B2QK1 b - - 0 13
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question : Recapture now or just hold?
+Answer : 1.(...) Bxe6
+
+I'd: l2_t1_b5_44
+Fen 44 :rnbq2k1/pp2N1pr/4pn1p/8/3p4/3B4/PPP2PPP/R1BQ1RK1 b - - 0 12
+Goal : Capture
+Turn :  Black
+Rating : 200-600
+Theme : Recapture
+Question :Which is tactically safer?
+Answer :1.(...) Qxe7
+
+I'd: l2_t1_b5_45
+Fen 45 :rnb3k1/pp2q1pB/4pn1p/8/3p4/8/PPP2PPP/R1BQ1RK1 b - - 0 13
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Which increases winning chances?
+Answer :1.(...) Kxh7
+
+I'd: l2_t1_b5_46
+Fen 46 :r4rk1/2q4p/2p1P1p1/2P5/1p4p1/6Q1/PK6/3R3R b - - 0 35
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question :Does bishop recapture improve piece activity?
+Answer :1.(...) Qxg3
+
+I'd: l2_t1_b5_47
+Fen 47 :5R2/1p2q1k1/p3p1np/3pPpp1/1P1N1P2/4P1PP/P6K/8 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Recapture
+Question : Which recapture is positionally stronger?
+Answer : 1.(...) Nxf8
+
+I'd: l2_t1_b5_48
+Fen 48 :4r1k1/2p3pp/3b4/1ppnN3/5P2/1PB3P1/r1P1R1KP/R7 w - - 1 2
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Does Rook recapture maintain structure?
+Answer : 1.Rxa2
+
+I'd: l2_t1_b5_49
+Fen 49 :r1b1kb1r/pppn1ppp/4pn2/1qPp4/3P4/2N1PN2/PP3PPP/R1BQK2R w KQkq - 0 8
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Should you recapture with the Knight?
+Answer : 1.Nxb4
+
+I'd: l2_t1_b5_50
+Fen 50 :r3kbnr/pp1b1p2/4p1p1/q2pn2p/3P3P/P1N1BN2/1P3PP1/R2QKB1R w KQkq - 0 11
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Recapture
+Question :Which recapture keeps tension?
+Answer: 1.Nxe5

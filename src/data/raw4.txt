@@ -1,0 +1,454 @@
+                                Level 2 Free Piece
+
+                                                              Block 4
+
+
+I'd: l2_t1_b4_1
+Fen 1 :r2qk2r/ppp3pp/4bp2/2bnp3/2BnN3/3P1N2/PPPB1PPP/R2QK2R w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question : Can you see how to win my Bishop?
+Answer :1.Nxc5
+
+I'd: l2_t1_b4_2
+Fen 2 :r3r1k1/ppp2pp1/5n2/1q6/1b6/3P4/PPQBNPPP/R4RK1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question : Is the Bishop defended enough?
+Answer :1.(...) Rxe2
+
+I'd: l2_t1_b4_3
+Fen 3 :8/r7/4kp2/7P/4p3/3bB3/2p5/2R1K3 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Can you capture the free knight?
+Answer : 1.Bxa7
+
+I'd: l2_t1_b4_4
+Fen 4 :r1b2rk1/pp3ppp/2q5/1Q6/1b2pB2/5pP1/PPP2P1P/2KR1B1R w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Can you win something by force?
+Answer :1.Qxb4
+
+I'd: l2_t1_b4_5
+Fen 5 :r2q1rk1/pb1n1p1p/1p2p1pb/3pP3/6Q1/PP1B4/1BPN1PPP/R3R1K1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Can you capture the Knight on d2?
+Answer :1.(...)Bxd2
+
+I'd: l2_t1_b4_6
+Fen 6 :2kr1b1r/ppp3pp/4b3/2Nnpp2/8/2NP4/PPP2PPP/R1B2RK1 b - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Is the bishop on e6 hanging?
+Answer :1.Nxe6
+
+I'd: l2_t1_b4_7
+Fen 7 :2k3r1/pppq4/3p2n1/2bP2Br/3N1p2/6pP/PPP1Q1P1/2KR3R w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Can you win material immediately?
+Answer :1.(...) Rxg5
+
+I'd: l2_t1_b4_8
+Fen 8 :r2k3r/p2pp2p/1pb3p1/q1p5/Pn1bP3/1BNP1P2/2P3PP/R1BQ1R1K b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Is any piece hanging?
+Answer :1.(...) Bxc3
+
+I'd: l2_t1_b4_9
+Fen 9 :rnb2rk1/p1p1ppbp/1p1p1np1/8/2PP1B2/6P1/PP1QPPBP/RN2K1NR w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Do you see an unprotected piece?
+Answer :1.Bxa8
+
+I'd: l2_t1_b4_10
+Fen 10 :2kr3r/1ppq2pp/p2bpp2/1Q1p4/P2P1P2/1nP1BN2/RP4PP/5RK1 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Can you capture any free piece?
+Answer :1.Qxb3
+
+I'd: l2_t1_b4_11
+Fen 11 :r3k2r/2p5/p1pqb1pb/4pp1p/7P/2NP1QP1/PPPB1P2/R4RK1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Can you win something now?
+Answer :1.(...)Bxd2
+
+I'd: l2_t1_b4_12
+Fen 12 :r2q1rk1/p4p1p/1pn3p1/2p2bN1/2B5/3PP3/PP4PP/1R1Q1RK1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Can you win material by force?
+Answer :1.(...)Qxg5
+
+I'd: l2_t1_b4_13
+Fen 13 :r2q1rk1/pp2ppbp/2n3p1/1BPN4/3Pn1b1/4BN2/PP3PPP/2RQR1K1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Is anything hanging right now?
+Answer :1.(...) Qxd5
+
+I'd: l2_t1_b4_14
+Fen 14 :4r1k1/6p1/6Rg/2Ppn3/p2B1P1P/P1P5/1r4P1/R5K1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Is there a free capture?
+Answer :1.(...) Nxg6
+
+I'd: l2_t1_b4_15
+Fen 15 :r2q1rk1/ppp2ppp/2np1b2/3Q3b/2B1P3/2N2N1P/PP3PP1/R4RK1 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :What material can you win?
+Answer :1.Qxh5
+
+I'd: l2_t1_b4_16
+Fen 16 :2rNq1k1/7p/5pp1/pn6/6Q1/4P2P/5PP1/3R2K1 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Is there a free capture?
+Answer :1.Qxc8
+
+I'd: l2_t1_b4_17
+Fen 17 :r1bqkbnr/pp1n1ppp/4p3/2pp2N1/8/6P1/PPPPPPBP/RNBQ1RK1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Is anything hanging right now?
+Answer :1.(...) Qxg5
+
+I'd: l2_t1_b4_18
+Fen 18 :rnb2rk1/pp2ppbp/3p1np1/q5B1/2PN4/2NBP2P/PP3PP1/R2QK2R b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Can you capture the Bishop on g5?
+Answer :1.(...)Qxg5
+
+I'd: l2_t1_b4_19
+Fen 19 :2rr2k1/1p2b1pp/p2ppn2/8/1P2PP2/P5PP/1B2q1BK/2RQ1R2 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Can you win the Bishop by force?
+Answer :1.(...) Qxb2
+
+I'd: l2_t1_b4_20
+Fen 20 :r5k1/3p1pbp/2p3p1/r1Pq4/PQ2p3/4P2P/R2B1PP1/2R3K1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Can you capture the free Rook?
+Answer :1.(...) Qxa2
+
+I'd: l2_t1_b4_21
+Fen 21 :rnbq1rk1/1pp2ppp/p7/3pp3/B5Q1/P1BP4/2P2PPP/R3K1NR b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Is the queen defended enough?
+Answer :1.(...) Bxg4
+
+I'd: l2_t1_b4_22
+Fen 22 :r2qkb1r/ppp2ppp/2np1n2/4p1N1/4P1b1/2NPB3/PPP2PPP/R2QKB1R b KQkq - 1 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Is the Queen on d1 hanging?
+Answer :1.(...) Bxd1
+
+I'd: l2_t1_b4_23
+Fen 23 :2rqk2r/Rpp1bppp/8/4p3/1Q2P3/3P2B1/PPP2PPP/4K2R b Kk - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Is any piece hanging?
+Answer :1.(...) Bxb4
+
+I'd: l2_t1_b4_24
+Fen 24 :7Q/5k2/8/8/8/3K4/8/7q b - - 1 2
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Can you capture any free piece?
+Answer : 1.(...) Qxh8
+
+I'd: l2_t1_b4_25
+Fen 25 :Q7/8/8/4k3/8/3K4/8/7q w - - 1 3
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Can you win material immediately?
+Answer : 1.Qxh1
+
+I'd: l2_t1_b4_26
+Fen 26 :r5k1/5p1p/6pq/R7/8/8/5PPP/3Q2K1 w - - 0 2
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Can you capture any free piece?
+Answer : 1.Rxa8
+
+I'd: l2_t1_b4_27
+Fen 27 :5r1k/6pp/1q6/8/r6P/5RP1/5P2/6K1 w - - 0 3
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Is any piece hanging on f8?
+Answer : 1. Rxf8#
+
+I'd: l2_t1_b4_28
+Fen 28 :3q1rk1/5pbp/5Qp1/8/8/2B5/5PPP/6K1 w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Do you see an unprotected piece?
+Answer :1.(...) Bxf6
+
+I'd: l2_t1_b4_29
+Fen 29 :1r4k1/1q3p2/5Bp1/8/8/8/PP6/1K5R w - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Can you capture any free Rook?
+Answer : 1.(...) Qxh1
+
+I'd: l2_t1_b4_30
+Fen 30 :8/8/6Q1/3Kn3/1q6/1k6/8/8 b - - 2 2
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Can you win material immediately?
+Answer :1.(...) Nxg6
+
+I'd: l2_t1_b4_31
+Fen 31 :r2qk1nr/pp3ppp/2p1p3/8/3P4/2b1PN2/P1P1BPPP/R2Q1K1R b - - 1 3
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Is the Rook on a1 hanging?
+Answer : 1.(...) Bxa1
+
+I'd: l2_t1_b4_32
+Fen 32 :r1b1kbnr/pppp1ppp/8/4p3/1n2P2q/5N2/PPPPQPPP/RNB1KB1R w KQkq - 1 2
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Is the queen defended enough?
+Answer :1. Nxh4
+
+I'd: l2_t1_b4_33
+Fen 33 :r1b1q1k1/pp4bp/n1p3p1/4P3/2P1Pr2/1Q3N2/PP2NPBP/R4RK1 b - - 1 16
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Can you win the Rook by force?
+Answer :1. Nxf4
+
+I'd: l2_t1_b4_34
+Fen 34 :7k/4q1p1/2p4r/rp6/8/7P/2PQ2P1/3R1RK1 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Is the bishop on g7 hanging?
+Answer : 1.Qxa5
+
+I'd: l2_t1_b4_35
+Fen 35 :4r3/1p3pkp/1Pp2np1/8/3b4/1P4N1/4BP1P/2R3K1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Can you win the pawn on b6?
+Answer : 1.(...) Bxb6
+
+I'd: l2_t1_b4_36
+Fen 36 :6k1/5pp1/8/1p6/4n3/1B3KP1/1BP2b1P/8 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Do you see an unprotected piece?
+Answer : 1. Kxe4
+
+I'd: l2_t1_b4_37
+Fen 37 :4n1k1/1p3qbp/2p5/2Q4N/8/1P5P/P5PK/5B2 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Is any piece hanging?
+Answer :1.(...) Qxf1
+
+I'd: l2_t1_b4_38
+Fen 38 :r2q1rk1/pp3ppp/2nbpnb1/3p4/2pPPB2/2P2N2/PP1NBPPP/R2Q1RK1 b Qq - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question :Can you win material immediately?
+Answer : 1.(...) Bxf4
+
+I'd: l2_t1_b4_39
+Fen 39 :1k6/5b2/8/8/8/5R2/2K5/8 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question : Can you see how to win the Bishop?
+Answer :1.Rxf7
+
+I'd: l2_t1_b4_40
+Fen 40 :r1bqk2r/ppp2ppp/3p1n2/2b1n3/2B2P2/2N3N1/PPP3PP/R1BQR1K1 w Qkq - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Can you win something now?
+Answer :1.fxe5
+
+I'd: l2_t1_b4_41
+Fen 41 :r2q2k1/1pp2rpp/2n3Q1/p7/P7/1B6/1PP2PPP/R4RK1 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Can you win a Rook by force?
+Answer :1.Qxf7+
+
+I'd: l2_t1_b4_42
+Fen 42 :r6r/ppN1kppp/8/8/8/1PB5/P4PPP/R5K1 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :What material can you win?
+Answer : 1.Nxa8
+
+I'd: l2_t1_b4_43
+Fen 43 :8/pkp4b/1p3b2/8/8/8/PPP4R/2K5 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Is the Bishop on h7 hanging right now?
+Answer :1.Rxh7
+
+I'd: l2_t1_b4_44
+Fen 44 :rn1qkbnr/pp2pppp/3p4/2p5/2PPn1b1/2N1PN2/PP2BPPP/R1BQK2R w KQkq - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question : You can win a Knight, figure it out.
+Answer : 1.Nxe4
+
+I'd: l2_t1_b4_45
+Fen 45 :r2q1rk1/pp1nppbp/3p2p1/2pP4/2P1P3/1PN1B3/P4PPP/R2Q1RK1 b Qq - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Free Piece
+Question : Is the Knight on c3 hanging? 
+Answer : 1.(...) Bxc3
+
+I'd: l2_t1_b4_46
+Fen 46 :r1bq1rk1/ppp2pp1/3p2np/4p3/2BnP3/2NP1NR3/PPPB1PPP/2R1Q2K w q - 0 1
+Goal : Capture
+Turn :  White
+Rating : 200-600
+Theme : Free Piece
+Question : Can you see how to win a Knight?
+Answer :1.Rxg6
+
+I'd: l2_t1_b4_47
+Fen 47 :r2q1rk1/pb1n1pbp/4p1p1/2p3N1/2PP3P/1PN3P1/P1B1PPB1/1K1R3R w Kq - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Can you capture any free Bishop?
+Answer :1.Bxb7
+
+I'd: l2_t1_b4_48
+Fen 48 :1r1r2k1/8/6n1/1p1bN1Pp/6pP/p1B5/P7/3R1RK1 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Do you see an unprotected piece?
+Answer : 1.Nxg6
+
+I'd: l2_t1_b4_49
+Fen 49 :6r1/5b1k/3R2r1/6Pp/7P/8/3R4/1B4K1 w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Can you find out how to win an exchange?
+Answer :1. Bxg6
+
+I'd: l2_t1_b4_50
+Fen 50 :r2qk2r/pppbbppp/2np1n2/3Pp3/4P3/1B3N2/PPP2PPP/RNBQR1K1 w Qkq - 1 2
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Free Piece
+Question :Can you win material immediately?
+Answer: 1.dxc6

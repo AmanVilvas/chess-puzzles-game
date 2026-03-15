@@ -1,0 +1,503 @@
+                                Level 2 Mate in 1 
+
+                                                              Block 1
+
+
+I'd: l2_t4_b1_1
+Fen 1 :8/8/8/7b/k1q5/8/8/4K3 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :can the queen deliver checkmate on e2?
+Answer :1.(...) Qe2#
+
+I'd: l2_t4_b1_2
+Fen 2 :1k6/7Q/8/N7/8/8/8/4K3 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :can the Queen jump for mate?
+Answer :1.Qb7#
+
+I'd: l2_t4_b1_3
+Fen 3 :1q2k3/8/8/8/8/2p5/8/K7 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :can the bishop mate on b2?
+Answer :1.(...) Qb2#
+
+I'd: l2_t4_b1_4
+Fen 4 :kb1K4/P2N4/8/8/8/8/8/8 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :can the queen promotion mate on b8?
+Answer :1.axb8=Q#
+
+I'd: l2_t4_b1_5
+Fen 5 :2q2rbk/4R1p1/7p/1p6/pP5P/5N2/4Q1P1/K7 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Is there a checkmate in one move?
+Answer :1.(...) Qc1#
+
+I'd: l2_t4_b1_6
+Fen 6 :8/8/5k1K/8/8/8/r7/8 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Can you finish the game immediately?
+Answer :1.(...) Rh2#
+I'd: l2_t4_b1_7
+Fen 7 :5rk1/5p1p/5B2/8/2R5/8/8/4K3 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Do you see a forced mate in one move?
+Answer :1.Rg4#
+
+I'd: l2_t4_b1_8
+Fen 8 :6k1/1p3ppp/nq3b2/8/2Q5/BP5P/r4PP1/4R1K1 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Calculate and find mate in one.
+Answer :1.Re8#
+
+I'd: l2_t4_b1_9
+Fen 9 :R7/5k2/5p2/4bN2/6P1/7K/2r4P/8 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Calculate and find mate in one.
+Answer :1.(...) Rxh2#
+
+I'd: l2_t4_b1_10
+Fen 10 :7k/4b3/4pNPp/3p4/3P4/4P3/rr5P/2R3RK w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Check all checks — is one mate?
+Answer :1.g7#
+
+I'd: l2_t4_b1_11
+Fen 11 :7k/6b1/1p4pp/3Q1p2/2B5/rPq4P/5PP1/5RK1 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Prove there is mate in one.
+Answer :1.Qg8#
+
+I'd: l2_t4_b1_12
+Fen 12 :6k1/2q3pp/p4n2/6QP/3B4/1rP5/Kp1R2P1/8 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Is there any promotion mate?
+Answer :1.(...) b1=Q#
+
+I'd: l2_t4_b1_13
+Fen 13 :6k1/2p1R1p1/5n2/2qN4/1pP5/1P4rP/PBQ4K/8 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question : Is there a 1st rank mate?
+Answer :1.(...) Qg1#
+
+I'd: l2_t4_b1_14
+Fen 14 :2r4k/5pqp/4p3/3pN3/3P4/4Q2b/PP3P1P/2R4K b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Check all checks — is one mate?
+Answer :1.(...) Qg2#
+
+I'd: l2_t4_b1_15
+Fen 15 :3r2k1/1p3pp1/6bp/1pP5/q4P2/2N1Q1P1/1PR4P/2K5 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Calculate and find mate in one.
+Answer :1.(...) Qxc2#
+
+I'd: l2_t4_b1_16
+Fen 16 :r5k1/pp4p1/7p/2p5/5P2/2P2nP1/1P1r3P/R2R1B1K b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Prove there is mate in one.
+Answer :1.(...) Rxh2#
+
+I'd: l2_t4_b1_17
+Fen 17 :5r1k/1p4pp/pb2P3/8/8/2Qq2B1/PP5P/2R1K3 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Calculate and find mate in one.
+Answer :1.(...) Rf1#
+
+I'd: l2_t4_b1_18
+Fen 18 :3Q4/1p3qp1/k1p4p/3br5/8/4B1P1/P4P1P/3R2K1 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Check all checks — is one mate?
+Answer :1.Qb6#
+
+I'd: l2_t4_b1_19
+Fen 19 :1r4k1/2p2pp1/3b2b1/8/2PP3P/3N4/1r5R/R5NK b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Calculate and find mate in one.
+Answer : 1.(...) Rxh2
+
+I'd: l2_t4_b1_20
+Fen 20 :1k5r/1pb3q1/p2N4/8/7p/5Q1P/1P3PP1/4R1K1 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Do you see a forced mate?
+Answer :1.Qxb7#
+
+I'd: l2_t4_b1_21
+Fen 21 :q5nk/4p2p/6PP/1p6/1P6/6B1/r3Q1P1/5RK1 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can you finish the game immediately?
+Answer :1.g7#
+
+I'd: l2_t4_b1_22
+Fen 22 :3r1bk1/5pp1/1Q5p/p6P/2P5/4N3/P4qPK/6R1 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Is there a checkmate in one move?
+Answer :1.(...) Qh4#
+
+I'd: l2_t4_b1_23
+Fen 23 :2q3k1/p4ppp/1p1Q2b1/8/5PP1/8/PP5P/3R2BK b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Is there a Diagonal mate?
+Answer : 1.(...) Be4#
+
+I'd: l2_t4_b1_24
+Fen 24 :k7/b1K3p1/pP3r2/4n3/8/6P1/P1R5/5B2 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Prove there is mate in one.
+Answer :1.b7#
+
+I'd: l2_t4_b1_25
+Fen 25 :5rk1/1bR2ppp/1p3n2/r7/3P4/2NB4/1P3P1P/5RK1 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question : Is there a 5th rank mate?
+Answer :1.(...) Rg5#
+
+I'd: l2_t4_b1_26
+Fen 26 :6rk/1p4pp/2pb1n2/3pN3/3P4/2P4q/1PQ4P/1B4RK w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Check all checks — is one mate?
+Answer :1.Nf7#
+
+I'd: l2_t4_b1_27
+Fen 27 : 1r4k1/2R2pp1/5n1p/qp3P2/5Q2/6P1/1PP3BP/2K5 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Is there a checkmate in one move?
+Answer :1.(...) Qe1#
+
+I'd: l2_t4_b1_28
+Fen 28 :1kr5/p6p/1p4pb/nPN2p2/2P3n1/2B3P1/5PBP/3R2K1 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Calculate and find mate in one.
+Answer : 1. Na6#
+
+I'd: l2_t4_b1_29
+Fen 29 :1krr4/4R1p1/Pp6/2p4p/3n1N2/6P1/5PBP/6K1 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Check all checks — is one mate by moving a pawn?
+Answer :1. a7#
+
+I'd: l2_t4_b1_30
+Fen 30 :4r2k/1pp5/3b2RK/4n2P/P3B3/2N5/1P6/8 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Do you see a forced mate by Knight?
+Answer :1.(...) Nf7#
+
+I'd: l2_t4_b1_31
+Fen 31 :1q2k2r/pp3pp1/4pn2/3p4/3P2P1/2NBP3/PPQ2PP1/5RK1 b k - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Can you finish the game immediately?
+Answer :1.(...) Qh2#
+
+I'd: l2_t4_b1_32
+Fen 32 :k6r/pb1Nbp2/1p4p1/1N2p2p/P3q3/1Q6/1P3PPP/R5K1 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Is there a smothered mate?
+Answer : 1.Nf7#
+
+I'd: l2_t4_b1_33
+Fen 33 :3r2r1/pp2k3/1npbP1p1/3p3p/8/P3BQ1P/1P4P1/6K1 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Prove there is mate in one.
+Answer :1.Qf7#
+
+I'd: l2_t4_b1_34
+Fen 34 :2r2rk1/bp2qppp/p7/4pn1P/8/1BP2P2/PP1Q2PN/R3R2K b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Calculate and find mate in one.
+Answer :1.(...) Ng3#
+
+I'd: l2_t4_b1_35
+Fen 35 :rn1qkbnr/ppppp3/7p/6p1/3P4/4P1p1/PPP2PPP/RN1QKBNR w KQkq - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Calculate and find mate in one.
+Answer :1.Qh5#
+
+I'd: l2_t4_b1_36
+Fen 36 :rnbqkb1r/pp2n1pp/2pp4/4Np2/2B5/2NP4/PPP2PPP/R1BQK2R w KQkq - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Check all checks — is one mate?
+Answer :1.Bf7#
+
+I'd: l2_t4_b1_37
+Fen 37 :3r3k/1pq1b1p1/2p2p2/p1n5/4pNP1/1BP5/PP2QP2/2KR4 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Is there a checkmate in one move?
+Answer :1.Rh1#
+
+I'd: l2_t4_b1_38
+Fen 38 :3rk2r/pbn2ppp/1p6/2p5/2B4B/2P5/PP3PPP/3R1RK1 w k - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Check all checks — is one mate?
+Answer :1.Rxd8#
+
+I'd: l2_t4_b1_39
+Fen 39 :7k/4N1pp/8/2n3N1/2P3K1/8/8/8 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Calculate and find mate in one.
+Answer :1.Nf7#
+
+I'd: l2_t4_b1_40
+Fen 40 :5rk1/7p/6p1/1p6/1P4N1/2B2P2/6K1/8 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Do you see a forced mate?
+Answer :1.Nh6#
+
+I'd: l2_t4_b1_41
+Fen 41 :8/1b4k1/8/p1P5/8/2N4p/1r6/5QK1 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Can you finish the game immediately with a pawn move?
+Answer :1.(...) h2#
+
+I'd: l2_t4_b1_42
+Fen 42 :7k/2q3pn/8/4N3/8/5KP1/B6R/8 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question : Is there a Knight mate?
+Answer :1.Ng6#
+
+I'd: l2_t4_b1_43
+Fen 43 :8/6kn/8/6PK/2N4P/8/3p4/8 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Is there a promotional mate?
+Answer :1.(...) d8=Q#
+
+I'd: l2_t4_b1_44
+Fen 44 :6k1/6p1/5q2/8/8/6Q1/r7/4K1R1 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Prove there is mate in one.
+Answer :1.(...) Qa1#
+
+I'd: l2_t4_b1_45
+Fen 45 :5r1k/5p1p/r2N1p2/8/8/6R1/1B5P/7K w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Check all checks — is one mate?
+Answer :1. Bxf6#
+
+I'd: l2_t4_b1_46
+Fen 46 :5rk1/6p1/8/8/1n6/qPN3Q1/P7/KR6 b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Can you finish the game immediately?
+Answer :1.(...) Nc2#
+
+I'd: l2_t4_b1_47
+Fen 47 : 5r1k/4b1p1/1r4n1/R7/2B5/1P3PR1/5K2/8 w - - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Do you see a forced mate?
+Answer :1.Rh5#
+
+I'd: l2_t4_b1_48
+Fen 48 :8/6k1/8/5p2/8/1P4PK/r2q4/1Q5R b - - 0 1
+
+Goal : Find mate in one
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Calculate and find mate in one.
+Answer :1.(...) Qh6#
+
+I'd: l2_t4_b1_49
+Fen 49 :1k6/7R/1K6/8/8/8/8/8 w - - 20 11
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Check all checks — is one mate?
+Answer :1.Rh8#
+
+I'd: l2_t4_b1_50
+Fen 50 :3rk2r/pppqppbp/2np1np1/3Q1b2/2B5/2N1P3/PPP2PPP/R1B1K1NR w KQk - 0 1
+
+Goal : Find mate in one
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Is there a checkmate in one move?
+Answer: 1.Qxf7#

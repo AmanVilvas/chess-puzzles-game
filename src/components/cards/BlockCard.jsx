@@ -1,10 +1,9 @@
 import React from 'react';
 import { BookOpen } from 'lucide-react';
 import { ProgressBar } from '../ui/ProgressBar';
-const MAX_PUZZLES_PER_BLOCK = 6;
 export const BlockCard = ({ block, onClick }) => {
-  const displayTotal = Math.min(block.total, MAX_PUZZLES_PER_BLOCK);
-  const displayCompleted = Math.min(block.completed, displayTotal);
+  const displayTotal = block.total || 0;
+  const displayCompleted = Math.min(block.completed || 0, displayTotal);
   const progress = displayTotal > 0 ? (displayCompleted / displayTotal) * 100 : 0;
   return (
     <button

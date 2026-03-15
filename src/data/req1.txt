@@ -1,0 +1,503 @@
+                            Level 2 Discovered check 
+
+                                                              Block 1
+
+
+I'd: l2_t3_b1_1
+Fen 1 :r1b1kbnr/ppp2ppp/4p3/3pP3/3q4/3B4/PP3PPP/RNBQK2R w KQkq - 0 1
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is the queen vulnerable to discovered attack?
+Answer : 1.Bb5+
+
+I'd: l2_t3_b1_2
+Fen 2 :r3r1k1/1p1q2pp/p1n2p2/5N2/P2pP1Q1/8/5PPP/2R1R1K1 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can you win material with discovered attack?
+Answer :1. Nh6+
+
+I'd: l2_t3_b1_3
+Fen 3 :2rr2k1/pb3pbp/1p4p1/6q1/8/2N1R3/PPQB1PPP/R5K1 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Find the discovered attack and win the Queen.
+Answer : 1.Re8+
+
+I'd: l2_t3_b1_4
+Fen 4 :r1b2rk1/1pp2ppp/p1n2q2/8/3P4/2B2N1P/PP3PP1/R2Q1RK1 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can your bishop be used in a discovered attack?
+Answer : 1.d5
+
+I'd: l2_t3_b1_5
+Fen 5 :r1b2rk1/pp3ppp/2pq1n2/3pN3/3P1B2/2P4P/P1P2PP1/R2Q1RK1 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is the discovered attack forced?
+Answer :1.Ng6
+
+I'd: l2_t3_b1_6
+Fen 6 :r4rk1/1pp2pbp/p1np1qp1/8/4PB2/2P5/PPQ1N1PP/3R1RK1 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Does discovered attack win material immediately?
+Answer : 1.Bxd6
+
+I'd: l2_t3_b1_7
+Fen 7 :r1b2rk1/p2n1pp1/1p2p2p/8/3q4/2NB3P/PPP1QPP1/3R1RK1 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is the queen vulnerable to discovered attack?
+Answer :1.Bh7+
+
+I'd: l2_t3_b1_8
+Fen 8 :1r1q1rk1/1p2ppbp/2p2np1/p7/3NP3/2P3P1/PPQ2PBP/3R1RK1 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can you win material with discovered attack?
+Answer : 1.Nxc6
+
+I'd: l2_t3_b1_9
+Fen 9 :1r2r2k/1p4pp/p1nqb1p1/8/P2B1N2/2P3Q1/5PPP/R2R2K1 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is discovered attack the strongest continuation?
+Answer :1. Bxg7+
+
+I'd: l2_t3_b1_10
+Fen 10 :3r2k1/p4pp1/1p5p/2bN4/3Q4/8/PPq2PPP/R5K1 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can discovered attack break coordination?
+Answer : 1.Nf6+
+
+I'd: l2_t3_b1_11
+Fen 11 :rn2k2r/1pp1n1pp/p2bq3/5p2/3P4/5N2/PP2BPPP/R1BQR1K1 w kq - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is discovered attack the critical idea and win black's Queen?
+Answer :1.Bb5+
+
+I'd: l2_t3_b1_12
+Fen 12 :r4r1k/1bq3p1/p2R3p/np3p2/7P/PBN2PQ1/1PP3P1/2K4R w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is the queen vulnerable to discovered attack?
+Answer :1.Rxh6+
+
+I'd: l2_t3_b1_13
+Fen 13 :r3k2r/1b1qppbp/p5p1/np4B1/3NP3/2P4P/P1B1QPP1/3R1RK1 w kq - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check 
+Question : Find the discovered attack and win my Bishop.
+Answer :1.Nf5
+
+I'd: l2_t3_b1_14
+Fen 14 :2rr2k1/1p3ppp/p1q2bn1/8/4P3/1NP3P1/PPQ2PBP/R4RK1 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can you create a discovered attack?
+Answer :1.e5
+
+I'd: l2_t3_b1_15
+Fen 15 :r1b1r1k1/1p3pbp/p2p2p1/2pP3n/1q6/2N1B2P/PPPQ1PP1/2KRR3 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can you win my Rook with discovered attack?
+Answer :1. Bxc5
+
+I'd: l2_t3_b1_16
+Fen 16 :2kr3r/ppp2qp1/3b4/3N3p/3P1Nb1/1B1Q4/PP4PP/R4RK1 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can your bishop be used in a discovered attack?
+Answer : 1.Nb6+
+
+I'd: l2_t3_b1_17
+Fen 17 :2rr2k1/pb6/1p3q1p/2b1R1p1/8/1P1P1N1P/PB3PP1/R2Q2K1 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can your bishop be used in a discovered attack?
+Answer :1.Rxg5+
+
+I'd: l2_t3_b1_18
+Fen 18 :5k2/1pq2p2/p3p2r/3r1p2/8/2B1P2P/PP3PP1/2Q2RK1 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is the discovered attack forced?
+Answer :1.Bb4+
+
+I'd: l2_t3_b1_19
+Fen 19 :4k3/8/1q6/4B3/8/7K/4R3/8 w - - 0 1
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Does discovered attack win the Queen immediately?
+Answer : 1.Bd4+
+
+I'd: l2_t3_b1_20
+Fen 20 :r2qr2k/pp4bp/6p1/3B1p2/1PP1n3/P7/3NQ1PP/1RB2R1K b - - 0 24
+
+Goal : Discovered Attack
+Turn : Black
+Rating : 200-600
+Theme : Discovered Check
+Question :Is the queen vulnerable to discovered attack?
+Answer : 1.(...) Ng3
+
+I'd: l2_t3_b1_21
+Fen 21 :r4rk1/pp3ppp/2n5/2bq4/6b1/3BBN2/PP3PPP/R2QR1K1 w - - 0 14
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can you win my Queen with discovered attack?
+Answer : 1.Bh7+
+
+I'd: l2_t3_b1_22
+Fen 22 :r3kbnr/pp3ppp/4p3/3pP3/b2q4/3B4/PP3PPP/RNBQR1K1 w kq - 2 11
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is the queen vulnerable to discovered attack?
+Answer :1.Bb5+
+
+I'd: l2_t3_b1_23
+Fen 23 :3r4/2n4p/5kp1/p3pp2/BrPPp3/1P5P/4KPP1/1R1R4 w - - 0 31
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can you win the Rook with discovered attack?
+Answer : 1.dxe5+
+
+I'd: l2_t3_b1_24
+Fen 24 :2r2rk1/p3pp1p/1p1p4/5RNq/3b4/6Q1/PP4P1/5R1K w - - 0 30
+
+Goal : Discovered Attack
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Find the discovered attack and defend your check.
+Answer : 1.Nh3+
+
+I'd: l2_t3_b1_25
+Fen 25 :r5k1/pppq2p1/2np3p/4p1Pr/2N5/1P1P1PQb/PBP3BK/R4R2 b - - 1 19
+
+Goal : Discovered Attack
+Turn : Black
+Rating : 200-600
+Theme : Discovered Check
+Question :Can you create a discovered attack?
+Answer :1.(...) Bxg2+
+
+I'd: l2_t3_b1_26
+Fen 26 :r1bq1rk1/p4pbp/1pnppnp1/2p5/2P1P3/2NP2PP/PP2NPB1/R1BQ1RK1 w - - 0 10
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :What is the strongest discovered check to win a Knight?
+Answer :1.e5
+
+I'd: l2_t3_b1_27
+Fen 27 :4r1k1/5ppp/2q5/1Rp1b3/2P5/7P/r1B1QPP1/5RK1 w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is there a hidden discovered check?
+Answer :1.Bh7+
+
+I'd: l2_t3_b1_28
+Fen 28 :4r1k1/5ppp/2q5/1Rp1b3/2P5/7P/r1B1QPP1/5RK1 b - - 0 1
+
+Goal :  Discovered Check
+Turn : Black
+Rating : 200-600
+Theme : Discovered Check
+Question :Which piece can move to reveal check and win the Queen?
+Answer : 1.(...) Bh2+
+
+I'd: l2_t3_b1_29
+Fen 29 :5r1k/6pp/1p3p2/2n5/3QP2P/PB6/KP3R2/6q1 w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is there a hidden discovered attack that win a Queen or it will be a mate ?
+Answer :1. Rxf6
+
+I'd: l2_t3_b1_30
+Fen 30 :4r1k1/p4p1p/1p3qpB/3b4/1P1R4/P1Q5/5PPP/6K1 w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Find the discovered check.
+Answer :1.Re4
+
+I'd: l2_t3_b1_31
+Fen 31 :6r1/5p1k/1q6/p1p4b/1pP5/3R2PP/P1B3K1/4N3 w - - 0 2
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can you give a discovered check?
+Answer : 1.Rd6+
+
+I'd: l2_t3_b1_32
+Fen 32 :8/1p1r1pk1/6p1/P1R1P1qp/3N3n/7P/P4QPK/8 w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is there only one discovered check that win a Rook?
+Answer :1.e6
+
+I'd: l2_t3_b1_33
+Fen 33 :7r/ppq2kpp/8/3PP3/5B2/8/6PP/3R2K1 w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can you combine discovered check and attack and win my Queen?
+Answer :1. e6+
+
+I'd: l2_t3_b1_34
+Fen 34 :8/4b3/2p2p1k/4p2p/2qBQ3/7P/5PP1/6K1 w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is discovered check better than a direct check?
+Answer :1.Be3+
+
+I'd: l2_t3_b1_35
+Fen 35 :5rk1/p4Np1/8/3Q4/8/P4P1q/KP6/8 w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can you win Queen after discovered check?
+Answer :1.Ng5+
+
+I'd: l2_t3_b1_36
+Fen 36 :3q2k1/3p1Rp1/4B2p/8/8/7P/6P1/7K w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can you give a discovered check to win my Queen?
+Answer :1.Rxd7+
+
+I'd: l2_t3_b1_37
+Fen 37 :7k/7B/4q3/8/8/8/8/3K3R w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Which piece can move to reveal check?
+Answer :1.Bf5+
+
+I'd: l2_t3_b1_38
+Fen 38 :3r2k1/5pN1/4b3/8/2K5/8/8/6R1 w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is there a hidden discovered check with Knight?
+Answer :1.Nxe6
+
+I'd: l2_t3_b1_39
+Fen 39 :7k/4qpp1/7B/8/7R/8/5P2/6K1 w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :What is the strongest discovered check with Bishop?
+Answer : 1.Bg5+
+
+I'd: l2_t3_b1_40
+Fen 40 :8/8/8/q7/8/8/kP4R1/6K1 w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is discovered check better than a direct check find one with the pawn?
+Answer :1.b4+
+
+I'd: l2_t3_b1_41
+Fen 41 :k7/8/8/5q2/4R3/3B4/8/2K5 w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :What is the strongest discovered check with the Rook?
+Answer :1. Re8+
+
+I'd: l2_t3_b1_42
+Fen 42 :kr4r1/1pp3pp/1n6/5q2/4R3/3B2P1/1P1QPP2/1K5R w - - 0 1
+
+Goal : Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can you win Queen with the Bishop after discovered check?
+Answer : 1.Ra4+
+
+I'd: l2_t3_b1_43
+Fen 43 :2r5/4k3/1ppb4/8/q3N3/8/4QPP1/2R2K2 w - - 0 1
+
+Goal : Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Is there only one discovered check that wins a Queen?
+Answer :1. Nc5+
+
+I'd: l2_t3_b1_44
+Fen 44 :2q1bbk1/6p1/5p2/8/2N2Q2/KB2P3/1R1P2r1/8 w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can you combine discovered check and attack amd win the Queen?
+Answer :1.Nd6+
+
+I'd: l2_t3_b1_45
+Fen 45 :8/2b5/qn6/7p/1P1RB2k/PK2Q1p1/8/8 w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :What is the strongest discovered check and leads to a mate?
+Answer :1.Bg2#
+
+I'd: l2_t3_b1_46
+Fen 46 :7k/1pq3pp/p4p2/2p2P2/2Pp1N2/1P2rPQP/1P6/7K w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :Can you give a discovered check and win the Queen on c7?
+Answer :1.Ng6+
+
+I'd: l2_t3_b1_47
+Fen 47 : 4rr1k/ppq2ppp/3p4/3BnP2/3Q4/8/PP3PPP/R1B1R1K1 w - - 0 1
+
+Goal :  Discovered Check
+Turn : Black
+Rating : 200-600
+Theme : Discovered Check
+Question :Find the discovered check with the Knight.
+Answer :1.(...) Nf3+
+
+I'd: l2_t3_b1_48
+Fen 48 :r2qr1k1/pp2bppp/2p2n2/3p4/8/P2B1N2/1PPQ1PPP/RN2K2R b - - 0 1
+
+Goal :  Discovered Check
+Turn :
+Rating : 200-600
+Theme : Discovered Check
+Question :Which piece can move to reveal check and win the Queen?
+Answer : 1.(...) Bb4
+
+I'd: l2_t3_b1_49
+Fen 49 :r4rk1/pp3ppp/2p1Nn2/q1b1Q3/4P3/8/PP3PPP/RNB2RK1 w - - 0 1
+
+Goal :  Discovered Check
+Turn : Black
+Rating : 200-600
+Theme : Discovered Check
+Question :Is there a hidden discovered check and win the Knight?
+Answer :1.(...)Bxf2+
+
+I'd: l2_t3_b1_50
+Fen 50 :3k2q1/5np1/5p2/8/8/3B3P/5PPK/3R4 w - - 0 1
+
+Goal :  Discovered Check
+Turn : White
+Rating : 200-600
+Theme : Discovered Check
+Question :What is the strongest discovered check and win the Queen?
+Answer: 1.Bh7+

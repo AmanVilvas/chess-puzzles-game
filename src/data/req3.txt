@@ -1,0 +1,504 @@
+                                Level 2 Mate in 1 
+
+                                                              Block 2
+
+
+I'd: l2_t4_b2_1
+Fen 1 :5r2/pp5k/1n6/3b3q/7R/2P3R1/P4PPP/6K1 w - - 2 3
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question : Can the Rook checkmate on the back rank?
+Answer :1.Rh5#
+
+I'd: l2_t4_b2_2
+Fen 2 :7K/8/8/8/8/7R/R7/3k4 w - - 10 6
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Rook give smooth mate in one move?
+Answer :1.Rh1#
+
+I'd: l2_t4_b2_3
+Fen 3 :1k4r1/p1p1R3/1p1p4/7p/4P3/2N2r1P/PP6/1RB4K b - - 5 29
+
+Goal : Find Mate in 1
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Rook deliver checkmate in one move?
+Answer :1.(...) Rxh3#
+
+I'd: l2_t4_b2_4
+Fen 4 :r7/pR4R1/3pk3/2p1p1p1/2P1P2p/2KP1PrP/8/8 w - - 6 36
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :can the Rook give checkmate on g6?
+Answer :1.Rg6#
+
+I'd: l2_t4_b2_5
+Fen 5 :2n4R/r5R1/1qp1k2p/p2pPp2/1p3P2/7N/PPP4P/1K6 w - - 0 4
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :can the Rook give unstoppable mate?
+Answer :1.Rh6#
+
+I'd: l2_t4_b2_6
+Fen 6 :5K2/1p1r4/p5k1/6P1/1PP1p3/4P2r/1P2R3/4R3 b - - 8 5
+
+Goal : Find Mate in 1
+Turn :Black
+Rating : 200-600
+Theme : Mate in one
+Question :can the Rook finish the attack?
+Answer :1.(...) Rh8
+
+I'd: l2_t4_b2_7
+Fen 7 :3r4/1p6/p7/5kP1/1PP1p2K/4Pr2/1P2R3/4R3 b - - 2 2
+
+Goal : Find Mate in 1
+Turn : Black 
+Rating : 200-600
+Theme : Mate in one
+Question :can the Rook deliver final blow?
+Answer :1.(...) Rh8#
+
+I'd: l2_t4_b2_8
+Fen 8 :8/1b3p1k/p7/1p1BPP2/8/2R5/P6P/1K4R1 w - - 1 9
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :the Rook end the attack immediately?
+Answer :1.Rh3#
+
+I'd: l2_t4_b2_9
+Fen 9 :4r1k1/1p1R1p1p/6p1/2P5/Q7/P4PPP/BP4K1/4r3 b - - 2 3
+
+Goal : Find Mate in 1
+Turn : Black 
+Rating : 200-600
+Theme : Mate in one
+Question :the Rook give the final blow?
+Answer :1.(...) R8e2#
+
+I'd: l2_t4_b2_10
+Fen 10 :6k1/p2R2pp/1p1p4/6rn/1P1p4/1N1P1P2/P1R1KP2/2B4r b - - 1 3
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Rook checkmate on the back rank?
+Answer :1.Rc8#
+
+I'd: l2_t4_b2_11
+Fen 11 :2k3rr/1p3p2/B1b3Q1/3p4/8/4bPK1/PP1N4/R1R5 b - - 2 3
+
+Goal : Find Mate in 1
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Rook give mate in one move?
+Answer : 1.(...) Rxg3#
+
+I'd: l2_t4_b2_12
+Fen 12 :4Rr1k/3R3p/3p2p1/q2P1p2/2p5/8/5PPP/6K1 w - - 2 3
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Rook deliver checkmate in one move?
+Answer :1. Rf8#
+
+I'd: l2_t4_b2_13
+Fen 13 :6k1/2p1R1b1/1p1p4/1N1P4/1PP3Pp/P3R2K/5r2/5r2 b - - 4 3
+
+Goal : Find Mate in 1
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :can the Rook give unstoppable mate?
+Answer :1.(...) Rh1#
+
+I'd: l2_t4_b2_14
+Fen 14 :5r1k/7p/4p2r/3pP3/p2Q1P2/P4pK1/4bP2/R5RB b - - 2 3
+
+Goal : Find Mate in 1
+Turn :Black
+Rating : 200-600
+Theme : Mate in one
+Question :can the Rook give checkmate?
+Answer :1.(...) Rg8#
+
+I'd: l2_t4_b2_15
+Fen 15 :6k1/2R1R1pp/r7/n2r1P2/P1p3P1/2qp3P/2B2P2/6K1 w - - 0 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Rook deliver checkmate in one move?
+Answer : 1.Re8#
+
+I'd: l2_t4_b2_16
+Fen 16 :1n2Rq1k/r2r3p/p7/1p6/8/2P3R1/P4PPP/6K1 w - - 2 3
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :the Rook give the final blow?
+Answer :1.Rxf8#
+
+I'd: l2_t4_b2_17
+Fen 17 :4r1k1/1p1R1p1p/6p1/2P5/Q7/P4PPP/BP5K/4r3 b - - 2 3
+
+Goal : Find Mate in 1
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Rook on 8th rank give unstoppable mate?
+Answer :1.(...)R8e2#
+
+I'd: l2_t4_b1_18
+Fen 18 :R2Q4/1r3pk1/6pp/8/3Pn3/4P2P/5r2/7K b - - 1 3
+
+Goal : Find Mate in 1
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :the Rook end the attack immediately?
+Answer :1.(...) Rb1#
+
+I'd: l2_t4_b2_19
+Fen 19 :5R2/p1n4k/2q1p1p1/3pP1Pp/3P3P/8/P7/5RK1 w - - 3 4
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :can the Rook deliver final blow?
+Answer :1.R1f7#
+
+I'd: l2_t4_b2_20
+Fen 20 :3R4/3R4/p4p1k/1p3Pp1/1P2b3/P5PP/2r3BK/8 w - - 2 5
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Rook checkmate on the back rank?
+Answer :1.Rh8#
+
+I'd: l2_t4_b2_21
+Fen 21 : 4rrk1/1R5R/p2q1Pp1/3p4/8/8/5PP1/6K1 w - - 4 4
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Rook give smooth mate in one move?
+Answer :1.Rg7#
+
+I'd: l2_t4_b2_22
+Fen 22 :2k4r/ppp1bpp1/6r1/4P2Q/2PP4/7K/PP3R1P/R7 b - - 4 4
+
+Goal : Find Mate in 1
+Turn : Black
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Rooks deliver checkmate in one move?
+Answer :1.(...) Rh5#
+
+I'd: l2_t4_b2_23
+Fen 23 :6Q1/3q1N2/r3b3/2ppPk1r/p2P4/7P/1P6/4R1K1 w - - 2 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :can the Queen give checkmate on g4?
+Answer :1.Qg4#
+
+I'd: l2_t4_b2_24
+Fen 24 :2r3r1/5p1k/4qp2/1p1p1N2/2p5/P1P5/1P3PPP/3Q2K1 w - - 0 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :can the queen give unstoppable mate?
+Answer :1.Qh5#
+
+I'd: l2_t4_b2_25
+Fen 25 : r4rk1/1pq1nbp1/p2p4/5p1Q/5P2/2P4R/P1PB2PP/R6K w - - 0 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :can the queen finish the attack?
+Answer :1.Qh8# , 1.Qh7#
+
+I'd: l2_t4_b2_26
+Fen 26 :rn1q1bnr/p1pk1Bpp/1p3p2/4p3/4P3/1Q6/PPP2PPP/RNB1K2R w KQ - 2 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Queen support mate in one?
+Answer : 1.Qe6#
+
+I'd: l2_t4_b2_27
+Fen 27 :1bk1r2r/Q2b4/8/4q3/8/8/PPP3PP/1K1R4 w - - 0 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Rook support Queen mate in one?
+Answer : 1.Qd7#
+
+I'd: l2_t4_b2_28
+Fen 28 :7k/6p1/pqr1B3/1p6/5Q2/b3P2P/6P1/6K1 w - - 0 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Queen deliver immediate mate?
+Answer :1.Qh4#
+
+I'd: l2_t4_b2_29
+Fen 29 :7R/6p1/pqr1B1k1/1p6/5Q2/b3P2P/6P1/6K1 w - - 2 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the queen give unstoppable mate?
+Answer :1.Qf5#
+
+I'd: l2_t4_b2_30
+Fen 30 :6k1/3q1p1p/4bB1Q/6p1/8/6P1/6PK/8 w - - 0 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the queen checkmate on the back rank?
+Answer :1.Qg7#
+
+I'd: l2_t4_b2_31
+Fen 31 : r2q4/6k1/p1n2p2/1p1B1p2/2pPrB1Q/P7/1P5P/R5K1 w - - 2 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the bishop and Queen deliver immediate mate?
+Answer :1.Qh6#
+
+I'd: l2_t4_b2_32
+Fen 32 :6rk/3q1ppb/4p3/6NQ/8/8/3p2PP/7K w - - 0 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the knight support Queen in mate in one?
+Answer :1.Qh7#
+
+I'd: l2_t4_b2_33
+Fen 33 :4Q3/p5r1/2p2k2/2qp3p/5P1P/6P1/P3R1K1/8 w - - 2 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Rook support queen mate in one?
+Answer :1.Qe6#
+
+I'd: l2_t4_b2_34
+Fen 34 :q3k3/2Q5/3pp3/3N2p1/1n6/3PP2p/P4P1P/6K1 w - - 2 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the queen give unstoppable mate?
+Answer :1.Qe7#
+
+I'd: l2_t4_b2_35
+Fen 35 :r2q1r2/ppp1k3/5b2/3Qp3/8/1BPP4/PP3P1P/n1B1R1K1 w - - 2 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the queen checkmate on the 6th rank?
+Answer :1.Qe6#
+
+I'd: l2_t4_b2_36
+Fen 36 :2b1k2r/5r1p/p1pQpp2/5P2/8/3R4/P3PKP1/8 w k - 1 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Queen deliver immediate mate?
+Answer :1.Qd8#
+
+I'd: l2_t4_b2_37
+Fen 37 :r2q1r1k/ppp1b1pb/2np2pQ/3N1p2/2P1n3/1P4P1/PB2PPBP/R3K2R w KQ - 2 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Bishop support Queen mate in one?
+Answer :1.Qg7#
+
+I'd: l2_t4_b2_38
+Fen 38 :rn1q1k1r/1b4p1/p3Qbp1/1p4N1/4p3/2N1B3/PPP4P/2K2R2 w - - 2 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Knight support queen mate in one?
+Answer :1.Qf7#
+
+I'd: l2_t4_b2_39
+Fen 39 :1r4r1/4R1P1/1pP4Q/pP1p1p2/2qk4/2N5/P4PK1/8 w - - 2 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the queen give unstoppable mate?
+Answer :1.Qe3#
+
+I'd: l2_t4_b2_40
+Fen 40 :3R2qk/1p2p2p/4p1PQ/4p2p/2r1P3/p4P2/PPP5/1K6 w - - 0 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the queen checkmate on the back rank?
+Answer : 1.Qh7#
+
+I'd: l2_t4_b2_41
+Fen 41 :7r/1p1R3p/p3pkp1/Q7/2r1q2P/2P5/P4PP1/6K1 w - - 2 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Queen give smooth mate in one move?
+Answer :1. Qg5#
+
+I'd: l2_t4_b2_42
+Fen 42 :2b5/1pk4r/4p1pp/1B1pPp2/3q4/Q6P/2P2PP1/6K1 w - - 0 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the queen deliver checkmate in one move?
+Answer :1.Qd6#
+
+I'd: l2_t4_b2_43
+Fen 43 :8/2Q5/2n1q1p1/p5kp/1pPpP3/1P1N1K2/P7/8 w - - 0 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :can the Queen give checkmate on f4?
+Answer :1.Qf4#
+
+I'd: l2_t4_b2_44
+Fen 44 :1r2qk2/4r1pQ/pp3p2/n2p2N1/8/1P6/P4PPP/4R1K1 w - - 0 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :can the queen give unstoppable mate?
+Answer :1.Qh8#
+
+I'd: l2_t4_b2_45
+Fen 45 :rn3b2/ppp5/3kbQ2/3pN3/3Pp3/8/PPP1KP1P/RNq5 w - - 2 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Queen give smooth mate in one move?
+Answer :1. Qf8#
+
+I'd: l2_t4_b2_46
+Fen 46 :r1bq1b1r/1ppknBp1/p6p/n3p3/3PP3/1QP5/PP3PPP/RNB1K2R w KQ - 0 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Queen deliver immediate mate?
+Answer :1.Qe6#
+
+I'd: l2_t4_b2_47
+Fen 47 :k3rb1R/2Qn2p1/b3Nq2/8/8/4B3/PPP2p2/2K5 w - - 0 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the Bishop support mate in one?
+Answer :1.Qa7#
+
+I'd: l2_t4_b2_48
+Fen 48 :r1b2k2/p2nbrpQ/1qn1p2p/1p1pP3/2pP4/P1P2N2/1P1B1KPP/R6R w - - 0 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the queen mate in one move?
+Answer :1.Qh8#
+
+I'd: l2_t4_b2_49
+Fen 49 :k1b4r/1p1r1pp1/pQNppnn1/6q1/N3P2b/P4P2/1PPR4/1K1R1B2 w - - 2 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :Can the queen give unstoppable mate?
+Answer :1.Qa7#
+
+I'd: l2_t4_b2_50
+Fen 50 :r2rq3/1R3p2/n2p1k2/P1pPpP2/4P1Pp/P6P/8/1RQ3K1 w - - 2 2
+
+Goal : Find Mate in 1
+Turn : White
+Rating : 200-600
+Theme : Mate in one
+Question :can the queen give unstoppable mate?
+Answer: 1.Qh6#

@@ -13,8 +13,12 @@ import { DECOY_PUZZLES } from './level2_decoy.js';
 import { MATE_IN_1_PUZZLES } from './level2_mate_in_1.js';
 import { MATE_IN_2_PUZZLES } from './level2_mate_in_2.js';
 import { VALUE_OF_PIECES } from './level2_value_of_pieces.js';
-import { TOPIC_2_CAPTURES, TOPIC_3_CHECKS } from './level2_captures_and_checks.js';
-import { TOPIC_5_LAWNMOWER, TOPIC_6_DRAW, TOPIC_7_PAWN_STRUCTURE, TOPIC_8_ETIQUETTE } from './level2_advanced_topics.js';
+import { TOPIC_2_CAPTURES } from './level2_captures_and_checks.js';
+import { TOPIC_3_CHECKS } from './level2_t3_discovered_check.js';
+import { TOPIC_2_DOUBLE_CHECK } from './level2_t2_double_check.js';
+import { TOPIC_5_LAWNMOWER, TOPIC_6_DRAW } from './level2_advanced_topics.js';
+import { TOPIC_7_PAWN_STRUCTURE } from './level2_pawn_structure.js';
+import { TOPIC_8_ETIQUETTE } from './level2_etiquette.js';
 
 // Level 3 Puzzle Data
 import { L3_TOPIC_1_PROTECTING, L3_TOPIC_2_DOUBLE_ATTACK, L3_TOPIC_3_PIN, L3_TOPIC_4_MATE } from './level3_part1.js';
@@ -155,6 +159,17 @@ const rawLevels = [
         title: TOPIC_8_ETIQUETTE.title,
         blocks: TOPIC_8_ETIQUETTE.blocks.map((block, blockIdx) => ({
           id: `b9-${blockIdx + 1}-2`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
+      },
+      {
+        id: "t2-10",
+        title: TOPIC_2_DOUBLE_CHECK.title,
+        blocks: TOPIC_2_DOUBLE_CHECK.blocks.map((block, blockIdx) => ({
+          id: `b10-${blockIdx + 1}-2`,
           name: block.name,
           total: block.puzzles.length,
           completed: 0,

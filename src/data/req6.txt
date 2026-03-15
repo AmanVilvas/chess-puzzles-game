@@ -1,0 +1,143 @@
+                                Level 2 Chess Etiquette 
+
+                                                              Block 1
+
+
+I'd: l2_t9_b1_1
+Fen 1 :8/8/3k4/8/3P4/4K3/8/8 w - - 0 1
+
+Goal : Good Manners 
+Turn : White to play
+Rating : 200-600
+Theme : Rule of Chess
+Describe: The touch-move rule, if you touch one of your own pieces (whether on purpose or accidentally) when it is your turn to move, you must move that piece if this can be legally done.
+
+Example: If playing as White you have touched the d4-pawn, then you have to make a move with this pawn.
+[…] 1. d5
+
+
+I'd: l2_t9_b1_2
+Fen 2 :8/4bk2/3r4/8/3P4/3K4/8/8 b - - 0 1
+
+Goal : Good Manners 
+Turn : Black to play
+Rating : 200-600
+Theme : Rule of Chess
+Describe: Touch and capture, If you touch an opponent's piece (whether on purpose or accidentally) when it is your turn to move, you have to capture it, if that can be legally done.
+It does not matter whether this capture is profitable or not.
+
+Example: You are playing as Black. If you have touched the d4-pawn, then you must capture it with the rook.
+[…] 1… Rxd4+
+
+I'd: l2_t9_b1_3
+Fen 3 :b6k/1q4rp/8/8/8/5P2/1B1Q2P1/6K1 b - - 0 1
+
+Goal : Good Manners 
+Turn : Black to play
+Rating : 200-600
+Theme : Rule of Chess
+Describe: If a forced move is illegal then the piece touched stays on its square without consequences. In such cases there are no penalty actions and you can make any other move with another piece.
+
+Example: a) You have touched the a8-bishop. However, the a8-bishop is blocked by the b7-queen and has no possible moves. So, the bishop you've touched stays where it is, without any consequences.
+ b) You have touched the g7-rook, but if the rook moves the black king turns out to be checked by the b2-bishop. In this situation the rook move is impossible, so you must make some other move.
+[…] 1… Qd5
+
+I'd: l2_t9_b1_4
+Fen 4 :7k/1q4r1/8/4B3/8/8/6P1/4N1K1 b - - 0 1
+
+Goal : Good Manners 
+Turn : Black to play
+Rating : 200-600
+Theme : Rule of Chess
+Describe: Touch and capture, If you wish to adjust a piece (no matter yours or opponent's), then you must first say "J'adoube" (I adjust), and only after that you can adjust the piece.
+If you first touch the piece, then the touch-move rule applies. You are allowed to adjust pieces only during your turn. If it is your opponent's move, you have no right to adjust pieces.
+
+Example: You have touched the white pawn on g2. According to the laws of chess you must capture it.
+The g7-rook is pinned by the e5-bishop and cannot move, so Black is forced to play Qb7xg2+, White replies with Ne1xg2, and Black is losing his queen.
+[…] 1… Qxg2+ 2. Nxg2 
+
+
+I'd: l2_t9_b1_5
+Fen 5 :8/8/3kP3/8/5K2/8/8/8 b - - 0 1
+
+Goal : Good Manners 
+Turn : Black to play
+Rating : 200-600
+Theme : Rule of Chess
+Describe: When only two kings remain on the board, checkmate is impossible. A king alone cannot trap the opposing king.
+Therefore, the game ends in a draw due to insufficient material.
+
+Example: If Black captures the pawn on e6, only the two kings will remain on the board.
+In that case, there will be no way for either side to checkmate the opponent’s king.
+[...] 1… Kxe6=
+
+
+I'd: l2_t9_b1_6
+Fen 6 :7k/5RRp/7P/4p3/4B1P1/p7/PKP5/8 b - - 0 8
+
+Goal : Good Manners 
+Turn : Black to play
+Rating : 200-600
+Theme : Rule of Chess
+Describe: Stalemate happens when a player has no legal moves, but their king is not in check. In this situation, the game ends immediately in a draw.
+Even if one side has more material, stalemate means neither player wins. 
+
+Example: If Black plays a3 here, then after White makes any move the position becomes stalemate, since Black will have no legal moves available.
+[...] 1… a3 2.Kxa3= ( Stalemate )
+
+I'd: l2_t9_b1_7
+Fen 7 :r3r1k1/p4pp1/1p5p/2pP4/8/P6P/1P3PP1/R2R2K1 w - - 0 1
+
+Goal : Good Manners 
+Turn : White to play
+Rating : 200-600
+Theme : Rule of Chess
+Describe: En passant, If a pawn moves two squares forward from its starting position and lands next to an opponent’s pawn, that pawn may capture it as if it had moved only one square.
+This capture must be done immediately on the very next move, otherwise the right to capture en passant is lost.
+
+Example: Suppose, White has a pawn on d5. Black moves a pawn from c7 to c5 (two squares). White can capture en passant by moving the pawn from d5 to c6, capturing the pawn that moved to c5.
+Even though the pawn is on d5, it is captured as if it had moved only to c6.
+[...] 1.dxc6 
+
+
+I'd: l2_t9_b1_8
+Fen 8 :8/6K1/8/3p4/3k4/8/8/5R2 w - - 0 1
+
+Goal : Good Manners 
+Turn : White to play
+Rating : 200-600
+Theme : Rule of Chess
+Describe:The Fifty-Move Rule states that a player can claim a draw if no pawn move and no capture has occurred in the last 50 consecutive moves by each side. This means 100 half-moves are played without any pawn movement or piece capture. If this happens, either player may claim a draw.
+
+Example: A position with King and Rook vs King pawn where players keep moving their pieces without capturing anything and no pawn moves occur.
+If 50 moves pass without any capture or pawn move, either player can claim a draw under the Fifty-Move Rule.
+[...] 1.Re8+
+
+
+I'd: l2_t9_b1_9
+Fen 9 :8/2p5/pb3kp1/1r5p/8/1P4P1/P1B2RKP/8 w - - 0 1
+
+Goal : Good Manners 
+Turn : Black to play
+Rating : 200-600
+Theme : Rule of Chess
+Describe: An illegal move happens when a player makes a move that breaks the rules of chess, such as moving a piece incorrectly or leaving their king in check.
+In tournament games, if a player makes an illegal move, the arbiter may give a penalty (often adding time to the opponent’s clock).
+
+Example: White’s king is in check from a rook, but Black moves a pawn like [...] 1… a5 instead of dealing with the check. Since the king is still in check, this move is illegal.
+White must play a move that removes the check, such as moving the king, blocking, or capturing the rook. 
+[...] 1… Bf2
+
+
+I'd: l2_t9_b1_10
+Fen 10 :r1bqk2r/1p2bppp/p1nppn2/8/3PP3/P1NB4/1P1B1PPP/R2QK1NR w KQkq - 0 1
+
+Goal : Good Manners 
+Turn : White to play
+Rating : 200-600
+Theme : Rule of Chess
+Describe: Move Only One Piece, a player can move only one piece per turn.
+After making a move, the turn passes to the opponent.
+
+Example: White moves the knight from g1 to f3. White cannot also move the bishop in the same turn. Only one piece can be moved each turn, so White must wait for the next move. The only exception is castling, where the king and rook move together as one special move.
+[...] 1.Nf3

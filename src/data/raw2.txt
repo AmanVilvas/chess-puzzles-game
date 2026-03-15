@@ -1,0 +1,452 @@
+Level 2 Capturing Unprotected Piece
+Block 2
+
+I'd: l2_t1_b2_1                                                           
+Fen 1 : 1k5r/ppq2p1p/4p1p1/n7/2P1P3/1P3P1P/PB1Q1K2/7R w - - 0 1
+Goal : Capture
+Turn : White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Seems like my Rook  is vulnerable — can you find how to win it?
+Answer : 1. Bxh8
+
+I'd: l2_t1_b2_2
+Fen 2 : r2q1rk1/pb2bpp1/5n1p/Npp5/4P3/3B1N1P/PP3PP1/R2Q1RK1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question :  How do you force the Knight to be lost?
+Answer : 1.(...) Qxa5
+
+I'd: l2_t1_b2_3
+Fen 3 : r1b1k1nr/pp1pppbp/2n3p1/8/3PP3/2N1BN2/Pq2BPPP/R2QK2R b KQkq - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Calculate how to win the Knight.
+Answer : 1.(...)Qxc3
+
+I'd: l2_t1_b2_4
+Fen 4 : r1b2r1k/pp1n3p/2p1pb2/3pNppq/2PPn3/1P2P3/PBQNBPPP/2R2RK1 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : How can you win the Bishop here?
+Answer : 1.(...) Qxe2
+
+I'd: l2_t1_b2_5
+Fen 5 : 7R/pkp5/1p2Q3/2b2p2/N1P3p1/1P3nP1/4NPK1/q7 b - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : The Rook is unprotected — how can it be punished?
+Answer : 1.(...) Qxh8
+
+I'd: l2_t1_b2_6
+Fen 6 : 8/4kbp1/1nB4q/1p6/1PpP1N2/P7/6KP/2Q5 b - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : The Bishop is unprotected — how can you win it?
+Answer : 1.(...) Qxc6
+
+I'd: l2_t1_b2_7
+Fen 7 : 8/3rk3/p1r2p1p/1p2b1p1/1P2P3/P4PP1/R2RK2P/2B5 b - - 0 1
+Goal : Capture
+Turn : Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Find a way to win my Bishop.
+Answer : 1.(...) Rxc1
+
+I'd: l2_t1_b2_8
+Fen 8 : r7/6pk/1p2p2p/1Pp2p2/5P2/1qb1P2P/6QP/5BRK w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Calculate how the attack wins a Rook.
+Answer : 1.Qxa8
+
+I'd: l2_t1_b2_9
+Fen 9 : 5rk1/N1p2pp1/2B5/1P2Q3/7n/1P5P/5qPK/8 b - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Find the continuation that wins a Knight.
+Answer : 1.(...) Qxa7
+
+I'd: l2_t1_b2_10
+Fen 10 : r6r/ppp1kppp/2p3n1/2b5/2BPP3/2P2N2/P3KPPP/R6R w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Calculate the move that wins a full Bishop.
+Answer : 1.dxc5
+
+I'd: l2_t1_b2_11
+Fen 11 : r2qr2k/1pp3pp/3b4/8/2P5/P1Q5/4N1PP/1R3R1K b - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Seems like my Knight  is vulnerable — can you find how to win it?”
+Answer : 1.(...) Rxe2
+
+I'd: l2_t1_b2_12
+Fen 12 : r1b2r2/1ppk2pp/1b1p2n1/3B4/4P3/2PN1N2/2K2P1P/1R5R b - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question :How do you force the Knight to be lost?
+Answer : 1.(...) Rxf3
+
+I'd: l2_t1_b2_13
+Fen 13 : 3rr3/1bp2kpp/1p3pn1/3P4/1R6/2PN1q2/2KQ1P1P/5B1R b - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Calculate how to win the Rook.
+Answer : 1.(...) Qxh1
+
+I'd: l2_t1_b2_14
+Fen 14 : 1r3r1k/p1p1bqpp/2b5/8/3N4/6N1/P2Q1PPP/R4RK1 w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question :How can you win the Bishop here?
+Answer : 1.Nxc6
+
+I'd: l2_t1_b2_15
+Fen 15 : r3k2r/1p2qppp/p1n2n2/1Bb1p3/4P3/5N2/PPQ2PPP/R1B1K2R b KQkq - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Is there a forcing sequence that wins the Bishop.
+Answer : 1.(...) axb5
+
+I'd: l2_t1_b2_16
+Fen 16 : k3q3/1p3p2/p5pr/8/R3P3/1P6/P2Q3P/4K3 w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : My Rook is under attack — what is the best continuation?
+Answer : 1.Qxh6
+
+I'd: l2_t1_b2_17
+Fen 17 : rn1q1rk1/p1p2pp1/1p6/6np/1PQ3b1/P1N3P1/5PBP/R1B2RK1 w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : The rook is unprotected — how can it be punished?
+Answer : 1.Bxa8
+
+I'd: l2_t1_b2_18
+Fen 18 : r2qk2r/1b2bppp/p3p3/1p1nP3/3pNB2/3B1N2/PP3PPP/R2Q1RK1 b kq - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : My Bishop is under attack - what is the best continuation?
+Answer :1.(...) Nxf4
+
+I'd: l2_t1_b2_19
+Fen 19 : r2r2k1/2q1bp1p/2pN2p1/pp2P3/4bP1n/P1B5/1PP1BQPP/1K1R3R w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Seems like my Bishop is vulnerable — can you find how to win it?”
+Answer : 1. Nxe4
+
+I'd: l2_t1_b2_20
+Fen 20 : r4rk1/p2R1p1p/1p4p1/2p4n/2B3q1/P3Q1P1/1PPN1P1P/1K5R b - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : How do you force the Rook to be lost?
+Answer : 1.(...)Qxd7
+
+I'd: l2_t1_b2_21
+Fen 21 : r2qk2r/pp1nppbp/6p1/2p1P1N1/5Pn1/2N5/PPP3PP/R1BQK2R w KQkq - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question :Calculate how to win the Knight.
+Answer : 1.Qxg4
+
+I'd: l2_t1_b2_22
+Fen 22 : r2q1rk1/1p3p1p/3p1np1/8/pn3R2/2N5/PP2B1PP/R2Q2K1 w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : How can you win the Knight here?
+Answer : 1.Rxb4
+
+I'd: l2_t1_b2_23
+Fen 23 : r2q1rk1/ppp2pbp/2np1np1/4p3/2BPP1b1/2P2N1P/PP2QPP1/RNB2RK1 w Qq - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : The Bishop is unprotected — how can it be punished?
+Answer : 1.hxg4
+
+I'd: l2_t1_b2_24
+Fen 24 : 1k3r1r/pppb2bp/2n1p1p1/1B2Pp2/8/2B1N2P/PPP2PP1/3R1RK1 w k - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Calculate how to win the Bishop.
+Answer : 1.Rxd7
+
+I'd: l2_t1_b2_25
+Fen 25 : r4rk1/pppbqppp/2n1pn2/2bp4/5PQ1/1PN1PN2/PBPPB1PP/R4RK1 b Qq - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Find a way to win my Queen.
+Answer : 1.(...) Nxg4
+
+I'd: l2_t1_b2_26
+Fen 26 : r4rk1/ppp2ppp/2nb1n2/5P2/3P4/1BN2N2/PqP2QPP/R4RK1 b - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Calculate how the attack wins a Knight.
+Answer : 1.(...) Qxc3
+
+I'd: l2_t1_b2_27
+Fen 27 : r4rk1/pp3pbp/2nR2p1/3N4/4P3/5Q2/PP2BPPq/2KR4 b - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Find the continuation that wins a Rook.
+Answer : 1.(...) Qxd6
+
+I'd: l2_t1_b2_28
+Fen 28 : r2r1bk1/1bq2pp1/p1np1n1p/1p2p3/1B2P3/1B1Q1N2/PPP2PPP/3RR1K1 b q - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : My Bishop is under attack — what is the best continuation?
+Answer : 1.(...) Nxb4
+
+I'd: l2_t1_b2_29
+Fen 29 : r3k2r/pp3p1p/3p1np1/3Pn3/8/2N3N1/PPP3PP/3R1RK1 w kq - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Is there a forcing sequence that wins the Knight.
+Answer : 1.Rxf6
+
+I'd: l2_t1_b2_30
+Fen 30 : r3k1nr/pbpp2pp/1pn1q2B/4P3/3N4/2N5/PPP2RPP/R2Q2K1 b Qkq - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Is there a forcing sequence that wins the Bishop?
+Answer : 1.(...) Qxh6
+
+I'd: l2_t1_b2_31
+Fen 31 : r1b2r2/pp2ppk1/3q2p1/n1pP3p/4P2P/5N2/P2QBPP1/1R2K2R w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Is the Knight actually hanging? Calculate precisely.
+Answer : 1.Qxa5
+
+I'd: l2_t1_b2_32
+Fen 32 : r2qr1k1/pp1nppbp/2n3p1/4N3/3P1Bb1/2PB4/PP2NPPP/R2Q1RK1 w Qq - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : The Bishop is unprotected — how can it be punished?
+Answer : 1.Nxg4
+
+I'd: l2_t1_b2_33
+Fen 33 : 5k2/8/4n1p1/5p2/2B2P2/8/6P1/3K4 w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Calculate how the attack wins a Knight.
+Answer : 1.Bxe6
+
+I'd: l2_t1_b2_34
+Fen 34 : r7/8/3k4/p2p4/3Pn3/2P3P1/3B2K1/2R5 b - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Find the continuation that wins a Bishop.
+Answer : 1.(...) Nxd2
+
+I'd: l2_t1_b2_35
+Fen 35 : 2rk2q1/p2b4/1p6/2r3p1/1Q6/1BP3pP/P5P1/5R1K w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Calculate the move that wins a full Queen.
+Answer : 1. Bxg8
+
+I'd: l2_t1_b2_36
+Fen 36 : 3r4/2kqb3/2p2p2/1p4B1/pP2B1P1/P3RP2/2Q2PK1/5R2 b - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : My Bishop  is under attack — what is the best continuation?
+Answer : 1.(...) fxg5
+
+I'd: l2_t1_b2_37
+Fen 37 : 5q2/kp5p/p1r1p1p1/8/6P1/PB1R4/1PP2Q1P/1K6 b - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Is there a forcing sequence that wins the Queen.
+Answer : 1.(...) Qxf2
+
+I'd: l2_t1_b2_38
+Fen 38 : 2q5/Q2b2k1/3n1ppp/3Pp3/1B1pP3/1Pp2P2/2P3PK/8 w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Calculate how the attack wins a Knight.
+Answer : 1.Bxd6
+
+I'd: l2_t1_b2_39
+Fen 39 : 8/R1b2pk1/3np1p1/8/4N3/2P2P2/1r2NKP1/8 w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Calculate how the attack wins a rook Bishop.
+Answer : 1. Rxc7
+
+I'd: l2_t1_b2_40
+Fen 40 : 3bk3/R6r/1p4p1/1P1n1p2/3BpP2/1N6/2P1PK2/8 w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Calculate the forced Rook win.
+Answer : 1. Rxh7
+
+I'd: l2_t1_b2_41
+Fen 41 : rnbqk1nr/ppp3pp/3b4/5p2/3pN3/5N2/PPP1BPPP/R1BQK2R b KQkq - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Find the cleanest Knight win.
+Answer : 1.(...) fxe4
+
+I'd: l2_t1_b2_42
+Fen 42 : r2k3r/p1p4p/2Qb1p2/8/5q2/5N2/PPP2PPP/3RR1K1 w kq - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question :Is the rook actually hanging? Calculate precisely.
+Answer : 1. Qxa8
+
+I'd: l2_t1_b2_43
+Fen 43 : r4r2/4b2k/p3p2p/1pppn1pQ/8/2N3B1/PPP2PPP/R4RK1 w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question :Is there a forcing sequence that wins the Knight?
+Answer : 1.Bxe5
+
+I'd: l2_t1_b2_44
+Fen 44 : r3r1k1/p1q2pp1/1p1p1n1p/2pP1n2/2P5/1PQB4/P4PPP/3RR1K1 w - - 0 1
+Goal : Capture
+Turn :White
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question :My Knight is under attack — what is the best continuation?
+Answer : 1. Bxf5
+
+I'd: l2_t1_b2_45
+Fen 45 : 8/kr6/4p1p1/4PpPp/5P1P/Qq6/1PR5/1K6 b - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : The Queen is unprotected — how can it be punished?
+Answer : 1.(...) Qxa3
+
+I'd: l2_t1_b2_46
+Fen 46 : 4r3/b5pk/P6p/8/3N4/2p5/2P3P1/5R1K w - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Is there a forcing sequence that wins the Knight.
+Answer :1.(...) Bxd4
+
+I'd: l2_t1_b2_47
+Fen 47 : r3r1k1/pbp2pq1/1pn3pp/8/7P/1P1Q2P1/P1P2PB1/R1B2RK1 w - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : My Rook is under attack — what is the best continuation?
+Answer : 1.(...) Qxa1
+
+I'd: l2_t1_b2_48
+Fen 48 : 1r2r3/2p1q2k/6bp/8/8/2PQ3P/5RBK/2B2R2 w - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Calculate the move that wins a full Queen.
+Answer : 1.(...) Bxd3
+
+I'd: l2_t1_b2_49
+Fen 49 : 1r6/6pk/b1p1r2p/8/8/2PN3P/7K/R5R1 w - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Find the continuation that wins a Knight
+Answer : 1.(...) Bxd3 
+
+I'd: l2_t1_b2_50
+Fen 50 : 1r2r3/2p1qp1k/4b1pp/5n2/8/3Q2P1/R1P2PBP/2B2RK1 w - - 0 1
+Goal : Capture
+Turn :Black
+Rating : 200-600
+Theme : Captururing Unprotected Piece
+Question : Calculate how the attack wins a Rook.
+Answer : 1.(...) Bxa2
