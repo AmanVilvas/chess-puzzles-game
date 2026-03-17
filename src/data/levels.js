@@ -19,6 +19,7 @@ import { TOPIC_2_DOUBLE_CHECK } from './level2_t2_double_check.js';
 import { TOPIC_5_LAWNMOWER, TOPIC_6_DRAW } from './level2_advanced_topics.js';
 import { TOPIC_7_PAWN_STRUCTURE } from './level2_pawn_structure.js';
 import { TOPIC_8_ETIQUETTE } from './level2_etiquette.js';
+import { TOPIC_11_PERPETUAL } from './level2_perpetual.js';
 
 // Level 3 Puzzle Data
 import { L3_TOPIC_1_PROTECTING, L3_TOPIC_2_DOUBLE_ATTACK, L3_TOPIC_3_PIN, L3_TOPIC_4_MATE } from './level3_part1.js';
@@ -33,6 +34,9 @@ import { L5_TOPIC_1_DEFLECTION, L5_TOPIC_2_DECOY } from './level5_part1.js';
 import { L5_TOPIC_3_INTERFERENCE, L5_TOPIC_4_MATE_IN_2 } from './level5_part2.js';
 import { L5_TOPIC_5_MULTI_PAWN, L5_TOPIC_6_KNIGHT_ENDINGS, L5_TOPIC_7_ROOK_VS_PAWNS } from './level5_part3.js';
 import { L5_TOPIC_8_OPEN_LINES, L5_TOPIC_9_CENTER, L5_TOPIC_10_OPENINGS } from './level5_part4.js';
+
+// Level 10 Puzzle Data
+import { L10_TOPIC_1, L10_TOPIC_2, L10_TOPIC_3, L10_TOPIC_4 } from './level10.js';
 
 // Helper to convert topic data to level format
 const createLevel1Topics = () => {
@@ -170,6 +174,17 @@ const rawLevels = [
         title: TOPIC_2_DOUBLE_CHECK.title,
         blocks: TOPIC_2_DOUBLE_CHECK.blocks.map((block, blockIdx) => ({
           id: `b10-${blockIdx + 1}-2`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
+      },
+      {
+        id: "t2-11",
+        title: TOPIC_11_PERPETUAL.title,
+        blocks: TOPIC_11_PERPETUAL.blocks.map((block, blockIdx) => ({
+          id: `b11-${blockIdx + 1}-2`,
           name: block.name,
           total: block.puzzles.length,
           completed: 0,
@@ -773,39 +788,55 @@ const rawLevels = [
   },
   {
     id: 10,
-    comingSoon: true,
+    comingSoon: false,
     name: "Level 10 - Master: 2200 ELO and up",
     subtitle: "Learn Chess: Master Level",
-    tasks: 274,
+    tasks: 291,
     completion: 0,
     topics: [
       {
         id: "t10-1",
-        title: "Middlegame",
-        blocks: [
-          { id: "b1-1-10", name: "Block 1", total: 29, completed: 0 }
-        ]
+        title: L10_TOPIC_1.title,
+        blocks: L10_TOPIC_1.blocks.map((block, blockIdx) => ({
+          id: `b1-${blockIdx + 1}-10`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t10-2",
-        title: "Openings",
-        blocks: [
-          { id: "b2-1-10", name: "Block 1", total: 66, completed: 0 }
-        ]
+        title: L10_TOPIC_2.title,
+        blocks: L10_TOPIC_2.blocks.map((block, blockIdx) => ({
+          id: `b2-${blockIdx + 1}-10`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t10-3",
-        title: "Tactics",
-        blocks: [
-          { id: "b3-1-10", name: "Block 1", total: 96, completed: 0 }
-        ]
+        title: L10_TOPIC_3.title,
+        blocks: L10_TOPIC_3.blocks.map((block, blockIdx) => ({
+          id: `b3-${blockIdx + 1}-10`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       },
       {
         id: "t10-4",
-        title: "Bishop vs knight in the endgame",
-        blocks: [
-          { id: "b4-1-10", name: "Block 1", total: 83, completed: 0 }
-        ]
+        title: L10_TOPIC_4.title,
+        blocks: L10_TOPIC_4.blocks.map((block, blockIdx) => ({
+          id: `b4-${blockIdx + 1}-10`,
+          name: block.name,
+          total: block.puzzles.length,
+          completed: 0,
+          puzzles: block.puzzles
+        }))
       }
     ]
   }

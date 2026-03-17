@@ -142,6 +142,19 @@ export const PuzzleView = ({
     exampleText: puzzle.exampleText,
   };
 
+  const extractImage = (text) => {
+    if (!text) return { text: '', image: null };
+    const urlPattern = /(https?:\/\/[^\s]+)/g;
+    const match = text.match(urlPattern);
+    if (match) {
+      const image = match[0];
+      // Clean up punctuation that might be left after removing URL at end
+      const cleanText = text.replace(image, '').trim().replace(/[:.]$/, '');
+      return { text: cleanText, image };
+    }
+    return { text, image: null };
+  };
+
   // Detect description-heavy puzzles (interactive board with rule description)
   const isEtiquette = safePuzzle.type === 'etiquette' || !!safePuzzle.description;
 
@@ -600,7 +613,16 @@ export const PuzzleView = ({
   const isLevel1 = level?.id === 1;
   const isBlock3 = blockNumber === 3;
   const puzzleHasFen = !!(safePuzzle.fen && safePuzzle.fen.trim());
-  const showBoard = (!isLevel1 || isBlock3 || puzzleHasFen);
+  
+  const { text: questionText, image: questionImage } = extractImage(safePuzzle.type === 'quiz' ? (safePuzzle.question || safePuzzle.explanation) : (safePuzzle.explanation || safePuzzle.goal));
+  const optionsWithMeta = (safePuzzle.options || []).map(opt => extractImage(opt));
+  const anyOptionHasImage = optionsWithMeta.some(opt => opt.image);
+  
+  // Case 1: No Question Image + Options HAVE Images => Show options in center
+  const showOptionsInCenter = !questionImage && anyOptionHasImage;
+  
+  // Show board when: (NOT showing options in center) AND (not level 1, OR it's level 1 block 3, OR the puzzle has a FEN position AND no image)
+  const showBoard = !showOptionsInCenter && (!isLevel1 || isBlock3 || (puzzleHasFen && !questionImage));
 
   const themeOptions = Object.entries(BOARD_THEMES);
 
@@ -686,7 +708,7 @@ export const PuzzleView = ({
            <div className="relative z-10 w-full h-full flex flex-col items-center justify-center">
              {showBoard ? (
                <ChessBoardView
-                 position={isQuizBoardMode && game ? game.fen() : (safePuzzle.fen || (game ? game.fen() : STARTING_FEN))}
+                 position={game ? game.fen() : (safePuzzle.fen || STARTING_FEN)}
                  onSquareClick={handleSquareClick}
                  lastMove={moveHistory[moveHistory.length - 1]}
                  orientation={orientation}
@@ -696,7 +718,84 @@ export const PuzzleView = ({
                  showLegalMoves={true}
                />
              ) : (
-                <div className="text-[var(--color-text-muted)] text-sm italic py-10">No board available for this puzzle.</div>
+                (() => {
+                  if (questionImage) {
+                    return (
+                      <div className="flex flex-col items-center gap-6 fade-in w-full max-w-[750px]">
+                        <div className="relative group w-full flex justify-center">
+                          <img 
+                            src={questionImage} 
+                            alt="question" 
+                            className="w-full h-auto max-h-[75vh] rounded-3xl shadow-2xl object-contain border-4 border-white transition-transform duration-300 group-hover:scale-[1.01]"
+                          />
+                        </div>
+                        <div className="text-2xl font-black text-[var(--color-text-primary)] text-center px-6 leading-tight">
+                           {questionText}
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  if (showOptionsInCenter) {
+                    return (
+                      <div className="flex flex-col items-center gap-8 fade-in w-full max-w-[950px]">
+                        {/* Question Text Box at Top */}
+                        <div className="bg-[var(--color-bg-secondary)] border-2 border-[var(--color-border-primary)] rounded-3xl px-10 py-6 shadow-sm w-full max-w-[700px] text-center">
+                           <h2 className="text-2xl lg:text-3xl font-black text-[var(--color-text-primary)] leading-tight">
+                             ques: {questionText}
+                           </h2>
+                        </div>
+                        
+                        {/* Large Options Grid */}
+                        <div className="grid grid-cols-2 gap-6 lg:gap-8 w-full px-4">
+                           {safePuzzle.options?.map((option, idx) => {
+                              const { text: optText, image: optImage } = extractImage(option);
+                              let isSelected = selectedOption !== null && (idx === selectedOption || (idx === safePuzzle.correctAnswer && isPuzzleComplete));
+                              let className = "btn btn-secondary border p-4 lg:p-6 text-xl font-black transition-all shadow-md flex flex-col items-center justify-center gap-3 rounded-[2rem] h-auto relative hover:scale-[1.02]";
+                              let style = { minHeight: optImage ? '240px' : 'auto' };
+                              
+                              if (selectedOption !== null) {
+                                if (idx === safePuzzle.correctAnswer && (selectedOption === idx || isPuzzleComplete)) {
+                                   className = "btn p-4 lg:p-6 text-xl font-black transition-all shadow-xl flex flex-col items-center justify-center gap-3 rounded-[2rem] text-white fade-in h-auto relative";
+                                   style = { ...style, backgroundColor: "var(--color-accent-emerald)", borderColor: "var(--color-accent-emerald)", transform: "scale(1.05)" };
+                                } else if (idx === selectedOption && idx !== safePuzzle.correctAnswer) {
+                                   className = "btn p-4 lg:p-6 text-xl font-black transition-all shadow-xl flex flex-col items-center justify-center gap-3 rounded-[2rem] text-white h-auto relative";
+                                   style = { ...style, backgroundColor: "var(--color-error)", borderColor: "var(--color-error)", transform: "scale(0.95)" };
+                                } else if (isPuzzleComplete && idx !== safePuzzle.correctAnswer) {
+                                   className = "btn btn-secondary border p-4 lg:p-6 text-xl font-black transition-all flex flex-col items-center justify-center gap-3 rounded-[2rem] opacity-40 h-auto relative";
+                                }
+                              }
+
+                              return (
+                                <button
+                                  key={idx}
+                                  onClick={() => handleOptionClick(idx)}
+                                  disabled={isPuzzleComplete}
+                                  className={className}
+                                  style={style}
+                                >
+                                  {optImage && (
+                                     <div className="w-full bg-white rounded-2xl p-2 mb-2 overflow-hidden shadow-inner flex items-center justify-center" style={{ height: '160px' }}>
+                                       <img 
+                                         src={optImage} 
+                                         alt={`option-${idx}`} 
+                                         className="max-w-full max-h-full object-contain" 
+                                       />
+                                     </div>
+                                   )}
+                                  <span className="leading-tight text-center" style={{ wordBreak: "break-word" }}>
+                                      {optText}
+                                  </span>
+                                </button>
+                              );
+                           })}
+                        </div>
+                      </div>
+                    );
+                  }
+                  
+                  return <div className="text-[var(--color-text-muted)] text-sm italic py-10">No board available for this puzzle.</div>;
+                })()
              )}
              
              {isWrongMove && (
@@ -760,51 +859,76 @@ export const PuzzleView = ({
              ) : (
                /* ── REGULAR PUZZLE INFO BLOCK ───────────────────────────── */
                <div className="card p-5 shadow-sm flex flex-col gap-3" style={{ backgroundColor: "var(--color-bg-elevated)", minHeight: "130px" }}>
-                 <div className="flex items-center gap-2">
-                   <div style={{ width: 14, height: 14, borderRadius: "50%", backgroundColor: safePuzzle.turn === "w" ? "white" : "#2a2a2a", border: "1px solid var(--color-border-primary)" }} />
-                   <span className="text-sm font-bold text-[var(--color-text-secondary)]">
-                     playing as {safePuzzle.turn === "w" ? "white" : "black"}
-                   </span>
-                 </div>
+                 {showOptionsInCenter ? (
+                    <div className="flex flex-col items-center justify-center py-4 gap-2 text-center">
+                       <h3 className="text-sm font-black uppercase tracking-widest text-[var(--color-accent-orange)]">
+                         Select the correct option
+                       </h3>
+                       <p className="text-xs text-[var(--color-text-muted)] font-medium italic max-w-[180px]">
+                         The options are displayed in the center grid for better visibility
+                       </p>
+                    </div>
+                 ) : (
+                    <>
+                      <div className="flex items-center gap-2">
+                        <div style={{ width: 14, height: 14, borderRadius: "50%", backgroundColor: safePuzzle.turn === "w" ? "white" : "#2a2a2a", border: "1px solid var(--color-border-primary)" }} />
+                        <span className="text-sm font-bold text-[var(--color-text-secondary)]">
+                          playing as {safePuzzle.turn === "w" ? "white" : "black"}
+                        </span>
+                      </div>
 
-                 {/* Question text — always shown */}
-                 <div className="font-bold text-[15px] text-[var(--color-text-primary)]">
-                   ques: {safePuzzle.type === 'quiz'
-                     ? (safePuzzle.question || safePuzzle.explanation)
-                     : (safePuzzle.explanation || safePuzzle.goal)}
-                 </div>
+                      {/* Question text — always shown */}
+                      <div className="font-bold text-[15px] text-[var(--color-text-primary)]">
+                         ques: {questionText}
+                      </div>
 
-                 {/* Options — for any level quiz-type puzzles */}
-                 {safePuzzle.type === 'quiz' && safePuzzle.options && safePuzzle.options.length > 0 && (
-                   <div className="grid grid-cols-2 gap-3 flex-shrink-0 mt-1">
-                     {safePuzzle.options?.map((option, idx) => {
-                        let isSelected = selectedOption !== null && (idx === selectedOption || (idx === safePuzzle.correctAnswer && isPuzzleComplete));
-                        let className = "btn btn-secondary border px-3 py-2.5 text-xs font-bold transition-all shadow-sm flex flex-col items-center justify-center gap-1 rounded-xl h-auto relative";
-                        let style = {};
-                        if (selectedOption !== null) {
-                          if (idx === safePuzzle.correctAnswer && (selectedOption === idx || isPuzzleComplete)) {
-                             className = "btn px-3 py-2.5 text-xs font-bold transition-all shadow-lg flex flex-col items-center justify-center gap-1 rounded-xl text-white fade-in h-auto relative";
-                             style = { backgroundColor: "var(--color-accent-emerald)", borderColor: "var(--color-accent-emerald)", transform: "scale(1.02)" };
-                          } else if (idx === selectedOption && idx !== safePuzzle.correctAnswer) {
-                             className = "btn px-3 py-2.5 text-xs font-bold transition-all shadow-lg flex flex-col items-center justify-center gap-1 rounded-xl text-white h-auto relative";
-                             style = { backgroundColor: "var(--color-error)", borderColor: "var(--color-error)", transform: "scale(0.98)" };
-                          } else if (isPuzzleComplete && idx !== safePuzzle.correctAnswer) {
-                             className = "btn btn-secondary border px-3 py-2.5 text-xs font-bold transition-all flex flex-col items-center justify-center gap-1 rounded-xl opacity-50 h-auto relative";
-                          }
-                        }
-                        return (
-                          <button
-                            key={idx}
-                            onClick={() => handleOptionClick(idx)}
-                            disabled={isPuzzleComplete}
-                            className={className}
-                            style={style}
-                          >
-                            <span className="leading-tight mt-0.5" style={{ wordBreak: "break-word" }}>{option}</span>
-                          </button>
-                        );
-                     })}
-                   </div>
+                      {/* Options — for any level quiz-type puzzles */}
+                      {safePuzzle.type === 'quiz' && safePuzzle.options && safePuzzle.options.length > 0 && (
+                        <div className="grid grid-cols-2 gap-3 flex-shrink-0 mt-1">
+                          {safePuzzle.options?.map((option, idx) => {
+                             const { text: optText, image: optImage } = extractImage(option);
+                             let isSelected = selectedOption !== null && (idx === selectedOption || (idx === safePuzzle.correctAnswer && isPuzzleComplete));
+                             let className = "btn btn-secondary border px-3 py-2.5 text-xs font-bold transition-all shadow-sm flex flex-col items-center justify-center gap-1 rounded-xl h-auto relative";
+                             let style = {};
+                             
+                             if (selectedOption !== null) {
+                               if (idx === safePuzzle.correctAnswer && (selectedOption === idx || isPuzzleComplete)) {
+                                  className = "btn px-3 py-2.5 text-xs font-bold transition-all shadow-lg flex flex-col items-center justify-center gap-1 rounded-xl text-white fade-in h-auto relative";
+                                  style = { backgroundColor: "var(--color-accent-emerald)", borderColor: "var(--color-accent-emerald)", transform: "scale(1.02)" };
+                               } else if (idx === selectedOption && idx !== safePuzzle.correctAnswer) {
+                                  className = "btn px-3 py-2.5 text-xs font-bold transition-all shadow-lg flex flex-col items-center justify-center gap-1 rounded-xl text-white h-auto relative";
+                                  style = { backgroundColor: "var(--color-error)", borderColor: "var(--color-error)", transform: "scale(0.98)" };
+                               } else if (isPuzzleComplete && idx !== safePuzzle.correctAnswer) {
+                                  className = "btn btn-secondary border px-3 py-2.5 text-xs font-bold transition-all flex flex-col items-center justify-center gap-1 rounded-xl opacity-50 h-auto relative";
+                               }
+                             }
+
+                             return (
+                               <button
+                                 key={idx}
+                                 onClick={() => handleOptionClick(idx)}
+                                 disabled={isPuzzleComplete}
+                                 className={className}
+                                 style={style}
+                               >
+                                 {optImage && (
+                                    <div className="w-full bg-white rounded-lg p-1.5 mb-2 overflow-hidden shadow-inner flex items-center justify-center" style={{ height: '130px' }}>
+                                      <img 
+                                        src={optImage} 
+                                        alt={`option-${idx}`} 
+                                        className="max-w-full max-h-full object-contain" 
+                                      />
+                                    </div>
+                                  )}
+                                 <span className="leading-tight font-bold text-center" style={{ wordBreak: "break-word" }}>
+                                     {optText}
+                                 </span>
+                               </button>
+                             );
+                          })}
+                        </div>
+                      )}
+                    </>
                  )}
                </div>
              )}
@@ -831,9 +955,9 @@ export const PuzzleView = ({
                      return (
                         <button
                           key={idx}
-                           onClick={() => onPuzzleChange && onPuzzleChange(idx)}
-                           className="w-[36px] h-[36px] rounded-lg font-bold text-sm flex items-center justify-center border transition-all hover:-translate-y-0.5 shadow-sm"
-                           style={style}
+                          onClick={() => onPuzzleChange && onPuzzleChange(idx)}
+                          className="w-[36px] h-[36px] rounded-lg font-bold text-sm flex items-center justify-center border transition-all hover:-translate-y-0.5 shadow-sm"
+                          style={style}
                         >
                            {idx + 1}
                         </button>

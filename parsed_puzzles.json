@@ -1,0 +1,507 @@
+{
+  "title": "Introduction",
+  "blocks": [
+    {
+      "id": "block_1",
+      "puzzles": [
+        {
+          "id": "L1_t1_b1_1",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Where was chess invented?",
+          "options": [
+            "A. (Italy) https://c1.chessking.com/course-resource/9c/f/9cf1ccd0-7987-4ec0-a551-fc9de23dae07.jpg",
+            "B. (India) https://c1.chessking.com/course-resource/4e/e/4ee1770f-724f-43ab-bf7c-6c625016a8b5.jpg",
+            "C.(France) https://c1.chessking.com/course-resource/bc/4/bc4d2d4c-466a-45f7-b53b-2b444f22fcec.jpg"
+          ],
+          "correctAnswer": 1,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b1_2",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "How long ago was chess invented?",
+          "options": [
+            "A. (100 years ago) https://c1.chessking.com/course-resource/c1/2/c12800c0-4218-4186-abe3-159defbf923d.jpg",
+            "B.( 20 years ago) https://c1.chessking.com/course-resource/8e/8/8e8af44a-3e4f-4af5-86d4-d6301915fb49.jpg",
+            "C.(Over 1500 years ago) https://c1.chessking.com/course-resource/9a/e/9ae94ec9-aefc-4b78-a65f-4f53e050acb2.jpg"
+          ],
+          "correctAnswer": 2,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b1_3",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Chess is a?",
+          "options": [
+            "A.(An action game) https://c1.chessking.com/course-resource/a8/6/a86c8694-8cf9-4f9b-a58c-ef552ca39a92.png",
+            "B.(An intellectual game) https://c1.chessking.com/course-resource/17/3/1733a69f-af77-4734-b0b9-4d213915c588.png",
+            "C.(A role playing game) https://c1.chessking.com/course-resource/f7/9/f79fb95a-5cf7-4ab2-aa01-6968dc223eaa.png"
+          ],
+          "correctAnswer": 1,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1 _b1_4",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "What equalities does chess develop?",
+          "options": [
+            "A.(Mental quality) https://c1.chessking.com/course-resource/d1/9/d193bf74-6d10-4f22-8e51-72ebd7961365.png",
+            "B.(Muscle strength) https://c1.chessking.com/course-resource/4f/3/4f31e796-d080-4240-a011-185998da4a73.png",
+            "C.(Agility) https://c1.chessking.com/course-resource/15/e/15eacf23-a4f0-4362-8c95-f8a169cd962d.png"
+          ],
+          "correctAnswer": 0,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b1_5",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Where do you put chess pieces to play?",
+          "options": [
+            "A.(On the lawn) https://c1.chessking.com/course-resource/f1/0/f10e0d72-592b-4b49-8a1d-e620ddd0e70b.png",
+            "B.(On the chess Board)  https://c1.chessking.com/course-resource/ce/2/ce213ad7-8009-4442-9a46-6936af5d61cd.png",
+            "C.(under the table) https://c1.chessking.com/course-resource/af/d/afd54d10-588d-4318-9e4c-93c3c9b1094b.png"
+          ],
+          "correctAnswer": 1,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b1_6",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Right before the game begins the player…",
+          "options": [
+            "A.(pick their nose) https://c1.chessking.com/course-resource/f6/b/f6b9a70e-b66a-47c7-aa64-25ae2812a9d3.png",
+            "B.(shake hands) https://c1.chessking.com/course-resource/23/2/2329d111-c7dc-482d-b109-2aa96cae7d24.png",
+            "C.(Drink water) https://c1.chessking.com/course-resource/ea/f/eaf96ff9-07f6-4720-bb12-c69996085795.png"
+          ],
+          "correctAnswer": 1,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b1_7",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Which piece doesn't exist in chess?",
+          "options": [
+            "A. (Knight) https://c1.chessking.com/course-resource/5f/d/5fdc3715-fd07-4e8c-b7b7-35ef78b063b1.",
+            "C. (Mushroom) https://c1.chessking.com/course-resource/20/7/2077cfec-dd1b-4b2d-978a-524d143908e4.png",
+            "D. (Bishop) https://c1.chessking.com/course-resource/7c/3/7c3f7ca5-0919-44c9-b911-663493a9e4a7.png"
+          ],
+          "correctAnswer": 2,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1 _b1_8",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "How is this piece called? https://c1.chessking.com/course-resource/de/d/deddb226-a735-49f8-bfef-80fa1ba0c191.png",
+          "options": [
+            "A.The Bishop",
+            "B.The wolverine",
+            "C.The monk"
+          ],
+          "correctAnswer": 0,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1 _b1_9",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "what is this piece called? https://c1.chessking.com/course-resource/1a/d/1ad50001-3262-4486-8329-847fb4a95286.png",
+          "options": [
+            "A. Rook",
+            "B. King",
+            "C. Knight"
+          ],
+          "correctAnswer": 1,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1 _b1_10",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "What is this piece called?  https://c1.chessking.com/course-resource/d1/4/d1491657-422f-4123-835a-7af142373b2b.png",
+          "options": [
+            "A. Rook",
+            "B. Bishop",
+            "C. Cactus"
+          ],
+          "correctAnswer": 0,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1 _b1_11",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "What is this piece called? https://c1.chessking.com/course-resource/d1/7/d17ba667-d7e1-42cc-bdc8-a537372cfb79.png",
+          "options": [
+            "A. Queen",
+            "B. Bishop",
+            "C.Knight"
+          ],
+          "correctAnswer": 0,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b1_12",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "What is this piece called? https://c1.chessking.com/course-resource/f1/5/f15e20e7-adca-4350-b3cb-a3b224bb673d.png",
+          "options": [
+            "A. Horse",
+            "B. Bishop",
+            "C.Knight"
+          ],
+          "correctAnswer": 2,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1 _b1_13",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "What is this piece called?https://c1.chessking.com/course-resource/7c/c/7cce7c91-74fd-4b0c-bc2a-7eb745db065e.png",
+          "options": [
+            "A. Pawn",
+            "B. Giri",
+            "C. Soldier"
+          ],
+          "correctAnswer": 0,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b1_14",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Name of the pieces https://greenchess.net/variant/4gpawnpr.png",
+          "options": [
+            "A. Knight",
+            "B. Pawn",
+            "C. Rook"
+          ],
+          "correctAnswer": 1,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b1_15",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Name of the piece.. https://i.sstatic.net/Tjc8Y.png",
+          "options": [
+            "A. Knight",
+            "B. Pawn",
+            "C. Rook"
+          ],
+          "correctAnswer": 0,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b1_16",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "What is the symbol for knight? https://i.sstatic.net/Tjc8Y.png",
+          "options": [
+            "A. (N)",
+            "B. (k)",
+            "C. Knight"
+          ],
+          "correctAnswer": 0,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "block_2",
+      "puzzles": [
+        {
+          "id": "L1_t1_b2_17",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Name of the pieces. https://lh4.googleusercontent.com/proxy/nRuaYQoxUrdSR-sDI0mY6dT01u373uQ7sb0ifsR kodE3v3s4h_zSMQnHVh1b5KSb0xiCSfD6ggxgPBOe45Tx3k5E3Mj_CljfDhPq6abpupNR2muuRg",
+          "options": [
+            "A. King",
+            "B. Queen",
+            "C. Rook"
+          ],
+          "correctAnswer": 2,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b2_18",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Symbol for the rook? https://lh4.googleusercontent.com/proxy/nRuaYQoxUrdSR-sDI0mY6dT01u373uQ7sb0ifsckodE3v3s4h_zSMQnHVh1b5KSb0xiCSfD6ggxgPBOe45Tx3k5E3Mj_CljfDhPq6abpupNR2muuRg",
+          "options": [
+            "A. R",
+            "B. Ro",
+            "C. Lk"
+          ],
+          "correctAnswer": 0,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b2_19",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Name of the piece.. https://thechessworld.com/wp-content/uploads/2024/04/bishop-move-298x300.webp",
+          "options": [
+            "A. Bishop",
+            "B. Pawn",
+            "C. Rook"
+          ],
+          "correctAnswer": 0,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b2_20",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Symbol of the piece https://thechessworld.com/wp-content/uploads/2024/04/bishop-move-298x300.webp",
+          "options": [
+            "A. Bishop",
+            "B. B",
+            "C. b"
+          ],
+          "correctAnswer": 0,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b2_21",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "What is the piece called? https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqLRckBabVqJt5kAJHan29nnkiDagG9C_X2rvgki_e8w&s=10",
+          "options": [
+            "A. King",
+            "B. Crown",
+            "C.Queen"
+          ],
+          "correctAnswer": 0,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b2_22",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Symbol of the piece.. https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqLRckBabVqJt5kAJHan29nnkiDagG9C_X2rvgki_e8w&s=10",
+          "options": [
+            "A. K",
+            "B. Ki",
+            "C. ki"
+          ],
+          "correctAnswer": 0,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t_b2_23",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Name of the piece..  https://www.thechesswebsite.com/wp-content/uploads/2019/09/queen-starting-position.jpg",
+          "options": [
+            "A. Levon",
+            "B. Rook",
+            "C. Queen"
+          ],
+          "correctAnswer": 2,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1 _b2_24",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Symbol of the piece? https://www.thechesswebsite.com/wp-content/uploads/2019/09/queen-starting-position.jpg",
+          "options": [
+            "A. O",
+            "B. Q",
+            "C. QQ"
+          ],
+          "correctAnswer": 1,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b2_25",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Find the correct chess..",
+          "options": [
+            "A. https://c1.chessking.com/course-resource/bf/8/bf89fe28-6549-4563-924f-7c52c0861d44.png",
+            "B. https://c1.chessking.com/course-resource/bf/0/bf0ee48b-7a4a-402b-bfee-db7d918a911e.png",
+            "C. https://c1.chessking.com/course-resource/26/c/26c5a2a5-6129-4053-b7af-80a3b3684bed.png"
+          ],
+          "correctAnswer": 0,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b2_26",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Find the correct chess board..",
+          "options": [
+            "A. https://c1.chessking.com/course-resource/52/1/521ae113-d7c4-42d2-a21c-535ea838bd82.png",
+            "B. https://c1.chessking.com/course-resource/69/d/69d12622-9fba-4fec-b7e4-effb240468d9.png",
+            "C. https://c1.chessking.com/course-resource/5b/5/5b553b02-00e1-46b2-987d-86b393b1a495.png"
+          ],
+          "correctAnswer": 1,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b2_27",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "What do you call the alternating black and white sections of the board?https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA29kBRfQYu0dyTxfKZ1y2vgAmn7JOKFQL7Um-BlTRRQ&s=10",
+          "options": [
+            "A. Cubes",
+            "B. Square",
+            "C. Hexas"
+          ],
+          "correctAnswer": 1,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b2_28",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "How many squares are on the board? https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA29kBRfQYu0dyTxfKZ1y2vgAmn7JOKFQL7Um-BlTRRQ&s=10",
+          "options": [
+            "A. 12",
+            "B. 36",
+            "C. 64"
+          ],
+          "correctAnswer": 2,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        },
+        {
+          "id": "L1_t1_b2_29",
+          "type": "quiz",
+          "fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+          "question": "Is this positioning of the chess board is correct? https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA29kBRfQYu0dyTxfKZ1y2vgAmn7JOKFQL7Um-BlTRRQ&s=10",
+          "options": [
+            "A. Yes",
+            "B. No"
+          ],
+          "correctAnswer": 0,
+          "explanation": "",
+          "rating": 100,
+          "themes": [
+            "intro"
+          ]
+        }
+      ]
+    }
+  ]
+}
