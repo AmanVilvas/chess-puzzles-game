@@ -1,26 +1,14 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { lazy, Suspense, useState, useEffect, useMemo } from 'react';
 import { Routes, Route, useNavigate, useParams, Navigate, useLocation } from 'react-router-dom';
-import { Chess } from 'chess.js';
-
-// Handles incomplete teaching FENs (e.g. single king) that chess.js rejects normally
-const createGameFromFen = (fen) => {
-  const safeFen = fen || 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
-  try { return new Chess(safeFen); } catch {
-    try { const g = new Chess(); g.load(safeFen, { skipValidation: true }); return g; } catch {
-      return new Chess();
-    }
-  }
-};
-
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { MobileMenu } from './components/layout/MobileMenu';
-import { LevelsView } from './components/views/LevelsView';
-import { TopicsView } from './components/views/TopicsView';
-import { PuzzleView } from './components/views/PuzzleView';
-import { getPuzzlesForTopic } from './data/puzzleGenerator';
+import { LEVEL_SUMMARIES } from './data/levelSummaries';
 import { markPuzzleCompleted, getStats } from './utils/progressManager';
-import { LEVELS_DATA } from './data/levels';
+
+const LevelsView = lazy(() => import('./components/views/LevelsView').then(m => ({ default: m.LevelsView })));
+const TopicsView = lazy(() => import('./components/views/TopicsView').then(m => ({ default: m.TopicsView })));
+const PuzzleView = lazy(() => import('./components/views/PuzzleView').then(m => ({ default: m.PuzzleView })));
 
 const MAX_PUZZLES_PER_BLOCK = 6;
 
@@ -35,11 +23,17 @@ const TopicsPage = () => {
   const { levelId } = useParams();
   const navigate = useNavigate();
 
-  const level = useMemo(() =>
-    LEVELS_DATA.find(l => l.id.toString() === levelId),
-    [levelId]);
+  const [level, setLevel] = useState(null);
+  useEffect(() => {
+    let active = true;
+    import('./data/levels').then(({ LEVELS_DATA }) => {
+      if (active) setLevel(LEVELS_DATA.find(l => l.id.toString() === levelId) || null);
+    });
+    return () => { active = false; };
+  }, [levelId]);
 
-  if (!level) return <Navigate to="/" replace />;
+  if (!LEVEL_SUMMARIES.some(item => item.id.toString() === levelId)) return <Navigate to="/" replace />;
+  if (!level) return <div className="p-8 text-center text-[var(--color-text-muted)]">Loading level…</div>;
 
   const handleStartPuzzle = (topic, block, blockNum) => {
     // Generate URL-friendly IDs or just use what we have. 
@@ -63,7 +57,7 @@ const PuzzlePage = () => {
   // State
   const [currentPuzzles, setCurrentPuzzles] = useState([]);
   const [currentPuzzleIndex, setCurrentPuzzleIndex] = useState(0);
-  const [game, setGame] = useState(new Chess());
+  const [game, setGame] = useState(null);
   const [moveHistory, setMoveHistory] = useState([]);
   const [selectedSquare, setSelectedSquare] = useState(null);
   const [orientation, setOrientation] = useState('w');
@@ -72,7 +66,14 @@ const PuzzlePage = () => {
   const [sessionStats, setSessionStats] = useState(() => getStats());
 
   // Derived Data
-  const level = useMemo(() => LEVELS_DATA.find(l => l.id.toString() === levelId), [levelId]);
+  const [level, setLevel] = useState(null);
+  useEffect(() => {
+    let active = true;
+    import('./data/levels').then(({ LEVELS_DATA }) => {
+      if (active) setLevel(LEVELS_DATA.find(l => l.id.toString() === levelId) || null);
+    });
+    return () => { active = false; };
+  }, [levelId]);
   const topic = useMemo(() => level?.topics.find(t => t.id === topicId), [level, topicId]);
   const block = useMemo(() => topic?.blocks.find(b => b.id === blockId), [topic, blockId]);
   const blockNumber = useMemo(() => topic?.blocks.findIndex(b => b.id === blockId) + 1, [topic, blockId]);
@@ -101,6 +102,7 @@ const PuzzlePage = () => {
           puzzles = block.puzzles;
         } else {
           const puzzleCount = Math.min(Math.max(block.total || 5, 5), MAX_PUZZLES_PER_BLOCK);
+          const { getPuzzlesForTopic } = await import('./data/puzzleGenerator');
           puzzles = getPuzzlesForTopic(topic.title, blockNumber, puzzleCount);
         }
 
@@ -118,7 +120,7 @@ const PuzzlePage = () => {
         setTimer(0);
 
         // Init first puzzle
-        initGame(puzzles[0]);
+        await initGame(puzzles[0]);
       } catch (error) {
         console.error('Error loading puzzles:', error);
       } finally {
@@ -129,9 +131,15 @@ const PuzzlePage = () => {
     loadPuzzles();
   }, [topic, block, blockNumber, levelId, navigate]);
 
-  const initGame = (puzzle) => {
+  const initGame = async (puzzle) => {
+    const { Chess } = await import('chess.js');
     if (puzzle && puzzle.fen) {
-      setGame(createGameFromFen(puzzle.fen));
+      try { setGame(new Chess(puzzle.fen)); }
+      catch {
+        const nextGame = new Chess();
+        try { nextGame.load(puzzle.fen, { skipValidation: true }); } catch { /* use the standard starting position */ }
+        setGame(nextGame);
+      }
     } else {
       setGame(new Chess());
     }
@@ -162,7 +170,9 @@ const PuzzlePage = () => {
     }
   };
 
-  if (!level || !topic || !block) return <div className="p-8 text-white">Loading or Invalid URL...</div>;
+  if (!LEVEL_SUMMARIES.some(item => item.id.toString() === levelId)) return <Navigate to="/" replace />;
+  if (!level) return <div className="p-8 text-center text-[var(--color-text-muted)]">Loading level…</div>;
+  if (!topic || !block) return <Navigate to={`/level/${levelId}`} replace />;
 
   return (
     <PuzzleView
@@ -210,12 +220,14 @@ export default function App() {
       )}
 
       <main className="relative">
-        <Routes>
-          <Route path="/" element={<LevelsPage />} />
-          <Route path="/level/:levelId" element={<TopicsPage />} />
-          <Route path="/puzzle/:levelId/:topicId/:blockId" element={<PuzzlePage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+        <Suspense fallback={<div className="p-8 text-center text-[var(--color-text-muted)]">Loading…</div>}>
+          <Routes>
+            <Route path="/" element={<LevelsPage />} />
+            <Route path="/level/:levelId" element={<TopicsPage />} />
+            <Route path="/puzzle/:levelId/:topicId/:blockId" element={<PuzzlePage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Suspense>
       </main>
 
       {!isPuzzlePage && <Footer />}

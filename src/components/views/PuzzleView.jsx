@@ -18,6 +18,7 @@ import { Chess } from "chess.js";
 import { ChessBoardView } from "../chess/ChessBoardView";
 import { BOARD_THEMES } from "../../constants/pieces";
 import { getBlockProgress } from "../../utils/progressManager";
+import { CachedImage } from "../ui/CachedImage";
 
 /**
  * Creates a Chess.js game from an arbitrary FEN string.
@@ -723,9 +724,11 @@ export const PuzzleView = ({
                     return (
                       <div className="flex flex-col items-center gap-6 fade-in w-full max-w-[750px]">
                         <div className="relative group w-full flex justify-center">
-                          <img 
+                          <CachedImage
                             src={questionImage} 
                             alt="question" 
+                            decoding="async"
+                            fetchPriority="high"
                             className="w-full h-auto max-h-[75vh] rounded-3xl shadow-2xl object-contain border-4 border-white transition-transform duration-300 group-hover:scale-[1.01]"
                           />
                         </div>
@@ -776,9 +779,11 @@ export const PuzzleView = ({
                                 >
                                   {optImage && (
                                      <div className="w-full bg-white rounded-2xl p-2 mb-2 overflow-hidden shadow-inner flex items-center justify-center" style={{ height: '160px' }}>
-                                       <img 
+                                       <CachedImage
                                          src={optImage} 
                                          alt={`option-${idx}`} 
+                                         loading="lazy"
+                                         decoding="async"
                                          className="max-w-full max-h-full object-contain" 
                                        />
                                      </div>
@@ -913,9 +918,11 @@ export const PuzzleView = ({
                                >
                                  {optImage && (
                                     <div className="w-full bg-white rounded-lg p-1.5 mb-2 overflow-hidden shadow-inner flex items-center justify-center" style={{ height: '130px' }}>
-                                      <img 
+                                      <CachedImage
                                         src={optImage} 
                                         alt={`option-${idx}`} 
+                                        loading="lazy"
+                                        decoding="async"
                                         className="max-w-full max-h-full object-contain" 
                                       />
                                     </div>
