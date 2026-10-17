@@ -1,45 +1,53 @@
 import React from 'react';
-import { ArrowUpRight, BookOpen, CheckCircle2, LockKeyhole } from 'lucide-react';
+import { ChevronRight, CheckCircle2 } from 'lucide-react';
 import { ProgressBar } from '../ui/ProgressBar';
 
 export const LevelCard = ({ level, onClick }) => {
+  /* Use Topic count instead of Puzzle count as requested */
+  const count = `${level.completedTopics || 0} / ${level.totalTopics || 0}`;
+  const label = 'Topics Completed';
+
   const isComingSoon = level.comingSoon;
-  const completedTopics = level.completedTopics || 0;
-  const totalTopics = level.totalTopics || 0;
 
   return (
     <button
       onClick={() => !isComingSoon && onClick(level)}
       disabled={isComingSoon}
-      className="learning-card group w-full text-left"
+      className={`w-full text-left bg-[var(--color-bg-elevated)] border border-[var(--color-border-primary)] transition-all rounded-xl p-5 group flex items-center justify-between ${isComingSoon
+        ? 'opacity-75 cursor-not-allowed'
+        : 'hover:border-orange-500/50 hover:bg-[var(--color-bg-secondary)]'
+        }`}
     >
-      <div className="flex h-full flex-col justify-between gap-6">
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex min-w-0 items-start gap-4">
-            <span className="learning-icon shrink-0">
-              {isComingSoon ? <LockKeyhole className="h-5 w-5" /> : <BookOpen className="h-5 w-5" />}
+      <div className="flex-1">
+        <div className="flex items-center gap-3 mb-1">
+          <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">{level.name}</h3>
+          {isComingSoon && (
+            <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-orange-500/10 text-orange-500 border border-orange-500/20">
+              Coming Soon
             </span>
-            <div className="min-w-0">
-              <div className="mb-1 flex flex-wrap items-center gap-2">
-                <span className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[var(--color-accent-orange)]">Level {level.id}</span>
-                {isComingSoon && <span className="rounded-full bg-[var(--color-bg-tertiary)] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[var(--color-text-muted)]">Coming soon</span>}
-                {level.completion === 100 && <CheckCircle2 className="h-4 w-4 text-emerald-500" />}
-              </div>
-              <h3 className="text-base font-extrabold leading-snug tracking-tight text-[var(--color-text-primary)]">{level.name.replace(/^Level \d+ - /, '')}</h3>
-              <p className="mt-1.5 text-xs leading-relaxed text-[var(--color-text-muted)]">{level.subtitle}</p>
-            </div>
-          </div>
-          {!isComingSoon && <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-[var(--color-text-muted)] transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--color-accent-orange)]" />}
+          )}
+          {(level.completion === 100 || (level.totalTopics > 0 && level.completedTopics === level.totalTopics)) && <CheckCircle2 className="w-5 h-5 text-green-500" />}
         </div>
-
-        <div>
-          <div className="mb-2 flex items-center justify-between text-xs">
-            <span className="font-semibold text-[var(--color-text-muted)]">{isComingSoon ? 'New lessons on the way' : `${completedTopics} of ${totalTopics} topics complete`}</span>
-            <span className="font-extrabold text-[var(--color-text-primary)]">{isComingSoon ? 'Soon' : `${level.completion}%`}</span>
+        <p className="text-sm text-[var(--color-text-muted)] mb-4">{level.subtitle}</p>
+        <div className={`flex items-center gap-4 sm:gap-8 ${isComingSoon ? 'opacity-50' : ''}`}>
+          <div className="flex flex-col">
+            <span className="text-xl font-bold text-[var(--color-text-primary)]">
+              {isComingSoon ? '-' : count}
+            </span>
+            <span className="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)]">{label}</span>
           </div>
-          <ProgressBar progress={isComingSoon ? 0 : level.completion} />
+          <div className="flex-1 max-w-[200px]">
+            <div className="flex justify-between items-end mb-1">
+              <span className="text-[10px] uppercase tracking-wider text-[var(--color-text-muted)]">Completion</span>
+              <span className="text-sm font-medium text-orange-500">{isComingSoon ? '0%' : `${level.completion}%`}</span>
+            </div>
+            <ProgressBar progress={isComingSoon ? 0 : level.completion} />
+          </div>
         </div>
       </div>
+      {!isComingSoon && (
+        <ChevronRight className="w-6 h-6 text-[var(--color-text-muted)] group-hover:text-orange-500 transition-colors ml-4" />
+      )}
     </button>
   );
 };

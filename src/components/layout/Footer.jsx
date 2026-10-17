@@ -1,13 +1,19 @@
 import React from 'react';
-import { BookOpenCheck, Heart } from 'lucide-react';
+import { Layout, Trophy, Settings } from 'lucide-react';
 export const Footer = () => (
-  <footer className="mt-16 border-t border-[var(--color-border-primary)] bg-[var(--color-bg-secondary)]/70 px-4 py-8">
-    <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
-      <div className="flex items-center gap-2 text-sm font-extrabold tracking-tight text-[var(--color-text-secondary)]">
-        <BookOpenCheck className="h-4 w-4 text-[var(--color-accent-orange)]" /> Chess Training
+  <footer className="mt-20 border-t border-neutral-800 bg-[#121212] py-12 px-4">
+    <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div className="flex items-center gap-2">
+        <span className="text-lg font-black tracking-tight uppercase text-neutral-400">RATHISHRAVI</span>
       </div>
-      <div className="flex items-center gap-1.5 text-xs text-[var(--color-text-muted)]">Made for curious minds <Heart className="h-3.5 w-3.5 fill-rose-400 text-rose-400" /></div>
-      <div className="text-xs text-[var(--color-text-muted)]">© 2026 RATHISHRAVI</div>
+      <div className="text-neutral-500 text-sm">
+        © 2026 RATHISHRAVI. Built for chess improvement.
+      </div>
+      <div className="flex gap-4 text-neutral-400">
+        <Layout className="w-5 h-5 cursor-pointer hover:text-orange-500" />
+        <Trophy className="w-5 h-5 cursor-pointer hover:text-orange-500" />
+        <Settings className="w-5 h-5 cursor-pointer hover:text-orange-500" />
+      </div>
     </div>
   </footer>
 );
